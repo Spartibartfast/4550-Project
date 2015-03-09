@@ -1,0 +1,1720 @@
+TimeQuest Timing Analyzer report for Battleship
+Mon Mar 09 18:12:25 2015
+Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clock50'
+ 12. Slow Model Setup: 'clock27[0]'
+ 13. Slow Model Setup: 'keyboardClock'
+ 14. Slow Model Hold: 'clock50'
+ 15. Slow Model Hold: 'keyboardClock'
+ 16. Slow Model Hold: 'clock27[0]'
+ 17. Slow Model Minimum Pulse Width: 'clock50'
+ 18. Slow Model Minimum Pulse Width: 'clock27[0]'
+ 19. Slow Model Minimum Pulse Width: 'keyboardClock'
+ 20. Slow Model Minimum Pulse Width: 'heartbeat[20]'
+ 21. Setup Times
+ 22. Hold Times
+ 23. Clock to Output Times
+ 24. Minimum Clock to Output Times
+ 25. Fast Model Setup Summary
+ 26. Fast Model Hold Summary
+ 27. Fast Model Recovery Summary
+ 28. Fast Model Removal Summary
+ 29. Fast Model Minimum Pulse Width Summary
+ 30. Fast Model Setup: 'clock50'
+ 31. Fast Model Setup: 'clock27[0]'
+ 32. Fast Model Setup: 'keyboardClock'
+ 33. Fast Model Hold: 'clock50'
+ 34. Fast Model Hold: 'keyboardClock'
+ 35. Fast Model Hold: 'clock27[0]'
+ 36. Fast Model Minimum Pulse Width: 'clock50'
+ 37. Fast Model Minimum Pulse Width: 'clock27[0]'
+ 38. Fast Model Minimum Pulse Width: 'keyboardClock'
+ 39. Fast Model Minimum Pulse Width: 'heartbeat[20]'
+ 40. Setup Times
+ 41. Hold Times
+ 42. Clock to Output Times
+ 43. Minimum Clock to Output Times
+ 44. Multicorner Timing Analysis Summary
+ 45. Setup Times
+ 46. Hold Times
+ 47. Clock to Output Times
+ 48. Minimum Clock to Output Times
+ 49. Setup Transfers
+ 50. Hold Transfers
+ 51. Report TCCS
+ 52. Report RSKM
+ 53. Unconstrained Paths
+ 54. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                    ;
++--------------------+-----------------------------------------------------------------+
+; Quartus II Version ; Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; Battleship                                                      ;
+; Device Family      ; Cyclone II                                                      ;
+; Device Name        ; EP2C20F484C7                                                    ;
+; Timing Models      ; Final                                                           ;
+; Delay Model        ; Combined                                                        ;
+; Rise/Fall Delays   ; Unavailable                                                     ;
++--------------------+-----------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                       ;
++---------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------+
+; Clock Name    ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets           ;
++---------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------+
+; clock27[0]    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock27[0] }    ;
+; clock50       ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock50 }       ;
+; heartbeat[20] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { heartbeat[20] } ;
+; keyboardClock ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { keyboardClock } ;
++---------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                       ;
++-------------+-----------------+---------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name    ; Note                                                          ;
++-------------+-----------------+---------------+---------------------------------------------------------------+
+; 72.03 MHz   ; 72.03 MHz       ; clock50       ;                                                               ;
+; 1160.09 MHz ; 405.02 MHz      ; keyboardClock ; limit due to minimum period restriction (max I/O toggle rate) ;
++-------------+-----------------+---------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------+
+; Slow Model Setup Summary                ;
++---------------+---------+---------------+
+; Clock         ; Slack   ; End Point TNS ;
++---------------+---------+---------------+
+; clock50       ; -12.884 ; -562.747      ;
+; clock27[0]    ; -1.088  ; -9.757        ;
+; keyboardClock ; 0.138   ; 0.000         ;
++---------------+---------+---------------+
+
+
++----------------------------------------+
+; Slow Model Hold Summary                ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clock50       ; -2.506 ; -3.499        ;
+; keyboardClock ; 0.614  ; 0.000         ;
+; clock27[0]    ; 1.832  ; 0.000         ;
++---------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clock50       ; -1.631 ; -109.167      ;
+; clock27[0]    ; -1.631 ; -18.739       ;
+; keyboardClock ; -1.469 ; -3.913        ;
+; heartbeat[20] ; -0.611 ; -1.222        ;
++---------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock50'                                                                                                                                      ;
++---------+-------------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                 ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-------------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.884 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.936     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.880 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.927     ;
+; -12.865 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 13.916     ;
+; -12.865 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 13.916     ;
+; -12.865 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 13.916     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.860 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.908     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.759 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 13.811     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.755 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 13.802     ;
+; -12.740 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 13.791     ;
+; -12.740 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 13.791     ;
+; -12.740 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 13.791     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -12.735 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 13.783     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.458 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 12.510     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.454 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 12.501     ;
+; -11.439 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 12.490     ;
+; -11.439 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 12.490     ;
+; -11.439 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]  ; clock50      ; clock50     ; 1.000        ; 0.013      ; 12.490     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -11.434 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28] ; clock50      ; clock50     ; 1.000        ; 0.010      ; 12.482     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
+; -9.636  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.014      ; 10.688     ;
++---------+-------------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock27[0]'                                                                                                                                                 ;
++--------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                      ; To Node                                       ; Launch Clock  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; -1.088 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.975      ;
+; -1.087 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.974      ;
+; -1.087 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.974      ;
+; -1.087 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.974      ;
+; -1.085 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.972      ;
+; -1.081 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.968      ;
+; -1.081 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.968      ;
+; -1.081 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.968      ;
+; -1.080 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; keyboardClock ; clock27[0]  ; 0.500        ; -0.651     ; 0.967      ;
++--------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'keyboardClock'                                                                                                                                                 ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                        ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; 0.138 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; keyboardClock ; keyboardClock ; 1.000        ; 0.000      ; 0.900      ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock50'                                                                                                                                                    ;
++--------+-----------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                     ; To Node                                       ; Launch Clock  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; -2.506 ; heartbeat[20]                                 ; heartbeat[20]                                 ; heartbeat[20] ; clock50     ; 0.000        ; 2.857      ; 0.914      ;
+; -2.006 ; heartbeat[20]                                 ; heartbeat[20]                                 ; heartbeat[20] ; clock50     ; -0.500       ; 2.857      ; 0.914      ;
+; -0.993 ; F[17]                                         ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; heartbeat[20] ; clock50     ; 0.000        ; 1.914      ; 1.207      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw       ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; heartbeat[0]                                  ; heartbeat[0]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.950  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red[2]       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.236      ;
+; 0.950  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_green[0]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.236      ;
+; 0.950  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_green[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.236      ;
+; 0.950  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_green[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.236      ;
+; 0.951  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red[0]       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.237      ;
+; 0.951  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red[1]       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.237      ;
+; 0.960  ; heartbeat[2]                                  ; heartbeat[2]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.246      ;
+; 0.961  ; heartbeat[0]                                  ; heartbeat[1]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.247      ;
+; 0.964  ; heartbeat[6]                                  ; heartbeat[6]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964  ; heartbeat[4]                                  ; heartbeat[4]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.250      ;
+; 0.967  ; heartbeat[11]                                 ; heartbeat[11]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.253      ;
+; 0.968  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968  ; heartbeat[13]                                 ; heartbeat[13]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.254      ;
+; 0.969  ; heartbeat[18]                                 ; heartbeat[18]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969  ; heartbeat[15]                                 ; heartbeat[15]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969  ; heartbeat[10]                                 ; heartbeat[10]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969  ; heartbeat[9]                                  ; heartbeat[9]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969  ; heartbeat[8]                                  ; heartbeat[8]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.255      ;
+; 0.971  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.257      ;
+; 0.971  ; heartbeat[12]                                 ; heartbeat[12]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.257      ;
+; 0.980  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.266      ;
+; 0.984  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.270      ;
+; 0.992  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.278      ;
+; 0.992  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.278      ;
+; 0.994  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.280      ;
+; 1.001  ; heartbeat[1]                                  ; heartbeat[1]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.287      ;
+; 1.003  ; heartbeat[19]                                 ; heartbeat[19]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.289      ;
+; 1.007  ; heartbeat[3]                                  ; heartbeat[3]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.293      ;
+; 1.008  ; heartbeat[17]                                 ; heartbeat[17]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008  ; heartbeat[16]                                 ; heartbeat[16]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008  ; heartbeat[14]                                 ; heartbeat[14]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008  ; heartbeat[7]                                  ; heartbeat[7]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008  ; heartbeat[5]                                  ; heartbeat[5]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.294      ;
+; 1.009  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[9]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[9]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.295      ;
+; 1.009  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.295      ;
+; 1.013  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.299      ;
+; 1.016  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.040  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.326      ;
+; 1.052  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.338      ;
+; 1.057  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.343      ;
+; 1.102  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.388      ;
+; 1.139  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_ver          ; clock50       ; clock50     ; 0.000        ; -0.002     ; 1.423      ;
+; 1.147  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.433      ;
+; 1.200  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.486      ;
+; 1.217  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.503      ;
+; 1.264  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.550      ;
+; 1.332  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_hor          ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.618      ;
+; 1.393  ; heartbeat[0]                                  ; heartbeat[2]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.679      ;
+; 1.396  ; heartbeat[6]                                  ; heartbeat[7]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.682      ;
+; 1.396  ; heartbeat[4]                                  ; heartbeat[5]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.682      ;
+; 1.399  ; heartbeat[11]                                 ; heartbeat[12]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.685      ;
+; 1.400  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.686      ;
+; 1.400  ; heartbeat[13]                                 ; heartbeat[14]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.686      ;
+; 1.401  ; heartbeat[9]                                  ; heartbeat[10]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.687      ;
+; 1.401  ; heartbeat[8]                                  ; heartbeat[9]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.687      ;
+; 1.401  ; heartbeat[15]                                 ; heartbeat[16]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.687      ;
+; 1.403  ; heartbeat[12]                                 ; heartbeat[13]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.689      ;
+; 1.403  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.689      ;
+; 1.412  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.698      ;
+; 1.416  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.702      ;
+; 1.424  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.710      ;
+; 1.426  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.712      ;
+; 1.432  ; heartbeat[1]                                  ; heartbeat[2]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.718      ;
+; 1.436  ; heartbeat[19]                                 ; heartbeat[20]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.722      ;
+; 1.440  ; heartbeat[3]                                  ; heartbeat[4]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.726      ;
+; 1.441  ; heartbeat[5]                                  ; heartbeat[6]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.727      ;
+; 1.441  ; heartbeat[17]                                 ; heartbeat[18]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.727      ;
+; 1.441  ; heartbeat[14]                                 ; heartbeat[15]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.727      ;
+; 1.441  ; heartbeat[7]                                  ; heartbeat[8]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.727      ;
+; 1.441  ; heartbeat[16]                                 ; heartbeat[17]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.727      ;
+; 1.441  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.727      ;
+; 1.445  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.731      ;
+; 1.449  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.735      ;
+; 1.449  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.735      ;
+; 1.449  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.735      ;
+; 1.473  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.759      ;
+; 1.476  ; heartbeat[4]                                  ; heartbeat[6]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.762      ;
+; 1.476  ; heartbeat[6]                                  ; heartbeat[8]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.762      ;
+; 1.479  ; heartbeat[11]                                 ; heartbeat[13]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.765      ;
+; 1.480  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.766      ;
+; 1.480  ; heartbeat[13]                                 ; heartbeat[15]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.766      ;
+; 1.481  ; heartbeat[8]                                  ; heartbeat[10]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.767      ;
+; 1.481  ; heartbeat[15]                                 ; heartbeat[17]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.767      ;
+; 1.483  ; heartbeat[12]                                 ; heartbeat[14]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.769      ;
+; 1.483  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.769      ;
+; 1.485  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 1.771      ;
++--------+-----------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'keyboardClock'                                                                                                                                                  ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                        ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; 0.614 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; keyboardClock ; keyboardClock ; 0.000        ; 0.000      ; 0.900      ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock27[0]'                                                                                                                                                 ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                      ; To Node                                       ; Launch Clock  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; 1.832 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.967      ;
+; 1.833 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.968      ;
+; 1.833 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.968      ;
+; 1.833 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.968      ;
+; 1.837 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.972      ;
+; 1.839 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.974      ;
+; 1.839 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.974      ;
+; 1.839 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.974      ;
+; 1.840 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; keyboardClock ; clock27[0]  ; -0.500       ; -0.651     ; 0.975      ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock50'                                                                                       ;
++--------+--------------+----------------+------------------+---------+------------+----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                                       ;
++--------+--------------+----------------+------------------+---------+------------+----------------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clock50 ; Rise       ; clock50                                      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]    ;
++--------+--------------+----------------+------------------+---------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock27[0]'                                                                                        ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                                        ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clock27[0] ; Rise       ; clock27[0]                                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[2]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[2]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[3]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[3]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[4]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[4]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[6]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[6]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|r_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|r_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; clock27[0]|combout                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; clock27[0]|combout                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; clock27[0]~clkctrl|inclk[0]                   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; clock27[0]~clkctrl|inclk[0]                   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; clock27[0]~clkctrl|outclk                     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; clock27[0]~clkctrl|outclk                     ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'keyboardClock'                                                                                          ;
++--------+--------------+----------------+------------------+---------------+------------+-------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock         ; Clock Edge ; Target                                          ;
++--------+--------------+----------------+------------------+---------------+------------+-------------------------------------------------+
+; -1.469 ; 1.000        ; 2.469          ; Port Rate        ; keyboardClock ; Rise       ; keyboardClock                                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0]  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; keyboardClock ; Rise       ; KEY_CONTROLLER1|dataReceieved[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; keyboardClock ; Rise       ; KEY_CONTROLLER1|dataReceieved[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; keyboardClock ; Rise       ; KEY_CONTROLLER1|t_keyDataOut[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; keyboardClock ; Rise       ; KEY_CONTROLLER1|t_keyDataOut[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; keyboardClock ; Rise       ; keyboardClock|combout                           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; keyboardClock ; Rise       ; keyboardClock|combout                           ;
++--------+--------------+----------------+------------------+---------------+------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'heartbeat[20]'                                                               ;
++--------+--------------+----------------+------------------+---------------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock         ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+---------------+------------+----------------------+
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; heartbeat[20] ; Rise       ; F[17]                ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; heartbeat[20] ; Rise       ; F[17]                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; heartbeat[20] ; Rise       ; F[17]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; heartbeat[20] ; Rise       ; F[17]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; heartbeat[20] ; Rise       ; heartbeat[20]|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; heartbeat[20] ; Rise       ; heartbeat[20]|regout ;
++--------+--------------+----------------+------------------+---------------+------------+----------------------+
+
+
++-----------------------------------------------------------------------------+
+; Setup Times                                                                 ;
++--------------+---------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+---------------+-------+-------+------------+-----------------+
+; switch[*]    ; clock27[0]    ; 1.358 ; 1.358 ; Rise       ; clock27[0]      ;
+;  switch[0]   ; clock27[0]    ; 1.358 ; 1.358 ; Rise       ; clock27[0]      ;
+; switch[*]    ; heartbeat[20] ; 3.555 ; 3.555 ; Rise       ; heartbeat[20]   ;
+;  switch[0]   ; heartbeat[20] ; 3.555 ; 3.555 ; Rise       ; heartbeat[20]   ;
+; keyboardData ; keyboardClock ; 4.040 ; 4.040 ; Fall       ; keyboardClock   ;
++--------------+---------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Hold Times                                                                    ;
++--------------+---------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port    ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+---------------+--------+--------+------------+-----------------+
+; switch[*]    ; clock27[0]    ; -1.103 ; -1.103 ; Rise       ; clock27[0]      ;
+;  switch[0]   ; clock27[0]    ; -1.103 ; -1.103 ; Rise       ; clock27[0]      ;
+; switch[*]    ; heartbeat[20] ; -3.307 ; -3.307 ; Rise       ; heartbeat[20]   ;
+;  switch[0]   ; heartbeat[20] ; -3.307 ; -3.307 ; Rise       ; heartbeat[20]   ;
+; keyboardData ; keyboardClock ; -3.792 ; -3.792 ; Fall       ; keyboardClock   ;
++--------------+---------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Clock to Output Times                                                          ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; Data Port       ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; led_g[*]        ; clock27[0]    ; 7.129 ; 7.129 ; Rise       ; clock27[0]      ;
+;  led_g[0]       ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[1]       ; clock27[0]    ; 6.768 ; 6.768 ; Rise       ; clock27[0]      ;
+;  led_g[2]       ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[3]       ; clock27[0]    ; 7.129 ; 7.129 ; Rise       ; clock27[0]      ;
+;  led_g[4]       ; clock27[0]    ; 7.096 ; 7.096 ; Rise       ; clock27[0]      ;
+;  led_g[5]       ; clock27[0]    ; 7.099 ; 7.099 ; Rise       ; clock27[0]      ;
+;  led_g[6]       ; clock27[0]    ; 7.087 ; 7.087 ; Rise       ; clock27[0]      ;
+;  led_g[7]       ; clock27[0]    ; 7.125 ; 7.125 ; Rise       ; clock27[0]      ;
+; led_r[*]        ; clock27[0]    ; 7.116 ; 7.116 ; Rise       ; clock27[0]      ;
+;  led_r[2]       ; clock27[0]    ; 7.116 ; 7.116 ; Rise       ; clock27[0]      ;
+; numDisplay3[*]  ; clock27[0]    ; 7.190 ; 7.190 ; Rise       ; clock27[0]      ;
+;  numDisplay3[0] ; clock27[0]    ; 6.521 ; 6.521 ; Rise       ; clock27[0]      ;
+;  numDisplay3[2] ; clock27[0]    ; 7.039 ; 7.039 ; Rise       ; clock27[0]      ;
+;  numDisplay3[3] ; clock27[0]    ; 7.190 ; 7.190 ; Rise       ; clock27[0]      ;
+;  numDisplay3[4] ; clock27[0]    ; 6.871 ; 6.871 ; Rise       ; clock27[0]      ;
+;  numDisplay3[6] ; clock27[0]    ; 6.876 ; 6.876 ; Rise       ; clock27[0]      ;
+; vga_green[*]    ; clock50       ; 7.274 ; 7.274 ; Rise       ; clock50         ;
+;  vga_green[0]   ; clock50       ; 7.274 ; 7.274 ; Rise       ; clock50         ;
+;  vga_green[1]   ; clock50       ; 6.950 ; 6.950 ; Rise       ; clock50         ;
+;  vga_green[2]   ; clock50       ; 7.263 ; 7.263 ; Rise       ; clock50         ;
+; vga_hor_sync    ; clock50       ; 8.092 ; 8.092 ; Rise       ; clock50         ;
+; vga_red[*]      ; clock50       ; 7.581 ; 7.581 ; Rise       ; clock50         ;
+;  vga_red[0]     ; clock50       ; 7.302 ; 7.302 ; Rise       ; clock50         ;
+;  vga_red[1]     ; clock50       ; 7.581 ; 7.581 ; Rise       ; clock50         ;
+;  vga_red[2]     ; clock50       ; 7.549 ; 7.549 ; Rise       ; clock50         ;
+; vga_ver_sync    ; clock50       ; 7.474 ; 7.474 ; Rise       ; clock50         ;
+; keyDataOut[*]   ; keyboardClock ; 7.707 ; 7.707 ; Fall       ; keyboardClock   ;
+;  keyDataOut[0]  ; keyboardClock ; 7.707 ; 7.707 ; Fall       ; keyboardClock   ;
++-----------------+---------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                  ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; Data Port       ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; led_g[*]        ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[0]       ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[1]       ; clock27[0]    ; 6.768 ; 6.768 ; Rise       ; clock27[0]      ;
+;  led_g[2]       ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[3]       ; clock27[0]    ; 7.129 ; 7.129 ; Rise       ; clock27[0]      ;
+;  led_g[4]       ; clock27[0]    ; 7.096 ; 7.096 ; Rise       ; clock27[0]      ;
+;  led_g[5]       ; clock27[0]    ; 7.099 ; 7.099 ; Rise       ; clock27[0]      ;
+;  led_g[6]       ; clock27[0]    ; 7.087 ; 7.087 ; Rise       ; clock27[0]      ;
+;  led_g[7]       ; clock27[0]    ; 7.125 ; 7.125 ; Rise       ; clock27[0]      ;
+; led_r[*]        ; clock27[0]    ; 7.116 ; 7.116 ; Rise       ; clock27[0]      ;
+;  led_r[2]       ; clock27[0]    ; 7.116 ; 7.116 ; Rise       ; clock27[0]      ;
+; numDisplay3[*]  ; clock27[0]    ; 6.521 ; 6.521 ; Rise       ; clock27[0]      ;
+;  numDisplay3[0] ; clock27[0]    ; 6.521 ; 6.521 ; Rise       ; clock27[0]      ;
+;  numDisplay3[2] ; clock27[0]    ; 7.039 ; 7.039 ; Rise       ; clock27[0]      ;
+;  numDisplay3[3] ; clock27[0]    ; 7.190 ; 7.190 ; Rise       ; clock27[0]      ;
+;  numDisplay3[4] ; clock27[0]    ; 6.871 ; 6.871 ; Rise       ; clock27[0]      ;
+;  numDisplay3[6] ; clock27[0]    ; 6.876 ; 6.876 ; Rise       ; clock27[0]      ;
+; vga_green[*]    ; clock50       ; 6.950 ; 6.950 ; Rise       ; clock50         ;
+;  vga_green[0]   ; clock50       ; 7.274 ; 7.274 ; Rise       ; clock50         ;
+;  vga_green[1]   ; clock50       ; 6.950 ; 6.950 ; Rise       ; clock50         ;
+;  vga_green[2]   ; clock50       ; 7.263 ; 7.263 ; Rise       ; clock50         ;
+; vga_hor_sync    ; clock50       ; 8.092 ; 8.092 ; Rise       ; clock50         ;
+; vga_red[*]      ; clock50       ; 7.302 ; 7.302 ; Rise       ; clock50         ;
+;  vga_red[0]     ; clock50       ; 7.302 ; 7.302 ; Rise       ; clock50         ;
+;  vga_red[1]     ; clock50       ; 7.581 ; 7.581 ; Rise       ; clock50         ;
+;  vga_red[2]     ; clock50       ; 7.549 ; 7.549 ; Rise       ; clock50         ;
+; vga_ver_sync    ; clock50       ; 7.474 ; 7.474 ; Rise       ; clock50         ;
+; keyDataOut[*]   ; keyboardClock ; 7.707 ; 7.707 ; Fall       ; keyboardClock   ;
+;  keyDataOut[0]  ; keyboardClock ; 7.707 ; 7.707 ; Fall       ; keyboardClock   ;
++-----------------+---------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------+
+; Fast Model Setup Summary               ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clock50       ; -4.107 ; -159.821      ;
+; clock27[0]    ; 0.170  ; 0.000         ;
+; keyboardClock ; 0.642  ; 0.000         ;
++---------------+--------+---------------+
+
+
++----------------------------------------+
+; Fast Model Hold Summary                ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clock50       ; -1.690 ; -2.624        ;
+; keyboardClock ; 0.238  ; 0.000         ;
+; clock27[0]    ; 0.703  ; 0.000         ;
++---------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clock50       ; -1.380 ; -89.380       ;
+; clock27[0]    ; -1.380 ; -15.380       ;
+; keyboardClock ; -1.222 ; -3.222        ;
+; heartbeat[20] ; -0.500 ; -1.000        ;
++---------------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock50'                                                                                                                                     ;
++--------+-------------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                 ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.107 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.151      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.104 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.144      ;
+; -4.100 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 5.143      ;
+; -4.100 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 5.143      ;
+; -4.100 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 5.143      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.091 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.132      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.058 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 5.102      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.055 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 5.095      ;
+; -4.051 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 5.094      ;
+; -4.051 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 5.094      ;
+; -4.051 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 5.094      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -4.042 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 5.083      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.648 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.692      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.645 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22] ; clock50      ; clock50     ; 1.000        ; 0.008      ; 4.685      ;
+; -3.641 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 4.684      ;
+; -3.641 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 4.684      ;
+; -3.641 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]  ; clock50      ; clock50     ; 1.000        ; 0.011      ; 4.684      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.632 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28] ; clock50      ; clock50     ; 1.000        ; 0.009      ; 4.673      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10] ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
+; -3.009 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5] ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]  ; clock50      ; clock50     ; 1.000        ; 0.012      ; 4.053      ;
++--------+-------------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock27[0]'                                                                                                                                                ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                      ; To Node                                       ; Launch Clock  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; 0.170 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.429      ;
+; 0.170 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.429      ;
+; 0.171 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.428      ;
+; 0.171 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.428      ;
+; 0.172 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.427      ;
+; 0.176 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.423      ;
+; 0.176 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.423      ;
+; 0.176 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.423      ;
+; 0.177 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; keyboardClock ; clock27[0]  ; 0.500        ; 0.067      ; 0.422      ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'keyboardClock'                                                                                                                                                 ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                        ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; 0.642 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; keyboardClock ; keyboardClock ; 1.000        ; 0.000      ; 0.390      ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock50'                                                                                                                                                    ;
++--------+-----------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                     ; To Node                                       ; Launch Clock  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; -1.690 ; heartbeat[20]                                 ; heartbeat[20]                                 ; heartbeat[20] ; clock50     ; 0.000        ; 1.793      ; 0.396      ;
+; -1.190 ; heartbeat[20]                                 ; heartbeat[20]                                 ; heartbeat[20] ; clock50     ; -0.500       ; 1.793      ; 0.396      ;
+; -0.934 ; F[17]                                         ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; heartbeat[20] ; clock50     ; 0.000        ; 1.317      ; 0.535      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw       ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; heartbeat[0]                                  ; heartbeat[0]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.354  ; heartbeat[2]                                  ; heartbeat[2]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.506      ;
+; 0.355  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.507      ;
+; 0.356  ; heartbeat[6]                                  ; heartbeat[6]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356  ; heartbeat[4]                                  ; heartbeat[4]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.508      ;
+; 0.357  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.509      ;
+; 0.357  ; heartbeat[11]                                 ; heartbeat[11]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.509      ;
+; 0.358  ; heartbeat[13]                                 ; heartbeat[13]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358  ; heartbeat[0]                                  ; heartbeat[1]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.510      ;
+; 0.359  ; heartbeat[18]                                 ; heartbeat[18]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359  ; heartbeat[15]                                 ; heartbeat[15]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359  ; heartbeat[12]                                 ; heartbeat[12]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359  ; heartbeat[10]                                 ; heartbeat[10]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359  ; heartbeat[9]                                  ; heartbeat[9]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359  ; heartbeat[8]                                  ; heartbeat[8]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.365  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.517      ;
+; 0.365  ; heartbeat[1]                                  ; heartbeat[1]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.517      ;
+; 0.366  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[9]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[9]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.518      ;
+; 0.366  ; heartbeat[19]                                 ; heartbeat[19]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.518      ;
+; 0.367  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.519      ;
+; 0.368  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.520      ;
+; 0.369  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369  ; heartbeat[14]                                 ; heartbeat[14]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369  ; heartbeat[5]                                  ; heartbeat[5]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369  ; heartbeat[3]                                  ; heartbeat[3]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.521      ;
+; 0.370  ; heartbeat[17]                                 ; heartbeat[17]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370  ; heartbeat[16]                                 ; heartbeat[16]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370  ; heartbeat[7]                                  ; heartbeat[7]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.522      ;
+; 0.371  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.372  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.376  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.528      ;
+; 0.381  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.533      ;
+; 0.385  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.537      ;
+; 0.389  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.541      ;
+; 0.391  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.543      ;
+; 0.397  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_green[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.549      ;
+; 0.398  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red[0]       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.550      ;
+; 0.398  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red[1]       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.550      ;
+; 0.398  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red[2]       ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.550      ;
+; 0.398  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_green[0]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.550      ;
+; 0.398  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_green[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.550      ;
+; 0.412  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0]  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0]  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.564      ;
+; 0.429  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_ver          ; clock50       ; clock50     ; 0.000        ; -0.001     ; 0.580      ;
+; 0.431  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.583      ;
+; 0.446  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.598      ;
+; 0.451  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.603      ;
+; 0.493  ; heartbeat[0]                                  ; heartbeat[2]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.645      ;
+; 0.493  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.645      ;
+; 0.494  ; heartbeat[4]                                  ; heartbeat[5]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494  ; heartbeat[6]                                  ; heartbeat[7]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.646      ;
+; 0.495  ; heartbeat[11]                                 ; heartbeat[12]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.647      ;
+; 0.495  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.647      ;
+; 0.496  ; heartbeat[13]                                 ; heartbeat[14]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.648      ;
+; 0.497  ; heartbeat[12]                                 ; heartbeat[13]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497  ; heartbeat[9]                                  ; heartbeat[10]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497  ; heartbeat[8]                                  ; heartbeat[9]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497  ; heartbeat[15]                                 ; heartbeat[16]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.649      ;
+; 0.498  ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.650      ;
+; 0.502  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.654      ;
+; 0.503  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.655      ;
+; 0.505  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ; VGA_CONTROLLER:VGA_CONTROLLER1|t_hor          ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.657      ;
+; 0.505  ; heartbeat[1]                                  ; heartbeat[2]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.657      ;
+; 0.506  ; heartbeat[19]                                 ; heartbeat[20]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.658      ;
+; 0.506  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.658      ;
+; 0.507  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.659      ;
+; 0.509  ; heartbeat[5]                                  ; heartbeat[6]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.661      ;
+; 0.509  ; heartbeat[3]                                  ; heartbeat[4]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.661      ;
+; 0.509  ; heartbeat[14]                                 ; heartbeat[15]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.661      ;
+; 0.510  ; heartbeat[17]                                 ; heartbeat[18]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.662      ;
+; 0.510  ; heartbeat[7]                                  ; heartbeat[8]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.662      ;
+; 0.510  ; heartbeat[16]                                 ; heartbeat[17]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.662      ;
+; 0.511  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.663      ;
+; 0.512  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.664      ;
+; 0.512  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.664      ;
+; 0.514  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.666      ;
+; 0.519  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.671      ;
+; 0.525  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.677      ;
+; 0.528  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.680      ;
+; 0.529  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.681      ;
+; 0.529  ; heartbeat[4]                                  ; heartbeat[6]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.681      ;
+; 0.529  ; heartbeat[6]                                  ; heartbeat[8]                                  ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.681      ;
+; 0.530  ; heartbeat[11]                                 ; heartbeat[13]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.682      ;
+; 0.530  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.682      ;
+; 0.531  ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]     ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]     ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.683      ;
+; 0.531  ; heartbeat[13]                                 ; heartbeat[15]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.683      ;
+; 0.532  ; heartbeat[12]                                 ; heartbeat[14]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.684      ;
+; 0.532  ; heartbeat[8]                                  ; heartbeat[10]                                 ; clock50       ; clock50     ; 0.000        ; 0.000      ; 0.684      ;
++--------+-----------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'keyboardClock'                                                                                                                                                  ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                        ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+; 0.238 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; keyboardClock ; keyboardClock ; 0.000        ; 0.000      ; 0.390      ;
++-------+-------------------------------------------------+------------------------------------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock27[0]'                                                                                                                                                 ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                      ; To Node                                       ; Launch Clock  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+; 0.703 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.422      ;
+; 0.704 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.423      ;
+; 0.704 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.423      ;
+; 0.704 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.423      ;
+; 0.708 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.427      ;
+; 0.709 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.428      ;
+; 0.709 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.428      ;
+; 0.710 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.429      ;
+; 0.710 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; keyboardClock ; clock27[0]  ; -0.500       ; 0.067      ; 0.429      ;
++-------+------------------------------------------------+-----------------------------------------------+---------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock50'                                                                                       ;
++--------+--------------+----------------+------------------+---------+------------+----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                                       ;
++--------+--------------+----------------+------------------+---------+------------+----------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock50 ; Rise       ; clock50                                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[10]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[11]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[12]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[13]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[14]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[15]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[16]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[17]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[18]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[19]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[20]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[25]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[26]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[27]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[8]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|k[9]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock50 ; Rise       ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]    ;
++--------+--------------+----------------+------------------+---------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock27[0]'                                                                                        ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                                        ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock27[0] ; Rise       ; clock27[0]                                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[2] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[2]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[2]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[3]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[3]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[4]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[4]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[6]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; HEX_CONTROLLER1|t_display3[6]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|g_led_value[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; LED_CONTROLLER1|r_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; LED_CONTROLLER1|r_led_value[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; clock27[0]|combout                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; clock27[0]|combout                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; clock27[0]~clkctrl|inclk[0]                   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; clock27[0]~clkctrl|inclk[0]                   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock27[0] ; Rise       ; clock27[0]~clkctrl|outclk                     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock27[0] ; Rise       ; clock27[0]~clkctrl|outclk                     ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'keyboardClock'                                                                                          ;
++--------+--------------+----------------+------------------+---------------+------------+-------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock         ; Clock Edge ; Target                                          ;
++--------+--------------+----------------+------------------+---------------+------------+-------------------------------------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; keyboardClock ; Rise       ; keyboardClock                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; keyboardClock ; Fall       ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0]  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; keyboardClock ; Rise       ; KEY_CONTROLLER1|dataReceieved[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; keyboardClock ; Rise       ; KEY_CONTROLLER1|dataReceieved[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; keyboardClock ; Rise       ; KEY_CONTROLLER1|t_keyDataOut[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; keyboardClock ; Rise       ; KEY_CONTROLLER1|t_keyDataOut[0]|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; keyboardClock ; Rise       ; keyboardClock|combout                           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; keyboardClock ; Rise       ; keyboardClock|combout                           ;
++--------+--------------+----------------+------------------+---------------+------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'heartbeat[20]'                                                               ;
++--------+--------------+----------------+------------------+---------------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock         ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+---------------+------------+----------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; heartbeat[20] ; Rise       ; F[17]                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; heartbeat[20] ; Rise       ; F[17]                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; heartbeat[20] ; Rise       ; F[17]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; heartbeat[20] ; Rise       ; F[17]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; heartbeat[20] ; Rise       ; heartbeat[20]|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; heartbeat[20] ; Rise       ; heartbeat[20]|regout ;
++--------+--------------+----------------+------------------+---------------+------------+----------------------+
+
+
++-----------------------------------------------------------------------------+
+; Setup Times                                                                 ;
++--------------+---------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+---------------+-------+-------+------------+-----------------+
+; switch[*]    ; clock27[0]    ; 0.154 ; 0.154 ; Rise       ; clock27[0]      ;
+;  switch[0]   ; clock27[0]    ; 0.154 ; 0.154 ; Rise       ; clock27[0]      ;
+; switch[*]    ; heartbeat[20] ; 1.569 ; 1.569 ; Rise       ; heartbeat[20]   ;
+;  switch[0]   ; heartbeat[20] ; 1.569 ; 1.569 ; Rise       ; heartbeat[20]   ;
+; keyboardData ; keyboardClock ; 2.195 ; 2.195 ; Fall       ; keyboardClock   ;
++--------------+---------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Hold Times                                                                    ;
++--------------+---------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port    ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+---------------+--------+--------+------------+-----------------+
+; switch[*]    ; clock27[0]    ; 0.008  ; 0.008  ; Rise       ; clock27[0]      ;
+;  switch[0]   ; clock27[0]    ; 0.008  ; 0.008  ; Rise       ; clock27[0]      ;
+; switch[*]    ; heartbeat[20] ; -1.449 ; -1.449 ; Rise       ; heartbeat[20]   ;
+;  switch[0]   ; heartbeat[20] ; -1.449 ; -1.449 ; Rise       ; heartbeat[20]   ;
+; keyboardData ; keyboardClock ; -2.075 ; -2.075 ; Fall       ; keyboardClock   ;
++--------------+---------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Clock to Output Times                                                          ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; Data Port       ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; led_g[*]        ; clock27[0]    ; 3.804 ; 3.804 ; Rise       ; clock27[0]      ;
+;  led_g[0]       ; clock27[0]    ; 3.634 ; 3.634 ; Rise       ; clock27[0]      ;
+;  led_g[1]       ; clock27[0]    ; 3.659 ; 3.659 ; Rise       ; clock27[0]      ;
+;  led_g[2]       ; clock27[0]    ; 3.635 ; 3.635 ; Rise       ; clock27[0]      ;
+;  led_g[3]       ; clock27[0]    ; 3.799 ; 3.799 ; Rise       ; clock27[0]      ;
+;  led_g[4]       ; clock27[0]    ; 3.787 ; 3.787 ; Rise       ; clock27[0]      ;
+;  led_g[5]       ; clock27[0]    ; 3.792 ; 3.792 ; Rise       ; clock27[0]      ;
+;  led_g[6]       ; clock27[0]    ; 3.781 ; 3.781 ; Rise       ; clock27[0]      ;
+;  led_g[7]       ; clock27[0]    ; 3.804 ; 3.804 ; Rise       ; clock27[0]      ;
+; led_r[*]        ; clock27[0]    ; 3.795 ; 3.795 ; Rise       ; clock27[0]      ;
+;  led_r[2]       ; clock27[0]    ; 3.795 ; 3.795 ; Rise       ; clock27[0]      ;
+; numDisplay3[*]  ; clock27[0]    ; 3.827 ; 3.827 ; Rise       ; clock27[0]      ;
+;  numDisplay3[0] ; clock27[0]    ; 3.564 ; 3.564 ; Rise       ; clock27[0]      ;
+;  numDisplay3[2] ; clock27[0]    ; 3.827 ; 3.827 ; Rise       ; clock27[0]      ;
+;  numDisplay3[3] ; clock27[0]    ; 3.825 ; 3.825 ; Rise       ; clock27[0]      ;
+;  numDisplay3[4] ; clock27[0]    ; 3.701 ; 3.701 ; Rise       ; clock27[0]      ;
+;  numDisplay3[6] ; clock27[0]    ; 3.708 ; 3.708 ; Rise       ; clock27[0]      ;
+; vga_green[*]    ; clock50       ; 3.944 ; 3.944 ; Rise       ; clock50         ;
+;  vga_green[0]   ; clock50       ; 3.944 ; 3.944 ; Rise       ; clock50         ;
+;  vga_green[1]   ; clock50       ; 3.808 ; 3.808 ; Rise       ; clock50         ;
+;  vga_green[2]   ; clock50       ; 3.937 ; 3.937 ; Rise       ; clock50         ;
+; vga_hor_sync    ; clock50       ; 4.235 ; 4.235 ; Rise       ; clock50         ;
+; vga_red[*]      ; clock50       ; 4.059 ; 4.059 ; Rise       ; clock50         ;
+;  vga_red[0]     ; clock50       ; 3.957 ; 3.957 ; Rise       ; clock50         ;
+;  vga_red[1]     ; clock50       ; 4.059 ; 4.059 ; Rise       ; clock50         ;
+;  vga_red[2]     ; clock50       ; 4.047 ; 4.047 ; Rise       ; clock50         ;
+; vga_ver_sync    ; clock50       ; 3.987 ; 3.987 ; Rise       ; clock50         ;
+; keyDataOut[*]   ; keyboardClock ; 3.673 ; 3.673 ; Fall       ; keyboardClock   ;
+;  keyDataOut[0]  ; keyboardClock ; 3.673 ; 3.673 ; Fall       ; keyboardClock   ;
++-----------------+---------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                  ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; Data Port       ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; led_g[*]        ; clock27[0]    ; 3.634 ; 3.634 ; Rise       ; clock27[0]      ;
+;  led_g[0]       ; clock27[0]    ; 3.634 ; 3.634 ; Rise       ; clock27[0]      ;
+;  led_g[1]       ; clock27[0]    ; 3.659 ; 3.659 ; Rise       ; clock27[0]      ;
+;  led_g[2]       ; clock27[0]    ; 3.635 ; 3.635 ; Rise       ; clock27[0]      ;
+;  led_g[3]       ; clock27[0]    ; 3.799 ; 3.799 ; Rise       ; clock27[0]      ;
+;  led_g[4]       ; clock27[0]    ; 3.787 ; 3.787 ; Rise       ; clock27[0]      ;
+;  led_g[5]       ; clock27[0]    ; 3.792 ; 3.792 ; Rise       ; clock27[0]      ;
+;  led_g[6]       ; clock27[0]    ; 3.781 ; 3.781 ; Rise       ; clock27[0]      ;
+;  led_g[7]       ; clock27[0]    ; 3.804 ; 3.804 ; Rise       ; clock27[0]      ;
+; led_r[*]        ; clock27[0]    ; 3.795 ; 3.795 ; Rise       ; clock27[0]      ;
+;  led_r[2]       ; clock27[0]    ; 3.795 ; 3.795 ; Rise       ; clock27[0]      ;
+; numDisplay3[*]  ; clock27[0]    ; 3.564 ; 3.564 ; Rise       ; clock27[0]      ;
+;  numDisplay3[0] ; clock27[0]    ; 3.564 ; 3.564 ; Rise       ; clock27[0]      ;
+;  numDisplay3[2] ; clock27[0]    ; 3.827 ; 3.827 ; Rise       ; clock27[0]      ;
+;  numDisplay3[3] ; clock27[0]    ; 3.825 ; 3.825 ; Rise       ; clock27[0]      ;
+;  numDisplay3[4] ; clock27[0]    ; 3.701 ; 3.701 ; Rise       ; clock27[0]      ;
+;  numDisplay3[6] ; clock27[0]    ; 3.708 ; 3.708 ; Rise       ; clock27[0]      ;
+; vga_green[*]    ; clock50       ; 3.808 ; 3.808 ; Rise       ; clock50         ;
+;  vga_green[0]   ; clock50       ; 3.944 ; 3.944 ; Rise       ; clock50         ;
+;  vga_green[1]   ; clock50       ; 3.808 ; 3.808 ; Rise       ; clock50         ;
+;  vga_green[2]   ; clock50       ; 3.937 ; 3.937 ; Rise       ; clock50         ;
+; vga_hor_sync    ; clock50       ; 4.235 ; 4.235 ; Rise       ; clock50         ;
+; vga_red[*]      ; clock50       ; 3.957 ; 3.957 ; Rise       ; clock50         ;
+;  vga_red[0]     ; clock50       ; 3.957 ; 3.957 ; Rise       ; clock50         ;
+;  vga_red[1]     ; clock50       ; 4.059 ; 4.059 ; Rise       ; clock50         ;
+;  vga_red[2]     ; clock50       ; 4.047 ; 4.047 ; Rise       ; clock50         ;
+; vga_ver_sync    ; clock50       ; 3.987 ; 3.987 ; Rise       ; clock50         ;
+; keyDataOut[*]   ; keyboardClock ; 3.673 ; 3.673 ; Fall       ; keyboardClock   ;
+;  keyDataOut[0]  ; keyboardClock ; 3.673 ; 3.673 ; Fall       ; keyboardClock   ;
++-----------------+---------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+----------+--------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+--------+----------+---------+---------------------+
+; Worst-case Slack ; -12.884  ; -2.506 ; N/A      ; N/A     ; -1.631              ;
+;  clock27[0]      ; -1.088   ; 0.703  ; N/A      ; N/A     ; -1.631              ;
+;  clock50         ; -12.884  ; -2.506 ; N/A      ; N/A     ; -1.631              ;
+;  heartbeat[20]   ; N/A      ; N/A    ; N/A      ; N/A     ; -0.611              ;
+;  keyboardClock   ; 0.138    ; 0.238  ; N/A      ; N/A     ; -1.469              ;
+; Design-wide TNS  ; -572.504 ; -3.499 ; 0.0      ; 0.0     ; -133.041            ;
+;  clock27[0]      ; -9.757   ; 0.000  ; N/A      ; N/A     ; -18.739             ;
+;  clock50         ; -562.747 ; -3.499 ; N/A      ; N/A     ; -109.167            ;
+;  heartbeat[20]   ; N/A      ; N/A    ; N/A      ; N/A     ; -1.222              ;
+;  keyboardClock   ; 0.000    ; 0.000  ; N/A      ; N/A     ; -3.913              ;
++------------------+----------+--------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------------+
+; Setup Times                                                                 ;
++--------------+---------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+---------------+-------+-------+------------+-----------------+
+; switch[*]    ; clock27[0]    ; 1.358 ; 1.358 ; Rise       ; clock27[0]      ;
+;  switch[0]   ; clock27[0]    ; 1.358 ; 1.358 ; Rise       ; clock27[0]      ;
+; switch[*]    ; heartbeat[20] ; 3.555 ; 3.555 ; Rise       ; heartbeat[20]   ;
+;  switch[0]   ; heartbeat[20] ; 3.555 ; 3.555 ; Rise       ; heartbeat[20]   ;
+; keyboardData ; keyboardClock ; 4.040 ; 4.040 ; Fall       ; keyboardClock   ;
++--------------+---------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Hold Times                                                                    ;
++--------------+---------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port    ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+---------------+--------+--------+------------+-----------------+
+; switch[*]    ; clock27[0]    ; 0.008  ; 0.008  ; Rise       ; clock27[0]      ;
+;  switch[0]   ; clock27[0]    ; 0.008  ; 0.008  ; Rise       ; clock27[0]      ;
+; switch[*]    ; heartbeat[20] ; -1.449 ; -1.449 ; Rise       ; heartbeat[20]   ;
+;  switch[0]   ; heartbeat[20] ; -1.449 ; -1.449 ; Rise       ; heartbeat[20]   ;
+; keyboardData ; keyboardClock ; -2.075 ; -2.075 ; Fall       ; keyboardClock   ;
++--------------+---------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Clock to Output Times                                                          ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; Data Port       ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; led_g[*]        ; clock27[0]    ; 7.129 ; 7.129 ; Rise       ; clock27[0]      ;
+;  led_g[0]       ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[1]       ; clock27[0]    ; 6.768 ; 6.768 ; Rise       ; clock27[0]      ;
+;  led_g[2]       ; clock27[0]    ; 6.729 ; 6.729 ; Rise       ; clock27[0]      ;
+;  led_g[3]       ; clock27[0]    ; 7.129 ; 7.129 ; Rise       ; clock27[0]      ;
+;  led_g[4]       ; clock27[0]    ; 7.096 ; 7.096 ; Rise       ; clock27[0]      ;
+;  led_g[5]       ; clock27[0]    ; 7.099 ; 7.099 ; Rise       ; clock27[0]      ;
+;  led_g[6]       ; clock27[0]    ; 7.087 ; 7.087 ; Rise       ; clock27[0]      ;
+;  led_g[7]       ; clock27[0]    ; 7.125 ; 7.125 ; Rise       ; clock27[0]      ;
+; led_r[*]        ; clock27[0]    ; 7.116 ; 7.116 ; Rise       ; clock27[0]      ;
+;  led_r[2]       ; clock27[0]    ; 7.116 ; 7.116 ; Rise       ; clock27[0]      ;
+; numDisplay3[*]  ; clock27[0]    ; 7.190 ; 7.190 ; Rise       ; clock27[0]      ;
+;  numDisplay3[0] ; clock27[0]    ; 6.521 ; 6.521 ; Rise       ; clock27[0]      ;
+;  numDisplay3[2] ; clock27[0]    ; 7.039 ; 7.039 ; Rise       ; clock27[0]      ;
+;  numDisplay3[3] ; clock27[0]    ; 7.190 ; 7.190 ; Rise       ; clock27[0]      ;
+;  numDisplay3[4] ; clock27[0]    ; 6.871 ; 6.871 ; Rise       ; clock27[0]      ;
+;  numDisplay3[6] ; clock27[0]    ; 6.876 ; 6.876 ; Rise       ; clock27[0]      ;
+; vga_green[*]    ; clock50       ; 7.274 ; 7.274 ; Rise       ; clock50         ;
+;  vga_green[0]   ; clock50       ; 7.274 ; 7.274 ; Rise       ; clock50         ;
+;  vga_green[1]   ; clock50       ; 6.950 ; 6.950 ; Rise       ; clock50         ;
+;  vga_green[2]   ; clock50       ; 7.263 ; 7.263 ; Rise       ; clock50         ;
+; vga_hor_sync    ; clock50       ; 8.092 ; 8.092 ; Rise       ; clock50         ;
+; vga_red[*]      ; clock50       ; 7.581 ; 7.581 ; Rise       ; clock50         ;
+;  vga_red[0]     ; clock50       ; 7.302 ; 7.302 ; Rise       ; clock50         ;
+;  vga_red[1]     ; clock50       ; 7.581 ; 7.581 ; Rise       ; clock50         ;
+;  vga_red[2]     ; clock50       ; 7.549 ; 7.549 ; Rise       ; clock50         ;
+; vga_ver_sync    ; clock50       ; 7.474 ; 7.474 ; Rise       ; clock50         ;
+; keyDataOut[*]   ; keyboardClock ; 7.707 ; 7.707 ; Fall       ; keyboardClock   ;
+;  keyDataOut[0]  ; keyboardClock ; 7.707 ; 7.707 ; Fall       ; keyboardClock   ;
++-----------------+---------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                  ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; Data Port       ; Clock Port    ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------+---------------+-------+-------+------------+-----------------+
+; led_g[*]        ; clock27[0]    ; 3.634 ; 3.634 ; Rise       ; clock27[0]      ;
+;  led_g[0]       ; clock27[0]    ; 3.634 ; 3.634 ; Rise       ; clock27[0]      ;
+;  led_g[1]       ; clock27[0]    ; 3.659 ; 3.659 ; Rise       ; clock27[0]      ;
+;  led_g[2]       ; clock27[0]    ; 3.635 ; 3.635 ; Rise       ; clock27[0]      ;
+;  led_g[3]       ; clock27[0]    ; 3.799 ; 3.799 ; Rise       ; clock27[0]      ;
+;  led_g[4]       ; clock27[0]    ; 3.787 ; 3.787 ; Rise       ; clock27[0]      ;
+;  led_g[5]       ; clock27[0]    ; 3.792 ; 3.792 ; Rise       ; clock27[0]      ;
+;  led_g[6]       ; clock27[0]    ; 3.781 ; 3.781 ; Rise       ; clock27[0]      ;
+;  led_g[7]       ; clock27[0]    ; 3.804 ; 3.804 ; Rise       ; clock27[0]      ;
+; led_r[*]        ; clock27[0]    ; 3.795 ; 3.795 ; Rise       ; clock27[0]      ;
+;  led_r[2]       ; clock27[0]    ; 3.795 ; 3.795 ; Rise       ; clock27[0]      ;
+; numDisplay3[*]  ; clock27[0]    ; 3.564 ; 3.564 ; Rise       ; clock27[0]      ;
+;  numDisplay3[0] ; clock27[0]    ; 3.564 ; 3.564 ; Rise       ; clock27[0]      ;
+;  numDisplay3[2] ; clock27[0]    ; 3.827 ; 3.827 ; Rise       ; clock27[0]      ;
+;  numDisplay3[3] ; clock27[0]    ; 3.825 ; 3.825 ; Rise       ; clock27[0]      ;
+;  numDisplay3[4] ; clock27[0]    ; 3.701 ; 3.701 ; Rise       ; clock27[0]      ;
+;  numDisplay3[6] ; clock27[0]    ; 3.708 ; 3.708 ; Rise       ; clock27[0]      ;
+; vga_green[*]    ; clock50       ; 3.808 ; 3.808 ; Rise       ; clock50         ;
+;  vga_green[0]   ; clock50       ; 3.944 ; 3.944 ; Rise       ; clock50         ;
+;  vga_green[1]   ; clock50       ; 3.808 ; 3.808 ; Rise       ; clock50         ;
+;  vga_green[2]   ; clock50       ; 3.937 ; 3.937 ; Rise       ; clock50         ;
+; vga_hor_sync    ; clock50       ; 4.235 ; 4.235 ; Rise       ; clock50         ;
+; vga_red[*]      ; clock50       ; 3.957 ; 3.957 ; Rise       ; clock50         ;
+;  vga_red[0]     ; clock50       ; 3.957 ; 3.957 ; Rise       ; clock50         ;
+;  vga_red[1]     ; clock50       ; 4.059 ; 4.059 ; Rise       ; clock50         ;
+;  vga_red[2]     ; clock50       ; 4.047 ; 4.047 ; Rise       ; clock50         ;
+; vga_ver_sync    ; clock50       ; 3.987 ; 3.987 ; Rise       ; clock50         ;
+; keyDataOut[*]   ; keyboardClock ; 3.673 ; 3.673 ; Fall       ; keyboardClock   ;
+;  keyDataOut[0]  ; keyboardClock ; 3.673 ; 3.673 ; Fall       ; keyboardClock   ;
++-----------------+---------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Setup Transfers                                                           ;
++---------------+---------------+----------+----------+----------+----------+
+; From Clock    ; To Clock      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------+---------------+----------+----------+----------+----------+
+; keyboardClock ; clock27[0]    ; 0        ; 9        ; 0        ; 0        ;
+; clock50       ; clock50       ; 1150798  ; 0        ; 0        ; 0        ;
+; heartbeat[20] ; clock50       ; 2        ; 1        ; 0        ; 0        ;
+; keyboardClock ; keyboardClock ; 0        ; 0        ; 0        ; 1        ;
++---------------+---------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------+
+; Hold Transfers                                                            ;
++---------------+---------------+----------+----------+----------+----------+
+; From Clock    ; To Clock      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------+---------------+----------+----------+----------+----------+
+; keyboardClock ; clock27[0]    ; 0        ; 9        ; 0        ; 0        ;
+; clock50       ; clock50       ; 1150798  ; 0        ; 0        ; 0        ;
+; heartbeat[20] ; clock50       ; 2        ; 1        ; 0        ; 0        ;
+; keyboardClock ; keyboardClock ; 0        ; 0        ; 0        ; 1        ;
++---------------+---------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 7     ; 7    ;
+; Unconstrained Output Ports      ; 23    ; 23   ;
+; Unconstrained Output Port Paths ; 23    ; 23   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Mar 09 18:12:21 2015
+Info: Command: quartus_sta Battleship -c Battleship
+Info: qsta_default_script.tcl version: #1
+Warning: Parallel compilation is not licensed and has been disabled
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
+Critical Warning: Synopsys Design Constraints File file not found: 'Battleship.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clock50 clock50
+    Info: create_clock -period 1.000 -name clock27[0] clock27[0]
+    Info: create_clock -period 1.000 -name keyboardClock keyboardClock
+    Info: create_clock -period 1.000 -name heartbeat[20] heartbeat[20]
+Info: Analyzing Slow Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -12.884
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:   -12.884      -562.747 clock50 
+    Info:    -1.088        -9.757 clock27[0] 
+    Info:     0.138         0.000 keyboardClock 
+Info: Worst-case hold slack is -2.506
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.506        -3.499 clock50 
+    Info:     0.614         0.000 keyboardClock 
+    Info:     1.832         0.000 clock27[0] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -1.631
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.631      -109.167 clock50 
+    Info:    -1.631       -18.739 clock27[0] 
+    Info:    -1.469        -3.913 keyboardClock 
+    Info:    -0.611        -1.222 heartbeat[20] 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info: Started post-fitting delay annotation
+Warning: Found 87 output pins without output pin load capacitance assignment
+    Info: Pin "led_r[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_r[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "led_g[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "keyDataOut[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay0[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay1[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay2[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "numDisplay3[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_red[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_green[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_blue[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_hor_sync" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "vga_ver_sync" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+Info: Delay annotation completed successfully
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -4.107
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -4.107      -159.821 clock50 
+    Info:     0.170         0.000 clock27[0] 
+    Info:     0.642         0.000 keyboardClock 
+Info: Worst-case hold slack is -1.690
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.690        -2.624 clock50 
+    Info:     0.238         0.000 keyboardClock 
+    Info:     0.703         0.000 clock27[0] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -1.380
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.380       -89.380 clock50 
+    Info:    -1.380       -15.380 clock27[0] 
+    Info:    -1.222        -3.222 keyboardClock 
+    Info:    -0.500        -1.000 heartbeat[20] 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 254 megabytes
+    Info: Processing ended: Mon Mar 09 18:12:25 2015
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:02
+
+

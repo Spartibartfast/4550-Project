@@ -1,0 +1,14 @@
+module Led_Controller ( clock, led );
+
+input 	clock;
+output 	[9:0] led;
+reg 		[9:0] b_led_value;
+
+always @ ( posedge clock ) 
+begin
+	b_led_value <= 10'b0000000111;
+end
+
+assign led = b_led_value;
+
+endmodule

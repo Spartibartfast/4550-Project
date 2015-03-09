@@ -1,0 +1,602 @@
+Analysis & Synthesis report for Battleship
+Mon Mar 09 18:12:12 2015
+Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |Battleship
+ 14. Parameter Settings for User Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1
+ 15. Parameter Settings for Inferred Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0
+ 16. Port Connectivity Checks: "VGA_CONTROLLER:VGA_CONTROLLER1"
+ 17. Port Connectivity Checks: "LED_CONTROLLER:LED_CONTROLLER1"
+ 18. Port Connectivity Checks: "KEY_CONTROLLER:KEY_CONTROLLER1"
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                       ;
++------------------------------------+-----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Mar 09 18:12:12 2015         ;
+; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
+; Revision Name                      ; Battleship                                    ;
+; Top-level Entity Name              ; Battleship                                    ;
+; Family                             ; Cyclone II                                    ;
+; Total logic elements               ; 296                                           ;
+;     Total combinational functions  ; 277                                           ;
+;     Dedicated logic registers      ; 105                                           ;
+; Total registers                    ; 105                                           ;
+; Total pins                         ; 104                                           ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 0                                             ;
+; Embedded Multiplier 9-bit elements ; 0                                             ;
+; Total PLLs                         ; 0                                             ;
++------------------------------------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; Battleship         ; Battleship         ;
+; Family name                                                                ; Cyclone II         ; Stratix            ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; Maximum DSP Block Usage                                                    ; -1                 ; -1                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Maximum Number of M4K/M9K/M20K Memory Blocks                               ; -1                 ; -1                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+
+; Battleship.v                     ; yes             ; User Verilog HDL File        ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/Battleship.v               ;
+; led_controller.v                 ; yes             ; User Verilog HDL File        ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/led_controller.v           ;
+; vga_controller.v                 ; yes             ; User Verilog HDL File        ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/vga_controller.v           ;
+; key_controller.v                 ; yes             ; User Verilog HDL File        ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/key_controller.v           ;
+; hex_controller.v                 ; yes             ; User Verilog HDL File        ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/hex_controller.v           ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/11.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf                     ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/11.0sp1/quartus/libraries/megafunctions/abs_divider.inc                    ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/11.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc                ;
+; aglobal110.inc                   ; yes             ; Megafunction                 ; c:/altera/11.0sp1/quartus/libraries/megafunctions/aglobal110.inc                     ;
+; db/lpm_divide_f6m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/db/lpm_divide_f6m.tdf      ;
+; db/sign_div_unsign_mlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/db/sign_div_unsign_mlh.tdf ;
+; db/alt_u_div_e2f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/db/alt_u_div_e2f.tdf       ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/db/add_sub_lkc.tdf         ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/db/add_sub_mkc.tdf         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 296     ;
+;                                             ;         ;
+; Total combinational functions               ; 277     ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 90      ;
+;     -- 3 input functions                    ; 32      ;
+;     -- <=2 input functions                  ; 155     ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 196     ;
+;     -- arithmetic mode                      ; 81      ;
+;                                             ;         ;
+; Total registers                             ; 105     ;
+;     -- Dedicated logic registers            ; 105     ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 104     ;
+; Maximum fan-out node                        ; clock50 ;
+; Maximum fan-out                             ; 88      ;
+; Total fan-out                               ; 1029    ;
+; Average fan-out                             ; 2.12    ;
++---------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                               ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                        ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |Battleship                               ; 277 (21)          ; 105 (22)     ; 0           ; 0            ; 0       ; 0         ; 104  ; 0            ; |Battleship                                                                                                                                ;              ;
+;    |HEX_CONTROLLER:HEX_CONTROLLER1|       ; 4 (4)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|HEX_CONTROLLER:HEX_CONTROLLER1                                                                                                 ;              ;
+;    |KEY_CONTROLLER:KEY_CONTROLLER1|       ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|KEY_CONTROLLER:KEY_CONTROLLER1                                                                                                 ;              ;
+;    |LED_CONTROLLER:LED_CONTROLLER1|       ; 0 (0)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|LED_CONTROLLER:LED_CONTROLLER1                                                                                                 ;              ;
+;    |VGA_CONTROLLER:VGA_CONTROLLER1|       ; 252 (190)         ; 67 (67)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1                                                                                                 ;              ;
+;       |lpm_divide:Mod0|                   ; 62 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0                                                                                 ;              ;
+;          |lpm_divide_f6m:auto_generated|  ; 62 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0|lpm_divide_f6m:auto_generated                                                   ;              ;
+;             |sign_div_unsign_mlh:divider| ; 62 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0|lpm_divide_f6m:auto_generated|sign_div_unsign_mlh:divider                       ;              ;
+;                |alt_u_div_e2f:divider|    ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0|lpm_divide_f6m:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_e2f:divider ;              ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                             ;
++-------------------------------------------------------------------+------------------------------------------------------------+
+; Register name                                                     ; Reason for Removal                                         ;
++-------------------------------------------------------------------+------------------------------------------------------------+
+; F[0,2,4,6,8,10,12,14,16]                                          ; Stuck at GND due to stuck port data_in                     ;
+; G[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; H[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; I[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; J[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; F[18]                                                             ; Stuck at GND due to stuck port data_in                     ;
+; E[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; D[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; C[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; B[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; A[0,2,4,6,8,10,12,14,16,18]                                       ; Stuck at GND due to stuck port data_in                     ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[0..6]                   ; Stuck at VCC due to stuck port data_in                     ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[0..6]                   ; Stuck at VCC due to stuck port data_in                     ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display0[0..6]                   ; Stuck at VCC due to stuck port data_in                     ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[1]                      ; Stuck at GND due to stuck port data_in                     ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[5]                      ; Stuck at VCC due to stuck port data_in                     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[1..8]                ; Stuck at GND due to stuck port data_in                     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[1..7]                 ; Stuck at GND due to stuck port data_in                     ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[3..9]                  ; Stuck at GND due to stuck port data_in                     ;
+; J[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; I[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; H[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; G[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; F[1,3,5,7,9,11,13,15,19]                                          ; Merged with F[17]                                          ;
+; E[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; D[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; C[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; B[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; A[1,3,5,7,9,11,13,15,17,19]                                       ; Merged with F[17]                                          ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[7..31]                  ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]   ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[6]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]   ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[2,4,6,8,10,12,14,16,18] ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[0]   ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1,3,5,7,9,13,15,17,19]  ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]  ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[0]                      ; Stuck at GND due to stuck port data_in                     ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]                      ; Stuck at GND due to stuck port data_in                     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_key_press[0]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0] ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[0]                         ; Stuck at GND due to stuck port data_in                     ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|t_blue[0..2]                       ; Stuck at VCC due to stuck port data_in                     ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[31]                              ; Stuck at GND due to stuck port data_in                     ;
+; Total Number of Removed Registers = 296                           ;                                                            ;
++-------------------------------------------------------------------+------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                       ;
++-------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                   ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; F[0]                                            ; Stuck at GND              ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[0],                                       ;
+;                                                 ; due to stuck port data_in ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[0],                                          ;
+;                                                 ;                           ; VGA_CONTROLLER:VGA_CONTROLLER1|t_blue[2], VGA_CONTROLLER:VGA_CONTROLLER1|t_blue[1], ;
+;                                                 ;                           ; VGA_CONTROLLER:VGA_CONTROLLER1|t_blue[0]                                            ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[7] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[7],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[9]                                       ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[6] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[6],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]                                       ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[5] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[5],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[7]                                       ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[4] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[4],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[6]                                       ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[3] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[3],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[5]                                       ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[2] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[2],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[4]                                       ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[1] ; Stuck at GND              ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[1],                                     ;
+;                                                 ; due to stuck port data_in ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[3]                                       ;
++-------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 105   ;
+; Number of registers using Synchronous Clear  ; 10    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 40    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------+
+; Inverted Register Statistics                            ;
++-----------------------------------------------+---------+
+; Inverted Register                             ; Fan out ;
++-----------------------------------------------+---------+
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]           ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]           ; 2       ;
+; Total number of inverted registers = 10       ;         ;
++-----------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                          ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------+----------------------------+
+; 12:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|can_draw ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------+----------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Battleship ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; BOARD_SIZE     ; 10    ; Signed Integer                                    ;
+; PLAYER_ONE     ; 0     ; Signed Integer                                    ;
+; PLAYER_TWO     ; 1     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1 ;
++--------------------+-------+------------------------------------------------+
+; Parameter Name     ; Value ; Type                                           ;
++--------------------+-------+------------------------------------------------+
+; HORIZONTAL_DISPLAY ; 800   ; Signed Integer                                 ;
+; VERTICAL_DISPLAY   ; 600   ; Signed Integer                                 ;
+; HORIZONTAL_TIMING  ; 1056  ; Signed Integer                                 ;
+; VERTICAL_TIMING    ; 628   ; Signed Integer                                 ;
+; HORIZONTAL_RETRACE ; 120   ; Signed Integer                                 ;
+; VERTICAL_RETRACE   ; 6     ; Signed Integer                                 ;
++--------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                               ;
+; LPM_WIDTHD             ; 6              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_f6m ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA_CONTROLLER:VGA_CONTROLLER1"                                                                                                                                             ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; vga_red   ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (10 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
+; vga_green ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (10 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
+; vga_blue  ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (10 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LED_CONTROLLER:LED_CONTROLLER1"                                                                                                                                                       ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; keyPressed ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "keyPressed[1..1]" will be connected to GND.                               ;
+; keyDataOut ; Input ; Warning  ; Input port expression (9 bits) is wider than the input port (8 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "KEY_CONTROLLER:KEY_CONTROLLER1"                                                                                                                                               ;
++--------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                                                               ;
++--------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; keyPressed   ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "keyPressed[1..1]" have no fanouts                                         ;
+; keyDataOut   ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (9 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; keyboardData ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (12 bits) it drives.  Extra input bit(s) "keyboardData[11..1]" will be connected to GND.                ;
++--------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Mar 09 18:12:09 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Battleship -c Battleship
+Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
+Warning: Parallel compilation is not licensed and has been disabled
+Info: Found 1 design units, including 1 entities, in source file battleship.v
+    Info: Found entity 1: Battleship
+Info: Found 1 design units, including 1 entities, in source file led_controller.v
+    Info: Found entity 1: LED_CONTROLLER
+Info: Found 1 design units, including 1 entities, in source file vga_controller.v
+    Info: Found entity 1: VGA_CONTROLLER
+Info: Found 1 design units, including 1 entities, in source file key_controller.v
+    Info: Found entity 1: KEY_CONTROLLER
+Info: Found 1 design units, including 1 entities, in source file hex_controller.v
+    Info: Found entity 1: HEX_CONTROLLER
+Info: Found 1 design units, including 1 entities, in source file vga_sync_controller.v
+    Info: Found entity 1: VGA_SYNC_CONTROLLER
+Info: Elaborating entity "Battleship" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Battleship.v(55): object "t_player_turn" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at Battleship.v(55): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Battleship.v(174): truncated value with size 32 to match size of target (1)
+Info: Elaborating entity "KEY_CONTROLLER" for hierarchy "KEY_CONTROLLER:KEY_CONTROLLER1"
+Warning (10646): Verilog HDL Event Control warning at key_controller.v(53): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at key_controller.v(88): truncated value with size 9 to match size of target (8)
+Info: Elaborating entity "LED_CONTROLLER" for hierarchy "LED_CONTROLLER:LED_CONTROLLER1"
+Warning (10646): Verilog HDL Event Control warning at led_controller.v(20): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at led_controller.v(61): truncated value with size 9 to match size of target (8)
+Info: Elaborating entity "HEX_CONTROLLER" for hierarchy "HEX_CONTROLLER:HEX_CONTROLLER1"
+Warning (10646): Verilog HDL Event Control warning at hex_controller.v(23): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Info: Elaborating entity "VGA_CONTROLLER" for hierarchy "VGA_CONTROLLER:VGA_CONTROLLER1"
+Warning (10036): Verilog HDL or VHDL warning at vga_controller.v(89): object "board" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(109): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(113): truncated value with size 32 to match size of target (10)
+Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(200): can't check case statement for completeness because the case expression has too many possible states
+Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(214): can't check case statement for completeness because the case expression has too many possible states
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "keyDataOut[8]" is missing source, defaulting to GND
+Info: Inferred 1 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA_CONTROLLER:VGA_CONTROLLER1|Mod0"
+Info: Elaborated megafunction instantiation "VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0"
+Info: Instantiated megafunction "VGA_CONTROLLER:VGA_CONTROLLER1|lpm_divide:Mod0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "10"
+    Info: Parameter "LPM_WIDTHD" = "6"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_f6m.tdf
+    Info: Found entity 1: lpm_divide_f6m
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
+    Info: Found entity 1: sign_div_unsign_mlh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_e2f.tdf
+    Info: Found entity 1: alt_u_div_e2f
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info: Found entity 1: add_sub_lkc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info: Found entity 1: add_sub_mkc
+Warning: 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "led_r[0]" is stuck at GND
+    Warning (13410): Pin "led_r[1]" is stuck at GND
+    Warning (13410): Pin "led_r[3]" is stuck at GND
+    Warning (13410): Pin "led_r[4]" is stuck at GND
+    Warning (13410): Pin "led_r[5]" is stuck at GND
+    Warning (13410): Pin "led_r[6]" is stuck at GND
+    Warning (13410): Pin "led_r[7]" is stuck at GND
+    Warning (13410): Pin "led_r[8]" is stuck at GND
+    Warning (13410): Pin "led_r[9]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[1]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[2]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[3]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[4]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[5]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[6]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[7]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[8]" is stuck at GND
+    Warning (13410): Pin "numDisplay0[0]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[1]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[2]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[3]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[4]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[5]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[6]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[0]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[1]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[2]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[3]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[4]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[5]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[6]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[0]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[1]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[2]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[3]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[4]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[5]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[6]" is stuck at VCC
+    Warning (13410): Pin "numDisplay3[1]" is stuck at GND
+    Warning (13410): Pin "numDisplay3[5]" is stuck at VCC
+    Warning (13410): Pin "vga_red[3]" is stuck at GND
+    Warning (13410): Pin "vga_red[4]" is stuck at GND
+    Warning (13410): Pin "vga_red[5]" is stuck at GND
+    Warning (13410): Pin "vga_red[6]" is stuck at GND
+    Warning (13410): Pin "vga_red[7]" is stuck at GND
+    Warning (13410): Pin "vga_red[8]" is stuck at GND
+    Warning (13410): Pin "vga_red[9]" is stuck at GND
+    Warning (13410): Pin "vga_green[3]" is stuck at GND
+    Warning (13410): Pin "vga_green[4]" is stuck at GND
+    Warning (13410): Pin "vga_green[5]" is stuck at GND
+    Warning (13410): Pin "vga_green[6]" is stuck at GND
+    Warning (13410): Pin "vga_green[7]" is stuck at GND
+    Warning (13410): Pin "vga_green[8]" is stuck at GND
+    Warning (13410): Pin "vga_green[9]" is stuck at GND
+    Warning (13410): Pin "vga_blue[0]" is stuck at VCC
+    Warning (13410): Pin "vga_blue[1]" is stuck at VCC
+    Warning (13410): Pin "vga_blue[2]" is stuck at VCC
+    Warning (13410): Pin "vga_blue[3]" is stuck at GND
+    Warning (13410): Pin "vga_blue[4]" is stuck at GND
+    Warning (13410): Pin "vga_blue[5]" is stuck at GND
+    Warning (13410): Pin "vga_blue[6]" is stuck at GND
+    Warning (13410): Pin "vga_blue[7]" is stuck at GND
+    Warning (13410): Pin "vga_blue[8]" is stuck at GND
+    Warning (13410): Pin "vga_blue[9]" is stuck at GND
+Info: Generated suppressed messages file D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/Battleship.map.smsg
+Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Warning: Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock24[0]"
+    Warning (15610): No output dependent on input pin "clock24[1]"
+    Warning (15610): No output dependent on input pin "clock27[1]"
+    Warning (15610): No output dependent on input pin "switch[1]"
+    Warning (15610): No output dependent on input pin "switch[2]"
+    Warning (15610): No output dependent on input pin "switch[3]"
+    Warning (15610): No output dependent on input pin "switch[4]"
+    Warning (15610): No output dependent on input pin "switch[5]"
+    Warning (15610): No output dependent on input pin "switch[6]"
+    Warning (15610): No output dependent on input pin "switch[7]"
+    Warning (15610): No output dependent on input pin "switch[8]"
+    Warning (15610): No output dependent on input pin "switch[9]"
+Info: Implemented 407 device resources after synthesis - the final resource count might be different
+    Info: Implemented 17 input pins
+    Info: Implemented 87 output pins
+    Info: Implemented 303 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 97 warnings
+    Info: Peak virtual memory: 279 megabytes
+    Info: Processing ended: Mon Mar 09 18:12:12 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/Battleship.map.smsg.
+
+

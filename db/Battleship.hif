@@ -1,0 +1,756 @@
+Quartus II
+Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+14
+1056
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+lpm_divide
+# storage
+db|Battleship.(5).cnf
+db|Battleship.(5).cnf
+# case_insensitive
+# source_file
+lpm_divide.tdf
+16d41112e2517c4816bff7191b3eca7
+7
+# user_parameter {
+LPM_WIDTHN
+10
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHD
+6
+PARAMETER_UNKNOWN
+USR
+LPM_NREPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_DREPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_REMAINDERPOSITIVE
+TRUE
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+lpm_divide_f6m
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+remain5
+-1
+3
+remain4
+-1
+3
+remain3
+-1
+3
+remain2
+-1
+3
+remain1
+-1
+3
+remain0
+-1
+3
+numer9
+-1
+3
+numer8
+-1
+3
+numer7
+-1
+3
+numer6
+-1
+3
+numer5
+-1
+3
+numer4
+-1
+3
+numer3
+-1
+3
+numer2
+-1
+3
+numer1
+-1
+3
+numer0
+-1
+3
+denom3
+-1
+1
+denom2
+-1
+1
+denom1
+-1
+1
+denom0
+-1
+1
+denom5
+-1
+2
+denom4
+-1
+2
+}
+# include_file {
+abs_divider.inc
+49e0557d5addd986524b344bed283d9
+aglobal110.inc
+f560f9a992734abc3e37886b3957a26a
+sign_div_unsign.inc
+535d76a18080ee8f75d090fcce186e19
+}
+# macro_sequence
+
+# end
+# entity
+lpm_divide_f6m
+# storage
+db|Battleship.(6).cnf
+db|Battleship.(6).cnf
+# case_insensitive
+# source_file
+db|lpm_divide_f6m.tdf
+9518c3375b83cd8f4378adf660bc95a6
+7
+# used_port {
+remain5
+-1
+3
+remain4
+-1
+3
+remain3
+-1
+3
+remain2
+-1
+3
+remain1
+-1
+3
+remain0
+-1
+3
+numer9
+-1
+3
+numer8
+-1
+3
+numer7
+-1
+3
+numer6
+-1
+3
+numer5
+-1
+3
+numer4
+-1
+3
+numer3
+-1
+3
+numer2
+-1
+3
+numer1
+-1
+3
+numer0
+-1
+3
+denom5
+-1
+3
+denom4
+-1
+3
+denom3
+-1
+3
+denom2
+-1
+3
+denom1
+-1
+3
+denom0
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+sign_div_unsign_mlh
+# storage
+db|Battleship.(7).cnf
+db|Battleship.(7).cnf
+# case_insensitive
+# source_file
+db|sign_div_unsign_mlh.tdf
+84a3e5c7cb7072754eec1c6df1a9e9
+7
+# used_port {
+remainder5
+-1
+3
+remainder4
+-1
+3
+remainder3
+-1
+3
+remainder2
+-1
+3
+remainder1
+-1
+3
+remainder0
+-1
+3
+quotient9
+-1
+3
+quotient8
+-1
+3
+quotient7
+-1
+3
+quotient6
+-1
+3
+quotient5
+-1
+3
+quotient4
+-1
+3
+quotient3
+-1
+3
+quotient2
+-1
+3
+quotient1
+-1
+3
+quotient0
+-1
+3
+numerator9
+-1
+3
+numerator8
+-1
+3
+numerator7
+-1
+3
+numerator6
+-1
+3
+numerator5
+-1
+3
+numerator4
+-1
+3
+numerator3
+-1
+3
+numerator2
+-1
+3
+numerator1
+-1
+3
+numerator0
+-1
+3
+denominator5
+-1
+3
+denominator4
+-1
+3
+denominator3
+-1
+3
+denominator2
+-1
+3
+denominator1
+-1
+3
+denominator0
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+alt_u_div_e2f
+# storage
+db|Battleship.(8).cnf
+db|Battleship.(8).cnf
+# case_insensitive
+# source_file
+db|alt_u_div_e2f.tdf
+2d80b3d7603cb8bac7a6279aa148776
+7
+# used_port {
+remainder5
+-1
+3
+remainder4
+-1
+3
+remainder3
+-1
+3
+remainder2
+-1
+3
+remainder1
+-1
+3
+remainder0
+-1
+3
+quotient9
+-1
+3
+quotient8
+-1
+3
+quotient7
+-1
+3
+quotient6
+-1
+3
+quotient5
+-1
+3
+quotient4
+-1
+3
+quotient3
+-1
+3
+quotient2
+-1
+3
+quotient1
+-1
+3
+quotient0
+-1
+3
+numerator9
+-1
+3
+numerator8
+-1
+3
+numerator7
+-1
+3
+numerator6
+-1
+3
+numerator5
+-1
+3
+numerator4
+-1
+3
+numerator3
+-1
+3
+numerator2
+-1
+3
+numerator1
+-1
+3
+numerator0
+-1
+3
+denominator5
+-1
+3
+denominator4
+-1
+3
+denominator3
+-1
+3
+denominator2
+-1
+3
+denominator1
+-1
+3
+denominator0
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+add_sub_lkc
+# storage
+db|Battleship.(9).cnf
+db|Battleship.(9).cnf
+# case_insensitive
+# source_file
+db|add_sub_lkc.tdf
+248ea76815d716be782f8147e88aeae
+7
+# used_port {
+result0
+-1
+3
+datab0
+-1
+3
+dataa0
+-1
+3
+cout
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+add_sub_mkc
+# storage
+db|Battleship.(10).cnf
+db|Battleship.(10).cnf
+# case_insensitive
+# source_file
+db|add_sub_mkc.tdf
+579773b4a7bfa7db38fc91f6ea76135
+7
+# used_port {
+result1
+-1
+3
+result0
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+cout
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+HEX_CONTROLLER
+# storage
+db|Battleship.(3).cnf
+db|Battleship.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+hex_controller.v
+e7b2cf92ba2e65722d73c67ebb0e26f
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+HEX_CONTROLLER:HEX_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# entity
+VGA_CONTROLLER
+# storage
+db|Battleship.(4).cnf
+db|Battleship.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+vga_controller.v
+be3571e2ee589c9e70696d27a10afb
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+HORIZONTAL_DISPLAY
+800
+PARAMETER_SIGNED_DEC
+DEF
+VERTICAL_DISPLAY
+600
+PARAMETER_SIGNED_DEC
+DEF
+HORIZONTAL_TIMING
+1056
+PARAMETER_SIGNED_DEC
+DEF
+VERTICAL_TIMING
+628
+PARAMETER_SIGNED_DEC
+DEF
+HORIZONTAL_RETRACE
+120
+PARAMETER_SIGNED_DEC
+DEF
+VERTICAL_RETRACE
+6
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+VGA_CONTROLLER:VGA_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# entity
+Battleship
+# storage
+db|Battleship.(0).cnf
+db|Battleship.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+battleship.v
+5dd3567392f54122b7a4c65ab97f6ae
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+BOARD_SIZE
+10
+PARAMETER_SIGNED_DEC
+DEF
+PLAYER_ONE
+0
+PARAMETER_SIGNED_DEC
+DEF
+PLAYER_TWO
+1
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+KEY_CONTROLLER
+# storage
+db|Battleship.(1).cnf
+db|Battleship.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+key_controller.v
+597819edad9fc353d160bdc2e4d44af2
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+KEY_CONTROLLER:KEY_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# entity
+LED_CONTROLLER
+# storage
+db|Battleship.(2).cnf
+db|Battleship.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+led_controller.v
+1b727837c0cf5aa2ec2c90574d7cfd
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+LED_CONTROLLER:LED_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# complete
+
