@@ -119,10 +119,12 @@ always @ ( posedge clock50 )
 		// end
 			
 		// Horizontal and Vertical Sync
-		t_hor <= ( pixel_x[9:4] == 45 ); // 6'h2D
-		t_ver <= ( pixel_y == VERTICAL_DISPLAY ); // 500???
-		//t_hor <= ( pixel_x == HORIZONTAL_DISPLAY ); // 16 clock cycles...
-		//t_ver <= ( pixel_y < VERTICAL_DISPLAY ); // 800 clock cycles...
+		//t_hor <= ( pixel_x[9:4] == 45 ); // 6'h2D
+		//t_ver <= ( pixel_y == VERTICAL_DISPLAY ); // 500???
+		//t_hor <= ( pixel_x < HORIZONTAL_DISPLAY );
+		//t_ver <= ( pixel_y < VERTICAL_DISPLAY );
+		t_hor <= ( pixel_x < HORIZONTAL_TIMING );
+		t_ver <= ( pixel_y < VERTICAL_TIMING );
 		
 		if ( display == 0 )
 			display <= ( pixel_x == HORIZONTAL_DISPLAY ) && ( pixel_y < VERTICAL_DISPLAY );
@@ -142,57 +144,68 @@ always @ ( posedge clock50 )
 		// Choose a letter to draw
 		if ( pixel_y > 0 && pixel_y < 96 )
 		 begin
+			// Banner
 			can_draw = 0;
-			colour = 9'b111111111;
+			colour = playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000;
 			boardLevel = 99;
 		 end
 		else if ( pixel_y > 96 && pixel_y <= 144 )
 		 begin
+			// A
 			can_draw = 1;
 			boardLevel = 1;
 		 end
 		else if ( pixel_y > 144 && pixel_y <= 192 )
 		 begin
+			// B
 			can_draw = 1;
 			boardLevel = 2;
 		 end
 		else if ( pixel_y > 192 && pixel_y <= 240 )
 		 begin
+			// C
 			can_draw = 1;
 			boardLevel = 3;
 		 end
 		else if ( pixel_y > 240 && pixel_y <= 288 )
 		 begin
+			// D
 			can_draw = 1;
 			boardLevel = 4;
 		 end
 		else if ( pixel_y > 288 && pixel_y <= 336 )
 		 begin
+			// E
 			can_draw = 1;
 			boardLevel = 5;
 		 end
 		else if ( pixel_y > 336 && pixel_y <= 384 )
 		 begin
+			// F
 			can_draw = 1;
 			boardLevel = 6;
 		 end
 		else if ( pixel_y > 384 && pixel_y <= 432 )
 		 begin
+			// G
 			can_draw = 1;
 			boardLevel = 7;
 		 end
 		else if ( pixel_y > 432 && pixel_y <= 528 )
 		 begin
+			// H
 			can_draw = 1;
 			boardLevel = 8;
 		 end
 		else if ( pixel_y > 528 && pixel_y <= 576 )
 		 begin
+			// I
 			can_draw = 1;
 			boardLevel = 9;
 		 end
 		else if ( pixel_y > 576 && pixel_y <= 624 )
 		 begin
+			// J
 			can_draw = 1;
 			boardLevel = 10;
 		 end
