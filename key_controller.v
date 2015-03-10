@@ -17,7 +17,7 @@ module KEY_CONTROLLER(
 // 8 data bits <- ONLY RETURN THIS!
 // 1 parity bit <- checks if number of bits is even or odd. Like a checksum???
 //     prolly gonna ignore this one...
-// 1 stop bit, is always 1
+// 1 stop bit, is always 1. Hurray.
 
 // Only care about:
 // A B C D E F G H I J
@@ -78,7 +78,6 @@ always @ ( negedge keyboardClock )
 	end
 	
 
-	
 always @ ( posedge count_clock[10] )
 	begin
 		//t_letter =

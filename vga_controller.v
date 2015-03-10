@@ -16,8 +16,9 @@
 // Pixel Frequency:    40.0MHz
 
 module VGA_CONTROLLER ( 
+		clock27,
 		clock50, // 640x480 @ 25.175MHz Pixel Clock
-					// 800x600 @ 40.0MHz pixel clock
+					// 800x600 @ 40.0MHz pixel clock <--- ????????????
 		A, B, C, D, E, F, G, H, I, J, 
 		playerTurn,
 		vga_red, 
@@ -27,6 +28,7 @@ module VGA_CONTROLLER (
 		vga_ver_sync
 );
 
+input [1:0] clock27;
 input  clock50;
 
 // 800 x 600 resolution...
@@ -44,6 +46,12 @@ parameter HORIZONTAL_TIMING  = 1056;
 parameter VERTICAL_TIMING    = 628;
 parameter HORIZONTAL_RETRACE = 120;
 parameter VERTICAL_RETRACE   = 6;
+parameter H_FRONT_PORCH 	  = 40;
+parameter V_FRONT_PORCH 	  = 1;
+parameter H_SYNC_PULSE 		  = 128;
+parameter V_SYNC_PULSE 		  = 4;
+parameter H_BACK_PORCH 		  = 88;
+parameter V_BACK_PORCH 		  = 23;
 
 // Board stuff
 // the 10x10 battleship board! 48x48 pixel boxes
@@ -78,63 +86,81 @@ output [2:0] vga_green;
 output [2:0] vga_blue;
 output       vga_hor_sync;
 output       vga_ver_sync;
-reg          red;
-reg          green;
-reg          blue;
-reg 			 display;
+//reg          red;
+//reg          green;
+//reg          blue;
+reg 			 canDisplay;
 reg 	 [8:0] colour;
-wire 			 board = ( pixel_x[9:3] == 0 ) || 
-							( pixel_x[9:3] == 79 ) || 
-							( pixel_y[8:3] == 0 ) || 
-							( pixel_y[8:3] == 59 );
-reg 	 [2:0] t_red;
-reg 	 [2:0] t_green;
-reg 	 [2:0] t_blue;
+wire 			 board = ( pixel_x[9:3] == 20 ) || 
+							( pixel_x[9:3] == 780 ) || 
+							( pixel_y[8:3] == 20 ) || 
+							( pixel_y[8:3] == 580 );
+reg 	 [3:0] t_red;
+reg 	 [3:0] t_green;
+reg 	 [3:0] t_blue;
 reg 	 	    t_hor;
 reg 	       t_ver;
 reg    [1:0] tempVal;
 reg    [9:0] pixel_x = 0;
-reg    [9:0] pixel_y = 0;
+reg    [8:0] pixel_y = 0;
 
 
-
-always @ ( posedge clock50 )
+// Vertical and Horizontal Sync going
+always @ ( posedge clock27 )
 	begin
-		// pixel_x & _y are used to generate the horizontal sync and the
+		// horizontal sync
+		if ( pixel_x < HORIZONTAL_TIMING )
+		 begin
+			pixel_x <= pixel_x + 1;
+		 end
+		else
+		 begin
+			pixel_x <= 0;
+		 end
+		 
+		if ( pixel_x < H_SYNC_PULSE )
+		 begin
+			t_hor <= 0;
+		 end
+		else
+		 begin
+			t_hor <= 1;
+		 end
+		 
+		 
 		// vertical sync
-		if ( pixel_x >= HORIZONTAL_DISPLAY ) // roughy 30us 767
+		// When pixel_x is done ( i.e. end of the line, drop pixel_y )
+		if ( pixel_x == HORIZONTAL_DISPLAY - 1 )
 		 begin
-				// Go to begining of Horizontal, and go down a level of vertical
-				pixel_x <= 0;
+			if ( pixel_y < VERTICAL_TIMING )
+			 begin
 				pixel_y <= pixel_y + 1;
+			 end
+			else
+			 begin
+				pixel_y <= 0;
+			 end
+			 
+			if ( pixel_y < V_SYNC_PULSE )
+			 begin
+				t_ver <= 0;
+			 end
+			else
+			 begin
+				t_ver <= 1;
+			 end
 		 end
-		else
-		 begin
-				pixel_x <= pixel_x + 1;
-		 end
-		
-		//if ( pixel_y >= VERTICAL_TIMING )
-		// begin
-		//	pixel_y <= 0;
-		// end
-			
-		// Horizontal and Vertical Sync
-		//t_hor <= ( pixel_x[9:4] == 45 ); // 6'h2D
-		//t_ver <= ( pixel_y == VERTICAL_DISPLAY ); // 500???
-		//t_hor <= ( pixel_x < HORIZONTAL_DISPLAY );
-		//t_ver <= ( pixel_y < VERTICAL_DISPLAY );
-		t_hor <= ( pixel_x < HORIZONTAL_TIMING );
-		t_ver <= ( pixel_y < VERTICAL_TIMING );
-		
-		if ( display == 0 )
-			display <= ( pixel_x == HORIZONTAL_DISPLAY ) && ( pixel_y < VERTICAL_DISPLAY );
-		else
-			display <= !( pixel_x == HORIZONTAL_TIMING ); //&& !( pixel_y < VERTICAL_TIMING );
-	end  // end vga sync logic
+		 
+		 // Determine if we are in the drawing area or the blanking area
+		 // of the screen
+		 canDisplay <= ( pixel_x >= H_BACK_PORCH + H_FRONT_PORCH && 
+						 pixel_x < HORIZONTAL_TIMING && 
+						 pixel_y >= V_BACK_PORCH + V_FRONT_PORCH && 
+						 pixel_y < VERTICAL_TIMING );
+	end
 	
 	
-	
-always @ ( posedge clock50 )
+always @ ( posedge clock27 )
 	begin
 		// maybe just if statements checking the pixel_y for a certain pixel count to draw the 
 		// the next letter? Every 48 pixels down draw another letter...
@@ -146,7 +172,7 @@ always @ ( posedge clock50 )
 		 begin
 			// Banner
 			can_draw = 0;
-			colour = playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000;
+			colour <= playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000;
 			boardLevel = 99;
 		 end
 		else if ( pixel_y > 96 && pixel_y <= 144 )
@@ -225,23 +251,23 @@ always @ ( posedge clock50 )
 		endcase
 			
 		case ( k )
-			10: tempVal = tempLetter[19:18];
-			9:  tempVal = tempLetter[17:16];
-			8:  tempVal = tempLetter[15:14];
-			7:  tempVal = tempLetter[13:12];
-			6:  tempVal = tempLetter[11:10];
-			5:  tempVal = tempLetter[9:8];
-			4:  tempVal = tempLetter[7:6];
-			3:  tempVal = tempLetter[5:4];
-			2:  tempVal = tempLetter[3:2];
-			1:  tempVal = tempLetter[1:0];
+			10: tempVal <= tempLetter[19:18];
+			9:  tempVal <= tempLetter[17:16];
+			8:  tempVal <= tempLetter[15:14];
+			7:  tempVal <= tempLetter[13:12];
+			6:  tempVal <= tempLetter[11:10];
+			5:  tempVal <= tempLetter[9:8];
+			4:  tempVal <= tempLetter[7:6];
+			3:  tempVal <= tempLetter[5:4];
+			2:  tempVal <= tempLetter[3:2];
+			1:  tempVal <= tempLetter[1:0];
 		endcase
 		
 		case ( tempVal )
-			2'b00: colour = 9'b000000111; // water
-			2'b01: colour = 9'b000000000; // ship
-			2'b10: colour = 9'b111111111; // miss
-			2'b11: colour = 9'b111000000; // hit
+			2'b00: colour <= 9'b000000111; // water
+			2'b01: colour <= 9'b000000000; // ship
+			2'b10: colour <= 9'b111111111; // miss
+			2'b11: colour <= 9'b111000000; // hit
 		endcase
 		
 		if ( ( pixel_x % 48 == 0 ) && ( can_draw == 1 ) )
@@ -253,17 +279,17 @@ always @ ( posedge clock50 )
 				k = 10;
 			 end
 		 end
-			
-		t_red   <=  colour[8:6];
-		t_green <=  colour[5:3];
-		t_blue  <=  colour[2:0];
+					 
+		t_red   <= canDisplay ? colour[8:6] /*| board*/ : 0;
+		t_green <= canDisplay ? colour[5:3] /*| board*/ : 0;
+		t_blue  <= canDisplay ? colour[2:0] /*| board*/ : 0;
 	end // end board logic
 	
 assign vga_hor_sync = ~t_hor;
 assign vga_ver_sync = ~t_ver;
 
-assign vga_red   = t_red;   //& display;
-assign vga_green = t_green; //& display;
-assign vga_blue  = t_blue;  //& display;
+assign vga_red   = t_red;   //& canDisplay;
+assign vga_green = t_green; //& canDisplay;
+assign vga_blue  = t_blue;  //& canDisplay;
 
 endmodule

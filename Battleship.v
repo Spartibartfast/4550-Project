@@ -178,6 +178,7 @@ always @ ( posedge clock24 )
 											);
 	
 	VGA_CONTROLLER VGA_CONTROLLER1( 
+											clock27,
 											clock50, 
 											A, B, C, D, E, F, G, H, I, J, 
 											playerTurn,
