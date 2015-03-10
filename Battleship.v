@@ -19,40 +19,51 @@ module Battleship(
 		vga_hor_sync,
 		vga_ver_sync
 );
-
-parameter BOARD_SIZE  = 10;
-parameter PLAYER_ONE  = 0;
-parameter PLAYER_TWO  = 1;
-
 // [7:0] - 8 bits
 // wire =/= output.... ??????
 // input [#:#] var <- BUS
 // input var[#:#] <- Array
+
+// Clocks
 input  [1:0] 	clock24;
 input  [1:0] 	clock27;
 input  			clock50;
+
+// Keyboard Stuff
 input  			keyboardClock;
 input  			keyboardData;
+output [8:0] 	keyDataOut;
+//reg    [7:0]   letter; // later...
+//reg    [7:0]   number;
+wire   			keyPressed;
+
 input  [9:0] 	switch; // 9 switches...
 
+// LED Stuff
 output [9:0] 	led_r; // also 9 corresponding led's
 output [7:0] 	led_g; // the other 9 led's
-output [8:0] 	keyDataOut;
+
+// HEX Stuff
 output [6:0] 	numDisplay0;
 output [6:0] 	numDisplay1;
 output [6:0] 	numDisplay2;
 output [6:0] 	numDisplay3;
+
+// VGA Stuff
 output [9:0] 	vga_red; 
 output [9:0] 	vga_green;
 output [9:0] 	vga_blue;
 output       	vga_hor_sync;
 output       	vga_ver_sync;
 
-wire   			keyPressed;
-wire    		 	playerTurn; // PLAYER 0 	1'b1 for player 1
-
-reg    [20:0] 	heartbeat = 21'b0;
+// Game Stuff
+parameter 		BOARD_SIZE  = 10;
+parameter 		PLAYER_ONE  = 0;
+parameter 		PLAYER_TWO  = 1;
+wire    		 	playerTurn;
+reg    [20:0] 	heartbeat   = 21'b0;
 reg 				t_player_turn = PLAYER_ONE;
+//integer        canSwitchPlayer; // Determines if the enter button can be pressed...
 
 
 // the 10x10 battleship board!
@@ -75,30 +86,30 @@ reg    [19:0] I;
 reg    [19:0] J;
 
 // Player 1 start board
-reg    [19:0] t_A1 = 20'b00000000000000000000;
-reg    [19:0] t_B1 = 20'b00000000000000000000; 
-reg    [19:0] t_C1 = 20'b00000000000000000000; 
-reg    [19:0] t_D1 = 20'b00000000000000000000; 
-reg    [19:0] t_E1 = 20'b00000000000000000000; 
+reg    [19:0] t_A1 = 20'b00010000000000000000;
+reg    [19:0] t_B1 = 20'b00010000000001010000; 
+reg    [19:0] t_C1 = 20'b00010000000000000000; 
+reg    [19:0] t_D1 = 20'b00010000000000000000; 
+reg    [19:0] t_E1 = 20'b00010000010101010000; 
 reg    [19:0] t_F1 = 20'b00000000000000000000; 
-reg    [19:0] t_G1 = 20'b00000000000000000000; 
-reg    [19:0] t_H1 = 20'b00000000000000000000; 
-reg    [19:0] t_I1 = 20'b00000000000000000000; 
+reg    [19:0] t_G1 = 20'b00010000000000000000; 
+reg    [19:0] t_H1 = 20'b00010000000000000000; 
+reg    [19:0] t_I1 = 20'b00010000010101000000; 
 reg    [19:0] t_J1 = 20'b00000000000000000000;
 
 // Player 2 start board
-reg    [19:0] t_A2 = 20'b10101010101010101010;
-reg    [19:0] t_B2 = 20'b10101010101010101010; 
-reg    [19:0] t_C2 = 20'b10101010101010101010; 
-reg    [19:0] t_D2 = 20'b10101010101010101010; 
-reg    [19:0] t_E2 = 20'b10101010101010101010; 
-reg    [19:0] t_F2 = 20'b10101010101010101010; 
-reg    [19:0] t_G2 = 20'b10101010101010101010; 
-reg    [19:0] t_H2 = 20'b10101010101010101010; 
-reg    [19:0] t_I2 = 20'b10101010101010101010; 
-reg    [19:0] t_J2 = 20'b10101010101010101010;  
+reg    [19:0] t_A2 = 20'b00000000000000000001;
+reg    [19:0] t_B2 = 20'b00010000000000000001; 
+reg    [19:0] t_C2 = 20'b00010000000101010000; 
+reg    [19:0] t_D2 = 20'b00010000000000000000; 
+reg    [19:0] t_E2 = 20'b00010000000000000000; 
+reg    [19:0] t_F2 = 20'b00000000000000000000; 
+reg    [19:0] t_G2 = 20'b00000000000000000000; 
+reg    [19:0] t_H2 = 20'b01000000000000000000; 
+reg    [19:0] t_I2 = 20'b01000001010101010000; 
+reg    [19:0] t_J2 = 20'b01000000000000000000;  
 
-// our heartbeat timer, just incase we need one
+// our heartbeat timer
 always @ ( posedge clock50 ) 
 begin
 	heartbeat <= heartbeat+1'b1;
@@ -120,20 +131,21 @@ always @ ( posedge heartbeat[20] )
 		J = switch[0] ? t_J2 : t_J1;
 	end
 	
-always begin 
-	if ( keyPressed == 8'b01011010 )
-	 begin
-		if ( playerTurn == PLAYER_ONE )
+always @ ( posedge clock24 ) 
+	begin 
+		if ( keyDataOut == 8'h5A )
 		 begin
-			t_player_turn = PLAYER_TWO;
+			if ( playerTurn == PLAYER_ONE )
+			 begin
+				t_player_turn = PLAYER_TWO;
+			 end
+				
+			if ( playerTurn == PLAYER_TWO )
+			 begin
+				t_player_turn = PLAYER_ONE;
+			 end
 		 end
-			
-		if ( playerTurn == PLAYER_TWO )
-		 begin
-			t_player_turn = PLAYER_ONE;
-		 end
-	 end
-end
+	end
 
 // "main"
 	// Flash the LED's cause that is cool
@@ -142,14 +154,18 @@ end
 											keyboardClock, 
 											keyPressed, 
 											keyDataOut, 
-											keyboardData );
+											keyboardData,
+											//letter,
+											//number
+											);
 											
 	LED_CONTROLLER LED_CONTROLLER1( 
 											clock27, 
 											led_r, 
 											led_g, 
 											keyPressed, 
-											keyDataOut );
+											keyDataOut 
+											);
 	
 	HEX_CONTROLLER HEX_CONTROLLER1( 
 											clock27, 
@@ -158,7 +174,8 @@ end
 											numDisplay2, 
 											numDisplay3, 
 											playerTurn, 
-											keyboardData );
+											keyboardData 
+											);
 	
 	VGA_CONTROLLER VGA_CONTROLLER1( 
 											clock50, 
@@ -168,10 +185,12 @@ end
 											vga_green, 
 											vga_blue, 
 											vga_hor_sync, 
-											vga_ver_sync );
+											vga_ver_sync 
+											);
 	
 	// Determine which players turn it is, for debug purposes mostly
-	assign playerTurn = switch[0] ? PLAYER_TWO : PLAYER_ONE;
+	//assign playerTurn = switch[0] ? PLAYER_TWO : PLAYER_ONE;
+	assign playerTurn = t_player_turn;
 //end
 endmodule
 
