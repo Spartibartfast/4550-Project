@@ -170,7 +170,7 @@ always @ ( posedge clock27 )
 		// the next letter? Every 48 pixels down draw another letter...
 		// very low level hard coded values... starting at 96 and going down too 576.
 		// Then pixel_x can just go across each letter and deal with it from 20 to 500 or something.
-		
+
 		// Choose a letter to draw
 		// The Banner
 		if ( pixel_y > 0 && pixel_y < 90 )
@@ -188,61 +188,61 @@ always @ ( posedge clock27 )
 			boardLevel = 99;
 		 end
 		// The Board:
-		else if ( pixel_y > 96 && pixel_y <= 144 )
+		else if ( pixel_y > 96 && pixel_y <= 128 )
 		 begin
 			// A
 			can_draw   = 1;
 			boardLevel = 1;
 		 end
-		else if ( pixel_y > 144 && pixel_y <= 192 )
+		else if ( pixel_y > 128 && pixel_y <= 160 )
 		 begin
 			// B
 			can_draw   = 1;
 			boardLevel = 2;
 		 end
-		else if ( pixel_y > 192 && pixel_y <= 240 )
+		else if ( pixel_y > 160 && pixel_y <= 192 )
 		 begin
 			// C
 			can_draw   = 1;
 			boardLevel = 3;
 		 end
-		else if ( pixel_y > 240 && pixel_y <= 288 )
+		else if ( pixel_y > 192 && pixel_y <= 224 )
 		 begin
 			// D
 			can_draw   = 1;
 			boardLevel = 4;
 		 end
-		else if ( pixel_y > 288 && pixel_y <= 336 )
+		else if ( pixel_y > 224 && pixel_y <= 256 )
 		 begin
 			// E
 			can_draw   = 1;
 			boardLevel = 5;
 		 end
-		else if ( pixel_y > 336 && pixel_y <= 384 )
+		else if ( pixel_y > 256 && pixel_y <= 288 )
 		 begin
 			// F
 			can_draw   = 1;
 			boardLevel = 6;
 		 end
-		else if ( pixel_y > 384 && pixel_y <= 432 )
+		else if ( pixel_y > 228 && pixel_y <= 320 )
 		 begin
 			// G
 			can_draw   = 1;
 			boardLevel = 7;
 		 end
-		else if ( pixel_y > 432 && pixel_y <= 528 )
+		else if ( pixel_y > 320 && pixel_y <= 352 )
 		 begin
 			// H
 			can_draw   = 1;
 			boardLevel = 8;
 		 end
-		else if ( pixel_y > 528 && pixel_y <= 576 )
+		else if ( pixel_y > 352 && pixel_y <= 384 )
 		 begin
 			// I
 			can_draw   = 1;
 			boardLevel = 9;
 		 end
-		else if ( pixel_y > 576 && pixel_y <= 624 )
+		else if ( pixel_y > 384 && pixel_y <= 416 )
 		 begin
 			// J
 			can_draw   = 1;
@@ -263,6 +263,7 @@ always @ ( posedge clock27 )
 			99: tempLetter <= empty_pattern;
 		endcase
 			
+		// This should be for pixel_x...
 		case ( k )
 			10: tempVal <= tempLetter[19:18];
 			9:  tempVal <= tempLetter[17:16];
