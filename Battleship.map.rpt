@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Battleship
-Sat Mar 21 17:19:53 2015
+Sat Mar 21 18:11:45 2015
 Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
@@ -51,15 +51,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 21 17:19:53 2015         ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 21 18:11:45 2015         ;
 ; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Battleship                                    ;
 ; Top-level Entity Name              ; Battleship                                    ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 320                                           ;
-;     Total combinational functions  ; 293                                           ;
-;     Dedicated logic registers      ; 146                                           ;
-; Total registers                    ; 146                                           ;
+; Total logic elements               ; 393                                           ;
+;     Total combinational functions  ; 368                                           ;
+;     Dedicated logic registers      ; 152                                           ;
+; Total registers                    ; 152                                           ;
 ; Total pins                         ; 104                                           ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
@@ -181,27 +181,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 320        ;
+; Estimated Total logic elements              ; 393        ;
 ;                                             ;            ;
-; Total combinational functions               ; 293        ;
+; Total combinational functions               ; 368        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 120        ;
-;     -- 3 input functions                    ; 37         ;
-;     -- <=2 input functions                  ; 136        ;
+;     -- 4 input functions                    ; 176        ;
+;     -- 3 input functions                    ; 49         ;
+;     -- <=2 input functions                  ; 143        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 219        ;
+;     -- normal mode                          ; 294        ;
 ;     -- arithmetic mode                      ; 74         ;
 ;                                             ;            ;
-; Total registers                             ; 146        ;
-;     -- Dedicated logic registers            ; 146        ;
+; Total registers                             ; 152        ;
+;     -- Dedicated logic registers            ; 152        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 104        ;
 ; Maximum fan-out node                        ; clock27[0] ;
-; Maximum fan-out                             ; 107        ;
-; Total fan-out                               ; 1238       ;
-; Average fan-out                             ; 2.28       ;
+; Maximum fan-out                             ; 113        ;
+; Total fan-out                               ; 1526       ;
+; Average fan-out                             ; 2.45       ;
 +---------------------------------------------+------------+
 
 
@@ -210,101 +210,118 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |Battleship                         ; 293 (25)          ; 146 (23)     ; 0           ; 0            ; 0       ; 0         ; 104  ; 0            ; |Battleship                                ;              ;
+; |Battleship                         ; 368 (25)          ; 152 (23)     ; 0           ; 0            ; 0       ; 0         ; 104  ; 0            ; |Battleship                                ;              ;
 ;    |HEX_CONTROLLER:HEX_CONTROLLER1| ; 4 (4)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|HEX_CONTROLLER:HEX_CONTROLLER1 ;              ;
 ;    |KEY_CONTROLLER:KEY_CONTROLLER1| ; 10 (10)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|KEY_CONTROLLER:KEY_CONTROLLER1 ;              ;
 ;    |LED_CONTROLLER:LED_CONTROLLER1| ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|LED_CONTROLLER:LED_CONTROLLER1 ;              ;
-;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 238 (238)         ; 85 (85)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
+;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 313 (313)         ; 91 (91)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
 +-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                             ;
-+--------------------------------------------------------------------+-----------------------------------------------------------+
-; Register name                                                      ; Reason for Removal                                        ;
-+--------------------------------------------------------------------+-----------------------------------------------------------+
-; A[3,4]                                                             ; Stuck at GND due to stuck port data_in                    ;
-; B[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; B[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; B[1..3,5,7..15]                                                    ; Stuck at GND due to stuck port data_in                    ;
-; C[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; C[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; C[0..3,5,7,9..15]                                                  ; Stuck at GND due to stuck port data_in                    ;
-; D[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; D[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; D[0..15]                                                           ; Stuck at GND due to stuck port data_in                    ;
-; E[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; E[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; E[0..3,5,7,9,11..15]                                               ; Stuck at GND due to stuck port data_in                    ;
-; F[0..19]                                                           ; Stuck at GND due to stuck port data_in                    ;
-; G[0..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                    ;
-; H[0..15,17,19]                                                     ; Stuck at GND due to stuck port data_in                    ;
-; I[11,13..15,17,19]                                                 ; Stuck at GND due to stuck port data_in                    ;
-; I[10]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; I[9]                                                               ; Stuck at GND due to stuck port data_in                    ;
-; I[8]                                                               ; Stuck at VCC due to stuck port data_in                    ;
-; I[7]                                                               ; Stuck at GND due to stuck port data_in                    ;
-; I[6]                                                               ; Stuck at VCC due to stuck port data_in                    ;
-; I[0..3,5]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; J[2..17,19]                                                        ; Stuck at GND due to stuck port data_in                    ;
-; A[1,2]                                                             ; Stuck at GND due to stuck port data_in                    ;
-; J[0,1]                                                             ; Stuck at GND due to stuck port data_in                    ;
-; A[5..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                    ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|stupidCaseCheck                     ; Stuck at GND due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[0..6]                    ; Stuck at VCC due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[0..6]                    ; Stuck at VCC due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display0[0..6]                    ; Stuck at VCC due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[1]                       ; Stuck at GND due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[5]                       ; Stuck at VCC due to stuck port data_in                    ;
-; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[9]                      ; Stuck at GND due to stuck port data_in                    ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8]                     ; Stuck at GND due to stuck port data_in                    ;
-; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]                      ; Stuck at GND due to stuck port data_in                    ;
-; A[0]                                                               ; Merged with B[6]                                          ;
-; B[0]                                                               ; Merged with B[6]                                          ;
-; C[4,6,8]                                                           ; Merged with B[6]                                          ;
-; H[18]                                                              ; Merged with B[6]                                          ;
-; I[4,12,18]                                                         ; Merged with B[6]                                          ;
-; J[18]                                                              ; Merged with B[6]                                          ;
-; B[4]                                                               ; Merged with B[6]                                          ;
-; E[4,6,8,10]                                                        ; Merged with B[6]                                          ;
-; G[16]                                                              ; Merged with B[6]                                          ;
-; H[16]                                                              ; Merged with B[6]                                          ;
-; I[16]                                                              ; Merged with B[6]                                          ;
-; A[16]                                                              ; Merged with B[6]                                          ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[7..31]                   ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]  ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[6]                       ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1..3,5,7,9,13..15,17,19] ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]                      ; Stuck at GND due to stuck port data_in                    ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]                       ; Stuck at GND due to stuck port data_in                    ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[0]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[1]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[2]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[3]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[4]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[5]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[6]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[7]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[8]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[9]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]                          ; Stuck at GND due to stuck port data_in                    ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[8]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[4]      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[7]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]      ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[11]                     ; Lost fanout                                               ;
-; Total Number of Removed Registers = 279                            ;                                                           ;
-+--------------------------------------------------------------------+-----------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++-----------------------------------------------------------+-----------------------------------------------------------+
+; Register name                                             ; Reason for Removal                                        ;
++-----------------------------------------------------------+-----------------------------------------------------------+
+; B[16]                                                     ; Stuck at VCC due to stuck port data_in                    ;
+; B[1..3,5,7..11,15]                                        ; Stuck at GND due to stuck port data_in                    ;
+; C[17..19]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; C[16]                                                     ; Stuck at VCC due to stuck port data_in                    ;
+; C[0..3,5,7,9..15]                                         ; Stuck at GND due to stuck port data_in                    ;
+; D[17..19]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; D[16]                                                     ; Stuck at VCC due to stuck port data_in                    ;
+; D[0..15]                                                  ; Stuck at GND due to stuck port data_in                    ;
+; E[17..19]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; E[16]                                                     ; Stuck at VCC due to stuck port data_in                    ;
+; E[0..3,5,7,9,11..15]                                      ; Stuck at GND due to stuck port data_in                    ;
+; F[0..19]                                                  ; Stuck at GND due to stuck port data_in                    ;
+; G[0..15,17..19]                                           ; Stuck at GND due to stuck port data_in                    ;
+; H[0..15,17,19]                                            ; Stuck at GND due to stuck port data_in                    ;
+; I[11,13..15,17,19]                                        ; Stuck at GND due to stuck port data_in                    ;
+; I[10]                                                     ; Stuck at VCC due to stuck port data_in                    ;
+; I[9]                                                      ; Stuck at GND due to stuck port data_in                    ;
+; I[8]                                                      ; Stuck at VCC due to stuck port data_in                    ;
+; I[7]                                                      ; Stuck at GND due to stuck port data_in                    ;
+; I[6]                                                      ; Stuck at VCC due to stuck port data_in                    ;
+; I[0..3,5]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; J[0..17,19]                                               ; Stuck at GND due to stuck port data_in                    ;
+; OA[2,3,6,7,10,11,14,15,18,19]                             ; Stuck at VCC due to stuck port data_in                    ;
+; OA[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OB[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OB[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OC[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OC[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OD[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OD[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OE[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OE[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OF[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OF[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OG[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OG[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OH[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OH[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OI[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; OI[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; OJ[2..19]                                                 ; Stuck at VCC due to stuck port data_in                    ;
+; B[12..14]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; OJ[0,1]                                                   ; Stuck at GND due to stuck port data_in                    ;
+; B[17..19]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; A[1..15,17..19]                                           ; Stuck at GND due to stuck port data_in                    ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|stupidCaseCheck            ; Stuck at GND due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[0..6]           ; Stuck at VCC due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[0..6]           ; Stuck at VCC due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display0[0..6]           ; Stuck at VCC due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[1]              ; Stuck at GND due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[5]              ; Stuck at VCC due to stuck port data_in                    ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[9]             ; Stuck at GND due to stuck port data_in                    ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8]            ; Stuck at GND due to stuck port data_in                    ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]             ; Stuck at GND due to stuck port data_in                    ;
+; A[0]                                                      ; Merged with B[6]                                          ;
+; B[0]                                                      ; Merged with B[6]                                          ;
+; C[4,6,8]                                                  ; Merged with B[6]                                          ;
+; H[18]                                                     ; Merged with B[6]                                          ;
+; I[4,12,18]                                                ; Merged with B[6]                                          ;
+; J[18]                                                     ; Merged with B[6]                                          ;
+; B[4]                                                      ; Merged with B[6]                                          ;
+; E[4,6,8,10]                                               ; Merged with B[6]                                          ;
+; G[16]                                                     ; Merged with B[6]                                          ;
+; H[16]                                                     ; Merged with B[6]                                          ;
+; I[16]                                                     ; Merged with B[6]                                          ;
+; OA[4,5,8,9,12,13,16,17]                                   ; Merged with B[6]                                          ;
+; A[16]                                                     ; Merged with B[6]                                          ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[7..31]          ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]  ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[6]              ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[2,3,7,14,15,19] ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[5,9,17]         ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[13] ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1]              ; Stuck at GND due to stuck port data_in                    ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]              ; Stuck at GND due to stuck port data_in                    ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[0]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[1]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[2]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[3]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[4]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[5]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[6]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[7]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[8]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[9]             ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[11]            ; Lost fanout                                               ;
+; Total Number of Removed Registers = 474                   ;                                                           ;
++-----------------------------------------------------------+-----------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                 ;
-+------------------------------------------------+---------------------------+------------------------------------------------+
-; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register         ;
-+------------------------------------------------+---------------------------+------------------------------------------------+
-; B[11]                                          ; Stuck at GND              ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11], ;
-;                                                ; due to stuck port data_in ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]      ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8] ; Stuck at GND              ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]  ;
-;                                                ; due to stuck port data_in ;                                                ;
-+------------------------------------------------+---------------------------+------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                ;
++------------------------------------------------+---------------------------+-----------------------------------------------+
+; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register        ;
++------------------------------------------------+---------------------------+-----------------------------------------------+
+; B[1]                                           ; Stuck at GND              ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1]  ;
+;                                                ; due to stuck port data_in ;                                               ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8] ; Stuck at GND              ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8] ;
+;                                                ; due to stuck port data_in ;                                               ;
++------------------------------------------------+---------------------------+-----------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -312,12 +329,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 146   ;
+; Total registers                              ; 152   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Clock Enable       ; 66    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -335,11 +352,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; 1       ;
 ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; 1       ;
 ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]           ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]           ; 7       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]           ; 7       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]           ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]           ; 6       ;
-; Total number of inverted registers = 12       ;         ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]           ; 11      ;
+; Total number of inverted registers = 11       ;         ;
 +-----------------------------------------------+---------+
 
 
@@ -348,8 +364,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                            ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------+----------------------------+
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]  ;                            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]  ;                            ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]  ;                            ;
 ; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------+----------------------------+
 
@@ -385,7 +400,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; V_BACK_PORCH       ; 23    ; Signed Integer                                 ;
 ; BLOCK_SIZE         ; 32    ; Signed Integer                                 ;
 ; INDEX_START        ; 3     ; Signed Integer                                 ;
-; K_VAL              ; 15    ; Signed Integer                                 ;
+; K_VAL              ; 14    ; Signed Integer                                 ;
 +--------------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -427,7 +442,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -437,11 +452,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Mar 21 17:19:48 2015
+    Info: Processing started: Sat Mar 21 18:11:40 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Battleship -c Battleship
 Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
 Warning: Parallel compilation is not licensed and has been disabled
-Warning (10275): Verilog HDL Module Instantiation warning at Battleship.v(198): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at Battleship.v(209): ignored dangling comma in List of Port Connections
 Info: Found 1 design units, including 1 entities, in source file battleship.v
     Info: Found entity 1: Battleship
 Info: Found 1 design units, including 1 entities, in source file led_controller.v
@@ -456,30 +471,10 @@ Info: Found 1 design units, including 1 entities, in source file hex_controller.
 Info: Found 1 design units, including 1 entities, in source file the_great_decider.v
     Info: Found entity 1: THE_GREAT_DECIDER
 Info: Elaborating entity "Battleship" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(126): object "t_OA1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(127): object "t_OB1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(128): object "t_OC1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(129): object "t_OD1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(130): object "t_OE1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(131): object "t_OF1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(132): object "t_OG1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(133): object "t_OH1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(134): object "t_OI1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(135): object "t_OJ1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(138): object "t_OA2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(139): object "t_OB2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(140): object "t_OC2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(141): object "t_OD2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(142): object "t_OE2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(143): object "t_OF2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(144): object "t_OG2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(145): object "t_OH2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(146): object "t_OI2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Battleship.v(147): object "t_OJ2" assigned a value but never read
 Warning (10230): Verilog HDL assignment warning at Battleship.v(65): truncated value with size 32 to match size of target (1)
-Warning (10646): Verilog HDL Event Control warning at Battleship.v(172): posedge or negedge of vector "clock24" depends solely on its least-significant bit
-Warning (10230): Verilog HDL assignment warning at Battleship.v(178): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at Battleship.v(183): truncated value with size 32 to match size of target (1)
+Warning (10646): Verilog HDL Event Control warning at Battleship.v(183): posedge or negedge of vector "clock24" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at Battleship.v(189): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Battleship.v(194): truncated value with size 32 to match size of target (1)
 Info: Elaborating entity "KEY_CONTROLLER" for hierarchy "KEY_CONTROLLER:KEY_CONTROLLER1"
 Warning (10036): Verilog HDL or VHDL warning at key_controller.v(55): object "numLetterSelect" assigned a value but never read
 Warning (10646): Verilog HDL Event Control warning at key_controller.v(57): posedge or negedge of vector "clock27" depends solely on its least-significant bit
@@ -496,14 +491,14 @@ Warning (10646): Verilog HDL Event Control warning at vga_controller.v(127): pos
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(132): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(155): truncated value with size 32 to match size of target (9)
 Warning (10646): Verilog HDL Event Control warning at vga_controller.v(181): posedge or negedge of vector "clock27" depends solely on its least-significant bit
-Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(278): can't check case statement for completeness because the case expression has too many possible states
-Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(293): can't check case statement for completeness because the case expression has too many possible states
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(345): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(346): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(347): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(353): truncated value with size 4 to match size of target (3)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(354): truncated value with size 4 to match size of target (3)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(355): truncated value with size 4 to match size of target (3)
+Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(337): can't check case statement for completeness because the case expression has too many possible states
+Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(352): can't check case statement for completeness because the case expression has too many possible states
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(439): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(440): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(441): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(447): truncated value with size 4 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(448): truncated value with size 4 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(449): truncated value with size 4 to match size of target (3)
 Warning: 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "led_r[8]" is stuck at GND
@@ -570,13 +565,13 @@ Warning: Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "switch[7]"
     Warning (15610): No output dependent on input pin "switch[8]"
     Warning (15610): No output dependent on input pin "switch[9]"
-Info: Implemented 433 device resources after synthesis - the final resource count might be different
+Info: Implemented 504 device resources after synthesis - the final resource count might be different
     Info: Implemented 17 input pins
     Info: Implemented 87 output pins
-    Info: Implemented 329 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 110 warnings
-    Info: Peak virtual memory: 271 megabytes
-    Info: Processing ended: Sat Mar 21 17:19:53 2015
+    Info: Implemented 400 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 90 warnings
+    Info: Peak virtual memory: 272 megabytes
+    Info: Processing ended: Sat Mar 21 18:11:45 2015
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 

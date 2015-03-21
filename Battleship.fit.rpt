@@ -1,5 +1,5 @@
 Fitter report for Battleship
-Sat Mar 21 17:19:59 2015
+Sat Mar 21 18:11:54 2015
 Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
@@ -62,17 +62,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                     ;
 +------------------------------------+-----------------------------------------------+
-; Fitter Status                      ; Successful - Sat Mar 21 17:19:59 2015         ;
+; Fitter Status                      ; Successful - Sat Mar 21 18:11:54 2015         ;
 ; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Battleship                                    ;
 ; Top-level Entity Name              ; Battleship                                    ;
 ; Family                             ; Cyclone II                                    ;
 ; Device                             ; EP2C20F484C7                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 312 / 18,752 ( 2 % )                          ;
-;     Total combinational functions  ; 293 / 18,752 ( 2 % )                          ;
-;     Dedicated logic registers      ; 146 / 18,752 ( < 1 % )                        ;
-; Total registers                    ; 146                                           ;
+; Total logic elements               ; 385 / 18,752 ( 2 % )                          ;
+;     Total combinational functions  ; 368 / 18,752 ( 2 % )                          ;
+;     Dedicated logic registers      ; 152 / 18,752 ( < 1 % )                        ;
+; Total registers                    ; 152                                           ;
 ; Total pins                         ; 104 / 315 ( 33 % )                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                           ;
@@ -449,8 +449,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 550 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 550 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 631 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 631 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -473,7 +473,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 547     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 628     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -489,26 +489,26 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 +---------------------------------------------+-------------------------------------------+
 ; Resource                                    ; Usage                                     ;
 +---------------------------------------------+-------------------------------------------+
-; Total logic elements                        ; 312 / 18,752 ( 2 % )                      ;
-;     -- Combinational with no register       ; 166                                       ;
-;     -- Register only                        ; 19                                        ;
-;     -- Combinational with a register        ; 127                                       ;
+; Total logic elements                        ; 385 / 18,752 ( 2 % )                      ;
+;     -- Combinational with no register       ; 233                                       ;
+;     -- Register only                        ; 17                                        ;
+;     -- Combinational with a register        ; 135                                       ;
 ;                                             ;                                           ;
 ; Logic element usage by number of LUT inputs ;                                           ;
-;     -- 4 input functions                    ; 120                                       ;
-;     -- 3 input functions                    ; 37                                        ;
-;     -- <=2 input functions                  ; 136                                       ;
-;     -- Register only                        ; 19                                        ;
+;     -- 4 input functions                    ; 176                                       ;
+;     -- 3 input functions                    ; 49                                        ;
+;     -- <=2 input functions                  ; 143                                       ;
+;     -- Register only                        ; 17                                        ;
 ;                                             ;                                           ;
 ; Logic elements by mode                      ;                                           ;
-;     -- normal mode                          ; 219                                       ;
+;     -- normal mode                          ; 294                                       ;
 ;     -- arithmetic mode                      ; 74                                        ;
 ;                                             ;                                           ;
-; Total registers*                            ; 146 / 19,649 ( < 1 % )                    ;
-;     -- Dedicated logic registers            ; 146 / 18,752 ( < 1 % )                    ;
+; Total registers*                            ; 152 / 19,649 ( < 1 % )                    ;
+;     -- Dedicated logic registers            ; 152 / 18,752 ( < 1 % )                    ;
 ;     -- I/O registers                        ; 0 / 897 ( 0 % )                           ;
 ;                                             ;                                           ;
-; Total LABs:  partially or completely used   ; 33 / 1,172 ( 3 % )                        ;
+; Total LABs:  partially or completely used   ; 36 / 1,172 ( 3 % )                        ;
 ; User inserted logic elements                ; 0                                         ;
 ; Virtual pins                                ; 0                                         ;
 ; I/O pins                                    ; 104 / 315 ( 33 % )                        ;
@@ -524,13 +524,13 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )                             ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )                             ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%                              ;
-; Peak interconnect usage (total/H/V)         ; 2% / 2% / 3%                              ;
+; Peak interconnect usage (total/H/V)         ; 1% / 1% / 2%                              ;
 ; Maximum fan-out node                        ; clock27[0]~clkctrl                        ;
-; Maximum fan-out                             ; 107                                       ;
-; Highest non-global fan-out signal           ; VGA_CONTROLLER:VGA_CONTROLLER1|always1~18 ;
-; Highest non-global fan-out                  ; 32                                        ;
-; Total fan-out                               ; 1255                                      ;
-; Average fan-out                             ; 2.23                                      ;
+; Maximum fan-out                             ; 113                                       ;
+; Highest non-global fan-out signal           ; VGA_CONTROLLER:VGA_CONTROLLER1|always1~11 ;
+; Highest non-global fan-out                  ; 34                                        ;
+; Total fan-out                               ; 1539                                      ;
+; Average fan-out                             ; 2.40                                      ;
 +---------------------------------------------+-------------------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -543,26 +543,26 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 312 / 18752 ( 1 % )   ; 0 / 18752 ( 0 % )              ;
-;     -- Combinational with no register       ; 166                   ; 0                              ;
-;     -- Register only                        ; 19                    ; 0                              ;
-;     -- Combinational with a register        ; 127                   ; 0                              ;
+; Total logic elements                        ; 385 / 18752 ( 2 % )   ; 0 / 18752 ( 0 % )              ;
+;     -- Combinational with no register       ; 233                   ; 0                              ;
+;     -- Register only                        ; 17                    ; 0                              ;
+;     -- Combinational with a register        ; 135                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 120                   ; 0                              ;
-;     -- 3 input functions                    ; 37                    ; 0                              ;
-;     -- <=2 input functions                  ; 136                   ; 0                              ;
-;     -- Register only                        ; 19                    ; 0                              ;
+;     -- 4 input functions                    ; 176                   ; 0                              ;
+;     -- 3 input functions                    ; 49                    ; 0                              ;
+;     -- <=2 input functions                  ; 143                   ; 0                              ;
+;     -- Register only                        ; 17                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 219                   ; 0                              ;
+;     -- normal mode                          ; 294                   ; 0                              ;
 ;     -- arithmetic mode                      ; 74                    ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total registers                             ; 146                   ; 0                              ;
-;     -- Dedicated logic registers            ; 146 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+; Total registers                             ; 152                   ; 0                              ;
+;     -- Dedicated logic registers            ; 152 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 33 / 1172 ( 2 % )     ; 0 / 1172 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 36 / 1172 ( 3 % )     ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 104                   ; 0                              ;
@@ -578,8 +578,8 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 1255                  ; 0                              ;
-;     -- Registered Connections               ; 446                   ; 0                              ;
+;     -- Total Connections                    ; 1539                  ; 0                              ;
+;     -- Registered Connections               ; 536                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -636,15 +636,15 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 +----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name           ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; keyDataOut[0]  ; D16   ; 4        ; 42           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[1]  ; C16   ; 4        ; 44           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[2]  ; T15   ; 7        ; 39           ; 0            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[3]  ; B18   ; 4        ; 46           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[4]  ; E15   ; 4        ; 42           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[5]  ; AB17  ; 7        ; 37           ; 0            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[6]  ; AB18  ; 7        ; 42           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[7]  ; H3    ; 2        ; 0            ; 19           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; keyDataOut[8]  ; AA3   ; 8        ; 1            ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[0]  ; E20   ; 5        ; 50           ; 23           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[1]  ; C19   ; 5        ; 50           ; 24           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[2]  ; B17   ; 4        ; 37           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[3]  ; C22   ; 5        ; 50           ; 24           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[4]  ; F15   ; 4        ; 39           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[5]  ; C16   ; 4        ; 44           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[6]  ; H13   ; 4        ; 37           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[7]  ; C21   ; 5        ; 50           ; 24           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; keyDataOut[8]  ; T22   ; 6        ; 50           ; 9            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 ; led_g[0]       ; U22   ; 6        ; 50           ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; led_g[1]       ; U21   ; 6        ; 50           ; 7            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; led_g[2]       ; V22   ; 6        ; 50           ; 7            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
@@ -695,51 +695,51 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; vga_blue[1]    ; D11   ; 3        ; 22           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_blue[2]    ; A10   ; 3        ; 20           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_blue[3]    ; B10   ; 3        ; 20           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; vga_blue[4]    ; Y14   ; 7        ; 39           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_blue[5]    ; V2    ; 1        ; 0            ; 6            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_blue[6]    ; D7    ; 3        ; 9            ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_blue[7]    ; T8    ; 8        ; 5            ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_blue[8]    ; K22   ; 5        ; 50           ; 15           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_blue[9]    ; G16   ; 4        ; 44           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_blue[4]    ; T1    ; 1        ; 0            ; 8            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_blue[5]    ; G8    ; 3        ; 7            ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_blue[6]    ; AB5   ; 8        ; 3            ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_blue[7]    ; R13   ; 7        ; 37           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_blue[8]    ; R16   ; 7        ; 44           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_blue[9]    ; V15   ; 7        ; 46           ; 0            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 ; vga_green[0]   ; B8    ; 3        ; 13           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_green[1]   ; C10   ; 3        ; 18           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_green[2]   ; B9    ; 3        ; 15           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_green[3]   ; A8    ; 3        ; 13           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; vga_green[4]   ; AB4   ; 8        ; 1            ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_green[5]   ; D8    ; 3        ; 9            ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_green[6]   ; Y17   ; 7        ; 46           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_green[7]   ; B17   ; 4        ; 37           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_green[8]   ; V11   ; 8        ; 20           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_green[9]   ; C14   ; 4        ; 39           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_green[4]   ; F13   ; 4        ; 35           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_green[5]   ; M6    ; 1        ; 0            ; 12           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_green[6]   ; J17   ; 5        ; 50           ; 18           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_green[7]   ; U1    ; 1        ; 0            ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_green[8]   ; F10   ; 3        ; 18           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_green[9]   ; C7    ; 3        ; 7            ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 ; vga_hor_sync   ; A11   ; 3        ; 22           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_red[0]     ; D9    ; 3        ; 13           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_red[1]     ; C9    ; 3        ; 9            ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_red[2]     ; A7    ; 3        ; 11           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_red[3]     ; B7    ; 3        ; 11           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; vga_red[4]     ; H14   ; 4        ; 42           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_red[5]     ; W1    ; 1        ; 0            ; 4            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_red[6]     ; AA8   ; 8        ; 15           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_red[7]     ; AB13  ; 7        ; 29           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_red[8]     ; B20   ; 4        ; 48           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; vga_red[9]     ; N22   ; 6        ; 50           ; 12           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_red[4]     ; B16   ; 4        ; 33           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_red[5]     ; U2    ; 1        ; 0            ; 7            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_red[6]     ; K20   ; 5        ; 50           ; 17           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_red[7]     ; R22   ; 6        ; 50           ; 10           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_red[8]     ; P15   ; 6        ; 50           ; 11           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; vga_red[9]     ; Y9    ; 8        ; 11           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 ; vga_ver_sync   ; B11   ; 3        ; 22           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 +----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
-+-------------------------------------------------------------+
-; I/O Bank Usage                                              ;
-+----------+-------------------+---------------+--------------+
-; I/O Bank ; Usage             ; VCCIO Voltage ; VREF Voltage ;
-+----------+-------------------+---------------+--------------+
-; 1        ; 4 / 41 ( 10 % )   ; 3.3V          ; --           ;
-; 2        ; 33 / 33 ( 100 % ) ; 3.3V          ; --           ;
-; 3        ; 18 / 43 ( 42 % )  ; 3.3V          ; --           ;
-; 4        ; 13 / 40 ( 33 % )  ; 3.3V          ; --           ;
-; 5        ; 3 / 39 ( 8 % )    ; 3.3V          ; --           ;
-; 6        ; 21 / 36 ( 58 % )  ; 3.3V          ; --           ;
-; 7        ; 8 / 40 ( 20 % )   ; 3.3V          ; --           ;
-; 8        ; 7 / 43 ( 16 % )   ; 3.3V          ; --           ;
-+----------+-------------------+---------------+--------------+
++------------------------------------------------------------+
+; I/O Bank Usage                                             ;
++----------+------------------+---------------+--------------+
+; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
++----------+------------------+---------------+--------------+
+; 1        ; 6 / 41 ( 15 % )  ; 3.3V          ; --           ;
+; 2        ; 32 / 33 ( 97 % ) ; 3.3V          ; --           ;
+; 3        ; 19 / 43 ( 44 % ) ; 3.3V          ; --           ;
+; 4        ; 10 / 40 ( 25 % ) ; 3.3V          ; --           ;
+; 5        ; 8 / 39 ( 21 % )  ; 3.3V          ; --           ;
+; 6        ; 23 / 36 ( 64 % ) ; 3.3V          ; --           ;
+; 7        ; 5 / 40 ( 13 % )  ; 3.3V          ; --           ;
+; 8        ; 4 / 43 ( 9 % )   ; 3.3V          ; --           ;
++----------+------------------+---------------+--------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -771,12 +771,12 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; A22      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AA1      ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AA2      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; AA3      ; 82         ; 8        ; keyDataOut[8]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA3      ; 82         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA4      ; 85         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA5      ; 89         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA6      ; 97         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA7      ; 103        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AA8      ; 111        ; 8        ; vga_red[6]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA8      ; 111        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA9      ; 114        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA10     ; 120        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA11     ; 122        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -794,8 +794,8 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; AB1      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AB2      ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AB3      ; 83         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AB4      ; 84         ; 8        ; vga_green[4]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; AB5      ; 88         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AB4      ; 84         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AB5      ; 88         ; 8        ; vga_blue[6]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AB6      ; 96         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB7      ; 102        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB8      ; 110        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -803,12 +803,12 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; AB10     ; 119        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB11     ; 121        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB12     ; 127        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AB13     ; 129        ; 7        ; vga_red[7]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB13     ; 129        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB14     ; 135        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB15     ; 137        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB16     ; 139        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AB17     ; 143        ; 7        ; keyDataOut[5]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; AB18     ; 152        ; 7        ; keyDataOut[6]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB17     ; 143        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AB18     ; 152        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB19     ; 161        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB20     ; 163        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB21     ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -828,11 +828,11 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; B13      ; 280        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B14      ; 278        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B15      ; 272        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B16      ; 270        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B17      ; 264        ; 4        ; vga_green[7]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; B18      ; 250        ; 4        ; keyDataOut[3]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B16      ; 270        ; 4        ; vga_red[4]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B17      ; 264        ; 4        ; keyDataOut[2]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B18      ; 250        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B19      ; 248        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B20      ; 246        ; 4        ; vga_red[8]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B20      ; 246        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B21      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B22      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; C1       ; 8          ; 2        ; numDisplay2[3]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
@@ -841,30 +841,30 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; C4       ; 0          ; 2        ; ~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; On           ;
 ; C5       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; C6       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; C7       ; 315        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C7       ; 315        ; 3        ; vga_green[9]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C8       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; C9       ; 310        ; 3        ; vga_red[1]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; C10      ; 296        ; 3        ; vga_green[1]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; C11      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; C12      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; C13      ; 275        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C14      ; 260        ; 4        ; vga_green[9]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; C14      ; 260        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C15      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; C16      ; 254        ; 4        ; keyDataOut[1]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; C16      ; 254        ; 4        ; keyDataOut[5]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C17      ; 245        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C18      ; 244        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C19      ; 238        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; C19      ; 238        ; 5        ; keyDataOut[1]                            ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; C20      ; 239        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; C21      ; 236        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; C22      ; 237        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; C21      ; 236        ; 5        ; keyDataOut[7]                            ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; C22      ; 237        ; 5        ; keyDataOut[3]                            ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; D1       ; 14         ; 2        ; numDisplay1[6]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; D2       ; 15         ; 2        ; numDisplay1[5]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; D3       ; 2          ; 2        ; numDisplay2[6]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; D4       ; 3          ; 2        ; numDisplay3[6]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; D5       ; 4          ; 2        ; numDisplay3[1]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; D6       ; 5          ; 2        ; numDisplay3[2]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; D7       ; 311        ; 3        ; vga_blue[6]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; D8       ; 309        ; 3        ; vga_green[5]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; D7       ; 311        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; D8       ; 309        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D9       ; 302        ; 3        ; vga_red[0]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; D10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; D11      ; 289        ; 3        ; vga_blue[1]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
@@ -872,7 +872,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; D13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; D14      ; 267        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D15      ; 259        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D16      ; 255        ; 4        ; keyDataOut[0]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; D16      ; 255        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D17      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; D18      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; D19      ; 240        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -893,12 +893,12 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; E12      ; 285        ; 3        ; clock27[1]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; E13      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; E14      ; 266        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; E15      ; 256        ; 4        ; keyDataOut[4]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; E15      ; 256        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E16      ;            ;          ; GNDA_PLL2                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; E17      ;            ;          ; GND_PLL2                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; E18      ; 243        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E19      ; 242        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E20      ; 234        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; E20      ; 234        ; 5        ; keyDataOut[0]                            ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; E21      ; 227        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E22      ; 228        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F1       ; 22         ; 2        ; numDisplay0[5]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
@@ -910,12 +910,12 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; F7       ;            ;          ; GNDA_PLL3                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; F8       ; 312        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F9       ; 307        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; F10      ; 295        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; F10      ; 295        ; 3        ; vga_green[8]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; F11      ; 294        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F12      ; 276        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; F13      ; 269        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; F13      ; 269        ; 4        ; vga_green[4]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; F14      ; 268        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; F15      ; 262        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; F15      ; 262        ; 4        ; keyDataOut[4]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; F16      ;            ;          ; VCCA_PLL2                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; F17      ;            ;          ; VCCD_PLL2                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; F18      ;            ;          ; GND_PLL2                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -930,7 +930,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; G5       ; 12         ; 2        ; numDisplay2[0]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; G6       ; 11         ; 2        ; numDisplay2[1]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; G7       ; 317        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; G8       ; 313        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; G8       ; 313        ; 3        ; vga_blue[5]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; G9       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; G10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G11      ; 291        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -938,7 +938,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; G13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G14      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; G15      ; 261        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; G16      ; 252        ; 4        ; vga_blue[9]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; G16      ; 252        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G17      ; 231        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G18      ; 232        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G19      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -947,7 +947,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; G22      ; 222        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H1       ; 24         ; 2        ; numDisplay0[3]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; H2       ; 25         ; 2        ; numDisplay0[2]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; H3       ; 27         ; 2        ; keyDataOut[7]                            ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; H3       ; 27         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H4       ; 17         ; 2        ; numDisplay1[3]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; H5       ; 18         ; 2        ; numDisplay1[2]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; H6       ; 19         ; 2        ; numDisplay1[1]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
@@ -957,8 +957,8 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; H10      ; 299        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H11      ; 290        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H12      ; 274        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; H13      ; 263        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; H14      ; 257        ; 4        ; vga_red[4]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; H13      ; 263        ; 4        ; keyDataOut[6]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; H14      ; 257        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H15      ; 253        ; 4        ; keyboardClock                            ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; H16      ; 219        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H17      ; 226        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -983,7 +983,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; J14      ; 258        ; 4        ; keyboardData                             ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; J15      ; 220        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J16      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; J17      ; 218        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; J17      ; 218        ; 5        ; vga_green[6]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J18      ; 217        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J19      ; 216        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J20      ; 213        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1008,9 +1008,9 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; K17      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; K18      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; K19      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; K20      ; 215        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; K20      ; 215        ; 5        ; vga_red[6]                               ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K21      ; 209        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; K22      ; 210        ; 5        ; vga_blue[8]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K22      ; 210        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L1       ; 38         ; 2        ; clock50                                  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; L2       ; 39         ; 2        ; switch[9]                                ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; L3       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -1038,7 +1038,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; M3       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; M4       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; M5       ; 43         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M6       ; 44         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; M6       ; 44         ; 1        ; vga_green[5]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; M7       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M8       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M9       ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -1076,7 +1076,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; N19      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N20      ; 195        ; 6        ; ^nSTATUS                                 ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N21      ; 199        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; N22      ; 200        ; 6        ; vga_red[9]                               ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N22      ; 200        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P1       ; 47         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P2       ; 48         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P3       ; 50         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1091,7 +1091,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; P12      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; P13      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; P14      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; P15      ; 193        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; P15      ; 193        ; 6        ; vga_red[8]                               ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; P16      ;            ; 6        ; VCCIO6                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; P17      ; 186        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P18      ; 187        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1111,40 +1111,40 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; R10      ; 108        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R11      ; 116        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R12      ; 134        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R13      ; 145        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; R13      ; 145        ; 7        ; vga_blue[7]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; R14      ; 150        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R15      ; 151        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R16      ; 155        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; R16      ; 155        ; 7        ; vga_blue[8]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; R17      ; 177        ; 6        ; led_r[9]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R18      ; 184        ; 6        ; led_r[8]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R19      ; 185        ; 6        ; led_r[1]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R20      ; 192        ; 6        ; led_r[0]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R21      ; 190        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R22      ; 191        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; T1       ; 59         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R22      ; 191        ; 6        ; vga_red[7]                               ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; T1       ; 59         ; 1        ; vga_blue[4]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; T2       ; 60         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T3       ; 69         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T4       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; T5       ; 67         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T6       ; 68         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T7       ; 91         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; T8       ; 90         ; 8        ; vga_blue[7]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; T8       ; 90         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T9       ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; T10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T11      ; 115        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T12      ; 131        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T14      ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; T15      ; 147        ; 7        ; keyDataOut[2]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; T15      ; 147        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T16      ; 156        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T17      ;            ;          ; GND_PLL4                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T18      ; 171        ; 6        ; led_r[4]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; T19      ;            ; 6        ; VCCIO6                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; T20      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T21      ; 188        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; T22      ; 189        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; U1       ; 61         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; U2       ; 62         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; T22      ; 189        ; 6        ; keyDataOut[8]                            ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U1       ; 61         ; 1        ; vga_green[7]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U2       ; 62         ; 1        ; vga_red[5]                               ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; U3       ; 70         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U4       ; 80         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U5       ;            ;          ; GND_PLL1                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1166,7 +1166,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; U21      ; 182        ; 6        ; led_g[1]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; U22      ; 183        ; 6        ; led_g[0]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V1       ; 65         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; V2       ; 66         ; 1        ; vga_blue[5]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V2       ; 66         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V4       ; 81         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V5       ;            ;          ; GND_PLL1                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1175,11 +1175,11 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; V8       ; 98         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V9       ; 101        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V10      ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; V11      ; 118        ; 8        ; vga_green[8]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; V11      ; 118        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V12      ; 126        ; 7        ; switch[3]                                ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; V13      ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; V14      ; 142        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; V15      ; 158        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; V15      ; 158        ; 7        ; vga_blue[9]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; V16      ;            ;          ; GNDA_PLL4                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V17      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V18      ;            ;          ; GND_PLL4                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1187,7 +1187,7 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; V20      ; 173        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V21      ; 180        ; 6        ; led_g[3]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V22      ; 181        ; 6        ; led_g[2]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; W1       ; 71         ; 1        ; vga_red[5]                               ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; W1       ; 71         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W2       ; 72         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W3       ; 75         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W4       ; 76         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1217,15 +1217,15 @@ The pin-out file can be found in D:/Dropbox/Computer Science/4th Year/Comp 4550/
 ; Y6       ; 87         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y7       ; 93         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y8       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; Y9       ; 104        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; Y9       ; 104        ; 8        ; vga_red[9]                               ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; Y10      ; 112        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y11      ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; Y12      ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; Y13      ; 133        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; Y14      ; 148        ; 7        ; vga_blue[4]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y14      ; 148        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y15      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; Y16      ; 154        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; Y17      ; 159        ; 7        ; vga_green[6]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y17      ; 159        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y18      ; 165        ; 6        ; led_r[6]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y19      ; 168        ; 6        ; led_r[3]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y20      ; 169        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1277,11 +1277,11 @@ Note: User assignments will override these defaults. The user specified values a
 +-------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node          ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                        ; Library Name ;
 +-------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+--------------------------------------------+--------------+
-; |Battleship                         ; 312 (24)    ; 146 (23)                  ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 104  ; 0            ; 166 (1)      ; 19 (0)            ; 127 (24)         ; |Battleship                                ;              ;
+; |Battleship                         ; 385 (24)    ; 152 (23)                  ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 104  ; 0            ; 233 (1)      ; 17 (0)            ; 135 (24)         ; |Battleship                                ;              ;
 ;    |HEX_CONTROLLER:HEX_CONTROLLER1| ; 5 (5)       ; 5 (5)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 4 (4)            ; |Battleship|HEX_CONTROLLER:HEX_CONTROLLER1 ;              ;
 ;    |KEY_CONTROLLER:KEY_CONTROLLER1| ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 8 (8)             ; 9 (9)            ; |Battleship|KEY_CONTROLLER:KEY_CONTROLLER1 ;              ;
 ;    |LED_CONTROLLER:LED_CONTROLLER1| ; 24 (24)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 8 (8)             ; 14 (14)          ; |Battleship|LED_CONTROLLER:LED_CONTROLLER1 ;              ;
-;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 240 (240)   ; 85 (85)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 154 (154)    ; 2 (2)             ; 84 (84)          ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
+;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 313 (313)   ; 91 (91)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 221 (221)    ; 0 (0)             ; 92 (92)          ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
 +-------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+--------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1398,38 +1398,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+----------+---------------+---------------+-----------------------+-----+
 
 
-+---------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                              ;
-+---------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                           ; Pad To Core Index ; Setting ;
-+---------------------------------------------------------------+-------------------+---------+
-; clock24[1]                                                    ;                   ;         ;
-; clock27[1]                                                    ;                   ;         ;
-; switch[1]                                                     ;                   ;         ;
-; switch[2]                                                     ;                   ;         ;
-; switch[3]                                                     ;                   ;         ;
-; switch[4]                                                     ;                   ;         ;
-; switch[5]                                                     ;                   ;         ;
-; switch[6]                                                     ;                   ;         ;
-; switch[7]                                                     ;                   ;         ;
-; switch[8]                                                     ;                   ;         ;
-; switch[9]                                                     ;                   ;         ;
-; clock27[0]                                                    ;                   ;         ;
-; keyboardClock                                                 ;                   ;         ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[1]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[2]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[3]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[4]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[5]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[6]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[7]        ; 0                 ; 0       ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[8]        ; 0                 ; 0       ;
-; keyboardData                                                  ;                   ;         ;
-;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[8]~feeder ; 0                 ; 6       ;
-; clock24[0]                                                    ;                   ;         ;
-; switch[0]                                                     ;                   ;         ;
-; clock50                                                       ;                   ;         ;
-+---------------------------------------------------------------+-------------------+---------+
++--------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                       ;
++--------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                    ; Pad To Core Index ; Setting ;
++--------------------------------------------------------+-------------------+---------+
+; clock24[1]                                             ;                   ;         ;
+; clock27[1]                                             ;                   ;         ;
+; switch[1]                                              ;                   ;         ;
+; switch[2]                                              ;                   ;         ;
+; switch[3]                                              ;                   ;         ;
+; switch[4]                                              ;                   ;         ;
+; switch[5]                                              ;                   ;         ;
+; switch[6]                                              ;                   ;         ;
+; switch[7]                                              ;                   ;         ;
+; switch[8]                                              ;                   ;         ;
+; switch[9]                                              ;                   ;         ;
+; clock27[0]                                             ;                   ;         ;
+; keyboardClock                                          ;                   ;         ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[1] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[2] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[3] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[4] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[5] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[6] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[7] ; 0                 ; 0       ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[8] ; 0                 ; 0       ;
+; keyboardData                                           ;                   ;         ;
+;      - KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[8] ; 0                 ; 6       ;
+; clock24[0]                                             ;                   ;         ;
+; switch[0]                                              ;                   ;         ;
+; clock50                                                ;                   ;         ;
++--------------------------------------------------------+-------------------+---------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1437,18 +1437,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; Name                                           ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10] ; LCFF_X20_Y23_N19   ; 8       ; Clock        ; yes    ; Global Clock         ; GCLK1            ; --                        ;
-; LED_CONTROLLER:LED_CONTROLLER1|always0~7       ; LCCOMB_X43_Y24_N12 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal0~2        ; LCCOMB_X21_Y21_N12 ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~9    ; LCCOMB_X19_Y20_N14 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~8    ; LCCOMB_X21_Y20_N24 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~0     ; LCCOMB_X19_Y19_N10 ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~18      ; LCCOMB_X19_Y18_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]~8     ; LCCOMB_X18_Y19_N16 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10] ; LCFF_X23_Y18_N19   ; 8       ; Clock        ; yes    ; Global Clock         ; GCLK10           ; --                        ;
+; LED_CONTROLLER:LED_CONTROLLER1|always0~7       ; LCCOMB_X38_Y24_N18 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal0~2        ; LCCOMB_X23_Y18_N20 ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~3    ; LCCOMB_X24_Y15_N4  ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector8~3     ; LCCOMB_X20_Y15_N26 ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~0     ; LCCOMB_X20_Y15_N4  ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~11      ; LCCOMB_X24_Y19_N10 ; 34      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~27    ; LCCOMB_X18_Y11_N4  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
 ; clock24[0]                                     ; PIN_B12            ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; clock27[0]                                     ; PIN_D12            ; 107     ; Clock        ; yes    ; Global Clock         ; GCLK11           ; --                        ;
+; clock27[0]                                     ; PIN_D12            ; 113     ; Clock        ; yes    ; Global Clock         ; GCLK11           ; --                        ;
 ; clock50                                        ; PIN_L1             ; 21      ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; heartbeat[20]                                  ; LCFF_X20_Y20_N19   ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; heartbeat[20]                                  ; LCFF_X25_Y15_N19   ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
 ; keyboardClock                                  ; PIN_H15            ; 8       ; Clock        ; no     ; --                   ; --               ; --                        ;
 +------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
@@ -1458,8 +1458,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
 ; Name                                           ; Location         ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10] ; LCFF_X20_Y23_N19 ; 8       ; Global Clock         ; GCLK1            ; --                        ;
-; clock27[0]                                     ; PIN_D12          ; 107     ; Global Clock         ; GCLK11           ; --                        ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10] ; LCFF_X23_Y18_N19 ; 8       ; Global Clock         ; GCLK10           ; --                        ;
+; clock27[0]                                     ; PIN_D12          ; 113     ; Global Clock         ; GCLK11           ; --                        ;
 ; clock50                                        ; PIN_L1           ; 21      ; Global Clock         ; GCLK2            ; --                        ;
 +------------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
 
@@ -1469,106 +1469,155 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------+---------+
 ; Name                                              ; Fan-Out ;
 +---------------------------------------------------+---------+
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~18         ; 32      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~15         ; 31      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]         ; 23      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]         ; 22      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~26      ; 20      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]         ; 20      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~11         ; 34      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k~0                ; 28      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~46      ; 27      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~43      ; 27      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]         ; 26      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]         ; 25      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]         ; 25      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[6]         ; 25      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~31      ; 24      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~44      ; 22      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|whichBoard         ; 20      ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~33      ; 19      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~32      ; 19      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~15      ; 19      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~17      ; 18      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[5]         ; 17      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]         ; 12      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]         ; 12      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw~2         ; 10      ;
+; t_player_turn                                     ; 14      ;
+; B[6]                                              ; 13      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[4]         ; 13      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[3]         ; 13      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~19       ; 11      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan4~2        ; 11      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]               ; 11      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]               ; 11      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan4~3        ; 10      ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal0~2           ; 10      ;
-; B[6]                                              ; 9       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~4          ; 9       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|canDisplay         ; 9       ;
 ; keyboardClock                                     ; 8       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]~6        ; 8       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~0       ; 8       ;
-; t_player_turn                                     ; 8       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~27       ; 8       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~26       ; 8       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[0]         ; 8       ;
 ; LED_CONTROLLER:LED_CONTROLLER1|always0~7          ; 8       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[5]    ; 8       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[4]    ; 8       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[3]    ; 8       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[1]    ; 8       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]~8        ; 7       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw~0         ; 7       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal22~0          ; 7       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]               ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[0]               ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]               ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~4       ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|canDisplay         ; 7       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]               ; 7       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]         ; 7       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[2]    ; 7       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[0]    ; 7       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[31]              ; 6       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]               ; 6       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]         ; 6       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[6]    ; 6       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]         ; 6       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[2]         ; 6       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~8          ; 5       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[0]         ; 5       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~1          ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]         ; 6       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]         ; 6       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]         ; 6       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[8]      ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[4]      ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal15~0          ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~17      ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~2          ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[0]         ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]               ; 5       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]         ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan1~2        ; 5       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[7]    ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[1]         ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~62            ; 5       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]         ; 5       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]         ; 5       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]         ; 5       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]         ; 5       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~15          ; 4       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[6]      ; 4       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan6~0        ; 4       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan4~0        ; 4       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]         ; 4       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]         ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]         ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]         ; 5       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~13         ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~12         ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1           ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~18       ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~0          ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[31]              ; 4       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~60            ; 4       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]         ; 4       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]         ; 4       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]         ; 4       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw~3         ; 3       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~17          ; 3       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~0        ; 3       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal9~0           ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~3   ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~2   ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~3       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~2       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~1       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector8~3        ; 3       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[18]     ; 3       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~4          ; 3       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~2          ; 3       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan0~0        ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[0]      ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[6]      ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]     ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~25       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1~1         ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1~0         ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal21~0          ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal19~0          ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~17       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~9          ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~12      ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~6          ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan6~1        ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan6~0        ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan31~1       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~10      ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan29~0       ; 3       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan4~4        ; 2       ;
 ; heartbeat[0]                                      ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector3~2        ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector3~1        ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector3~0        ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~8       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~2       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~3       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~2       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~9       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~5       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~3       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~0       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~2       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~21         ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~13      ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~19         ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan31~0       ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[10]     ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]     ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[4]      ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[0]      ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~1        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~0        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[12]~11  ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[12]~10  ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~8   ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~6   ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~5   ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~4   ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~3        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~2        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~1        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~0       ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~2       ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~0        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector6~0        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector8~0        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~29      ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~14         ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[12]     ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[8]      ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1~3         ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal16~1          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]     ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[10]     ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[13]     ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~28          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~21          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal17~0          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal13~2          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal19~1          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal15~2          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal15~1          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal16~0          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~11         ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~0       ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~16      ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~14      ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~16       ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~8          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan9~1        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan5~0        ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~9       ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~1          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~11      ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~10         ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~9          ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal15~0          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~8          ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~7          ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[30]              ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~4          ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[29]              ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[28]              ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[27]              ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[26]              ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[25]              ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[24]              ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[6]               ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[25]              ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[26]              ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[27]              ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[4]               ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[5]               ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[7]               ; 2       ;
@@ -1588,9 +1637,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[21]              ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[22]              ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k[23]              ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan1~0        ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|t_red~2            ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|t_red~1            ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|canDisplay~0       ; 2       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]          ; 2       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[8]   ; 2       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[7]   ; 2       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[6]   ; 2       ;
@@ -1599,8 +1647,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[3]   ; 2       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[2]   ; 2       ;
 ; heartbeat[20]                                     ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~62            ; 2       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~60            ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~58            ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~56            ; 2       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~54            ; 2       ;
@@ -1650,43 +1696,81 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2]~2   ; 1       ;
 ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1]~1   ; 1       ;
 ; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0]~0   ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~49      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~48      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~15  ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~14  ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~18         ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~41          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[12]~13  ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~6       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~7       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~47      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~40          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~39          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~38          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~37          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Equal13~3          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan1~3        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~4        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~3        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~2        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[12]~12  ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~13      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~12      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]~16       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~0        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~2       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~1       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~0       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~11      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~10      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~2        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector1~1        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector3~5        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector3~4        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector3~3        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~7       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~6       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~5       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~4       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~3       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~1       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~4       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~1       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~0       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector7~2        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal9~1           ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector7~1        ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector7~0        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~9       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~8       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~7       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~9   ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[16]~7   ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~4       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~3       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~2       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~1       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector19~0       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~5       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~4       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~6       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~5       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~4       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector11~3       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~6        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~5        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector9~4        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector15~2       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~6       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~5       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~4       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector13~3       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector6~3        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector6~2        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector6~1        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector8~2        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector8~1        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~45      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1]      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~31      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3]      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~42      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~41      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~40      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~39      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~38      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~37      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~17         ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~36      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~35      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~16         ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~34      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~15         ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2]      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~32      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0]      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~30      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~29      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~28      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~27      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~26      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~25      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~24      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~23      ; 1       ;
@@ -1695,20 +1779,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~20      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~19      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~18      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[2]      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~16      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[3]      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[0]      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~14      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~20         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~12      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~11      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~10      ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~9       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~8       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~7       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~6       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~5       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[1]      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|whichBoard~0       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~12      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k~32               ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k~31               ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k~30               ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k~29               ; 1       ;
@@ -1740,69 +1814,76 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k~3                ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k~2                ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|k~1                ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~17         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~16         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k~0                ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~14         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~13         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~12         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~11         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~10         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~9          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~8          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~7          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~6          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~5          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~7       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~6       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~5       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~4       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~3       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~2       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~1       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Selector21~0       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~14          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~13          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~12          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~11          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~10          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~9           ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal16~0          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1~2         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1~1         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|WideNor1~0         ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour~7           ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~7          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector20~1       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Selector20~0       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~36          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~35          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~34          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~33          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~32          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~31          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~30          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~29          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~24       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~23       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]~22       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour~20          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan28~0       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~10         ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~15      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~13      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~11      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~7          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~10      ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan9~0        ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~5          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|always1~3          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw           ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan31~0       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~6          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~5          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~4          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~3          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~2          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~1          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal12~0          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan28~0       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~3       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~2       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel~1       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~3          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|can_draw           ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|always1~0          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~9       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~8       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~7       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~6       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~5       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~4       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~3       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~2       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~1       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan30~0       ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|canDisplay~1       ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|canDisplay~0       ; 1       ;
 ; t_player_turn~0                                   ; 1       ;
 ; Equal0~1                                          ; 1       ;
 ; Equal0~0                                          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal0~1           ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|Equal0~0           ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|LessThan1~1        ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|t_blue~2           ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|colour[2]          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|t_blue~1           ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|colour[1]          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|t_blue~0           ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|colour[0]          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|t_green~0          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]          ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[4]          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|t_green~2          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|t_green~1          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[4]          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|t_green~0          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|t_red~2            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[8]          ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|t_red~1            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[7]          ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|t_red~0            ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|colour[6]          ; 1       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[1]   ; 1       ;
@@ -1903,37 +1984,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; heartbeat[17]                                     ; 1       ;
 ; heartbeat[18]                                     ; 1       ;
 ; heartbeat[19]                                     ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~61            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~59            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~57            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~55            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~53            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~51            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~49            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~47            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~45            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~43            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~41            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~39            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~37            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~35            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~33            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~31            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~29            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~27            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~25            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~23            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~21            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~19            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~17            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~15            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~13            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~11            ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~9             ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~7             ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~5             ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~3             ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~1             ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[8]~22      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]~21      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_y[7]~20      ; 1       ;
@@ -1966,6 +2016,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]~11      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]~10      ; 1       ;
 ; VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]~9       ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~61            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~59            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~57            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~55            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~53            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~51            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~49            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~47            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~45            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~43            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~41            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~39            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~37            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~35            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~33            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~31            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~29            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~27            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~25            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~23            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~21            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~19            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~17            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~15            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~13            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~11            ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~9             ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~7             ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~5             ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~3             ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|Add2~1             ; 1       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]~19 ; 1       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]~18 ; 1       ;
 ; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]~16 ; 1       ;
@@ -1985,48 +2066,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------+------------------------+
 ; Interconnect Resource Type ; Usage                  ;
 +----------------------------+------------------------+
-; Block interconnects        ; 366 / 54,004 ( < 1 % ) ;
-; C16 interconnects          ; 5 / 2,100 ( < 1 % )    ;
-; C4 interconnects           ; 291 / 36,000 ( < 1 % ) ;
-; Direct links               ; 57 / 54,004 ( < 1 % )  ;
+; Block interconnects        ; 469 / 54,004 ( < 1 % ) ;
+; C16 interconnects          ; 9 / 2,100 ( < 1 % )    ;
+; C4 interconnects           ; 272 / 36,000 ( < 1 % ) ;
+; Direct links               ; 107 / 54,004 ( < 1 % ) ;
 ; Global clocks              ; 3 / 16 ( 19 % )        ;
-; Local interconnects        ; 168 / 18,752 ( < 1 % ) ;
-; R24 interconnects          ; 8 / 1,900 ( < 1 % )    ;
-; R4 interconnects           ; 212 / 46,920 ( < 1 % ) ;
+; Local interconnects        ; 215 / 18,752 ( 1 % )   ;
+; R24 interconnects          ; 12 / 1,900 ( < 1 % )   ;
+; R4 interconnects           ; 274 / 46,920 ( < 1 % ) ;
 +----------------------------+------------------------+
 
 
-+---------------------------------------------------------------------------+
-; LAB Logic Elements                                                        ;
-+--------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 9.45) ; Number of LABs  (Total = 33) ;
-+--------------------------------------------+------------------------------+
-; 1                                          ; 9                            ;
-; 2                                          ; 2                            ;
-; 3                                          ; 0                            ;
-; 4                                          ; 1                            ;
-; 5                                          ; 1                            ;
-; 6                                          ; 1                            ;
-; 7                                          ; 0                            ;
-; 8                                          ; 1                            ;
-; 9                                          ; 1                            ;
-; 10                                         ; 0                            ;
-; 11                                         ; 1                            ;
-; 12                                         ; 0                            ;
-; 13                                         ; 0                            ;
-; 14                                         ; 0                            ;
-; 15                                         ; 0                            ;
-; 16                                         ; 16                           ;
-+--------------------------------------------+------------------------------+
++----------------------------------------------------------------------------+
+; LAB Logic Elements                                                         ;
++---------------------------------------------+------------------------------+
+; Number of Logic Elements  (Average = 10.69) ; Number of LABs  (Total = 36) ;
++---------------------------------------------+------------------------------+
+; 1                                           ; 9                            ;
+; 2                                           ; 0                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 1                            ;
+; 5                                           ; 1                            ;
+; 6                                           ; 0                            ;
+; 7                                           ; 0                            ;
+; 8                                           ; 1                            ;
+; 9                                           ; 2                            ;
+; 10                                          ; 1                            ;
+; 11                                          ; 1                            ;
+; 12                                          ; 0                            ;
+; 13                                          ; 0                            ;
+; 14                                          ; 0                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 20                           ;
++---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.03) ; Number of LABs  (Total = 33) ;
+; LAB-wide Signals  (Average = 1.08) ; Number of LABs  (Total = 36) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 26                           ;
-; 1 Clock enable                     ; 7                            ;
+; 1 Clock                            ; 28                           ;
+; 1 Clock enable                     ; 10                           ;
 ; 2 Clocks                           ; 1                            ;
 +------------------------------------+------------------------------+
 
@@ -2034,107 +2115,105 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 13.45) ; Number of LABs  (Total = 33) ;
+; Number of Signals Sourced  (Average = 14.47) ; Number of LABs  (Total = 36) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 6                            ;
-; 2                                            ; 3                            ;
-; 3                                            ; 1                            ;
-; 4                                            ; 1                            ;
-; 5                                            ; 1                            ;
+; 1                                            ; 3                            ;
+; 2                                            ; 6                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
-; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
+; 7                                            ; 1                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 1                            ;
-; 10                                           ; 2                            ;
+; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
-; 12                                           ; 0                            ;
+; 12                                           ; 1                            ;
 ; 13                                           ; 0                            ;
 ; 14                                           ; 0                            ;
 ; 15                                           ; 0                            ;
-; 16                                           ; 3                            ;
-; 17                                           ; 1                            ;
-; 18                                           ; 2                            ;
-; 19                                           ; 2                            ;
-; 20                                           ; 1                            ;
-; 21                                           ; 0                            ;
+; 16                                           ; 6                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 3                            ;
+; 19                                           ; 3                            ;
+; 20                                           ; 2                            ;
+; 21                                           ; 1                            ;
 ; 22                                           ; 1                            ;
 ; 23                                           ; 1                            ;
-; 24                                           ; 2                            ;
-; 25                                           ; 1                            ;
-; 26                                           ; 0                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 2                            ;
+; 26                                           ; 1                            ;
 ; 27                                           ; 1                            ;
-; 28                                           ; 2                            ;
+; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 1                            ;
+; 30                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 6.79) ; Number of LABs  (Total = 33) ;
+; Number of Signals Sourced Out  (Average = 7.11) ; Number of LABs  (Total = 36) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 1                            ;
-; 1                                               ; 10                           ;
-; 2                                               ; 1                            ;
-; 3                                               ; 0                            ;
-; 4                                               ; 2                            ;
-; 5                                               ; 3                            ;
+; 1                                               ; 9                            ;
+; 2                                               ; 0                            ;
+; 3                                               ; 1                            ;
+; 4                                               ; 4                            ;
+; 5                                               ; 2                            ;
 ; 6                                               ; 1                            ;
 ; 7                                               ; 1                            ;
 ; 8                                               ; 4                            ;
 ; 9                                               ; 2                            ;
-; 10                                              ; 0                            ;
+; 10                                              ; 1                            ;
 ; 11                                              ; 0                            ;
-; 12                                              ; 0                            ;
+; 12                                              ; 2                            ;
 ; 13                                              ; 0                            ;
-; 14                                              ; 2                            ;
-; 15                                              ; 1                            ;
-; 16                                              ; 4                            ;
-; 17                                              ; 0                            ;
-; 18                                              ; 0                            ;
-; 19                                              ; 1                            ;
+; 14                                              ; 4                            ;
+; 15                                              ; 0                            ;
+; 16                                              ; 3                            ;
+; 17                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                        ;
-+---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 9.36) ; Number of LABs  (Total = 33) ;
-+---------------------------------------------+------------------------------+
-; 0                                           ; 0                            ;
-; 1                                           ; 2                            ;
-; 2                                           ; 6                            ;
-; 3                                           ; 4                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 2                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 1                            ;
-; 8                                           ; 0                            ;
-; 9                                           ; 3                            ;
-; 10                                          ; 1                            ;
-; 11                                          ; 3                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 0                            ;
-; 14                                          ; 0                            ;
-; 15                                          ; 1                            ;
-; 16                                          ; 1                            ;
-; 17                                          ; 2                            ;
-; 18                                          ; 1                            ;
-; 19                                          ; 0                            ;
-; 20                                          ; 0                            ;
-; 21                                          ; 0                            ;
-; 22                                          ; 0                            ;
-; 23                                          ; 1                            ;
-; 24                                          ; 0                            ;
-; 25                                          ; 1                            ;
-; 26                                          ; 1                            ;
-; 27                                          ; 0                            ;
-; 28                                          ; 0                            ;
-; 29                                          ; 1                            ;
-+---------------------------------------------+------------------------------+
++-----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 10.72) ; Number of LABs  (Total = 36) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 3                            ;
+; 2                                            ; 9                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 2                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 0                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 2                            ;
+; 11                                           ; 4                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 2                            ;
+; 14                                           ; 0                            ;
+; 15                                           ; 2                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 2                            ;
+; 18                                           ; 1                            ;
+; 19                                           ; 3                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 0                            ;
+; 22                                           ; 0                            ;
+; 23                                           ; 1                            ;
+; 24                                           ; 0                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 0                            ;
+; 27                                           ; 1                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 1                            ;
+; 30                                           ; 1                            ;
++----------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -2172,7 +2251,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Mar 21 17:19:54 2015
+    Info: Processing started: Sat Mar 21 18:11:46 2015
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Battleship -c Battleship
 Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
 Warning: Parallel compilation is not licensed and has been disabled
@@ -2545,7 +2624,7 @@ Warning: Ignored locations or region assignments to the following nodes
     Warning: Node "TDO" is assigned to location or region, but does not exist in design
     Warning: Node "UART_RXD" is assigned to location or region, but does not exist in design
     Warning: Node "UART_TXD" is assigned to location or region, but does not exist in design
-Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -2553,7 +2632,7 @@ Info: Fitter placement was successful
 Info: Fitter placement operations ending: elapsed time is 00:00:00
 Info: Fitter routing operations beginning
 Info: Router estimated average interconnect usage is 0% of the available device resources
-    Info: Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X12_Y14 to location X24_Y27
+    Info: Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X12_Y14 to location X24_Y27
 Info: Fitter routing operations ending: elapsed time is 00:00:01
 Info: The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info: Optimizations that may affect the design's routability were skipped
@@ -2651,9 +2730,9 @@ Info: Delay annotation completed successfully
 Warning: Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info: Quartus II Fitter was successful. 0 errors, 302 warnings
-    Info: Peak virtual memory: 327 megabytes
-    Info: Processing ended: Sat Mar 21 17:19:59 2015
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 328 megabytes
+    Info: Processing ended: Sat Mar 21 18:11:55 2015
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:06
 
 

@@ -57,7 +57,7 @@ parameter V_BACK_PORCH 		  = 23;
 parameter BLOCK_SIZE  		  = 32;
 parameter INDEX_START 		  = 3; // This has to be BLOCK_SIZE * X = 96!!!!!!!!!!!!! STOP FORGETTING THIS!
 											 // This is done for a good reason Chris...
-parameter K_VAL 				  = 15;
+parameter K_VAL 				  = 14;
 
 // Board stuff
 // the 10x10 battleship board! 48x48 pixel boxes
@@ -273,6 +273,65 @@ always @ ( posedge clock27 )
 			can_draw   = 1;
 			boardLevel = 10;
 		 end
+		 
+		// Supposed to be vertical lines
+		///////
+		/*if ( pixel_y > ( BLOCK_SIZE * INDEX_START ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 1 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 2 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 3 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 4 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 5 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 6 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 7 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 8 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 9 ) ) )
+		 begin
+			can_draw = 0;
+			colour <= 9'b000000000;
+		 end
+		else
+		 begin
+			can_draw = 1;
+		 end
+		*/
+		///////
 			
 
 		case ( boardLevel )
@@ -308,7 +367,7 @@ always @ ( posedge clock27 )
 		// I feel this is self explanitory 
 		if ( stupidCaseCheck == 1 )
 		 begin
-			stupidCaseCheck = 0;
+			stupidCaseCheck = 0; // suuuuper stupid
 			// i.e. if we are below the banner
 			if ( can_draw == 1 )
 			 begin
@@ -328,18 +387,53 @@ always @ ( posedge clock27 )
 				2'b11: colour <= 9'b111000000; // hit
 			endcase
 		 end
+		 
+		if ( k == 75 )
+		 begin
+			colour <= 9'b000000000;
+			//k = 10;
+		 end
 		
 		if ( ( pixel_x > BLOCK_SIZE * 2 ) &&
 			  ( pixel_x % BLOCK_SIZE == 0 ) && 
 			  ( can_draw == 1 ) )
 		 begin
-			k = k - 1;
+			if ( k == 75 )
+			 begin
+				k = 10;
+			 end
+			else
+			 begin
+				k = k - 1;
+			 end
 		
-			// Don't duplicate the board
-			if ( ( k < 1 ) && ( pixel_x < BLOCK_SIZE * 10 ) )
+			// Draw the second board
+			if ( ( k < 1 ) && whichBoard == 0 )
+			 begin
+				k = 75;
+				whichBoard = 1;
+			 end
+			 // Don't duplicate the board
+			if ( ( k < 1 ) && ( pixel_x < BLOCK_SIZE * 20 ) )
 			 begin
 				k = K_VAL;
+				whichBoard = 0;
 			 end
+			else
+			 begin
+				// So this makes vertical lines apparently...
+				colour <= 9'b000000000;
+			 end
+		 end // end big if
+		 
+		if ( pixel_x > BLOCK_SIZE * 28 && can_draw == 1 )
+		 begin
+			colour <= 9'b000000000;
+		 end
+		 
+		if ( pixel_y > BLOCK_SIZE * 13 && can_draw == 1 )
+		 begin
+			colour <= 9'b000000000;
 		 end
 					 
 		t_red   <= canDisplay ? colour[8:6] : 0;

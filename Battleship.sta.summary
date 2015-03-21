@@ -3,36 +3,32 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'clock27[0]'
-Slack : -7.968
-TNS   : -518.434
-
-Type  : Slow Model Setup 'clock24[0]'
-Slack : -2.706
-TNS   : -2.706
+Slack : -9.921
+TNS   : -626.707
 
 Type  : Slow Model Setup 'clock50'
-Slack : -2.398
-TNS   : -29.629
+Slack : -2.387
+TNS   : -29.519
 
-Type  : Slow Model Setup 'keyboardClock'
-Slack : 0.120
-TNS   : 0.000
+Type  : Slow Model Setup 'clock24[0]'
+Slack : -1.453
+TNS   : -1.453
 
 Type  : Slow Model Setup 'KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]'
-Slack : 0.475
-TNS   : 0.000
+Slack : -0.992
+TNS   : -6.728
 
-Type  : Slow Model Hold 'clock27[0]'
-Slack : -2.485
-TNS   : -2.909
+Type  : Slow Model Setup 'keyboardClock'
+Slack : -0.020
+TNS   : -0.055
 
 Type  : Slow Model Hold 'clock50'
-Slack : -2.480
-TNS   : -2.480
+Slack : -2.509
+TNS   : -2.509
 
-Type  : Slow Model Hold 'KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]'
-Slack : -0.027
-TNS   : -0.064
+Type  : Slow Model Hold 'clock27[0]'
+Slack : -2.481
+TNS   : -2.698
 
 Type  : Slow Model Hold 'clock24[0]'
 Slack : 0.445
@@ -42,9 +38,13 @@ Type  : Slow Model Hold 'keyboardClock'
 Slack : 0.622
 TNS   : 0.000
 
+Type  : Slow Model Hold 'KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]'
+Slack : 1.425
+TNS   : 0.000
+
 Type  : Slow Model Minimum Pulse Width 'clock27[0]'
 Slack : -1.631
-TNS   : -132.385
+TNS   : -139.717
 
 Type  : Slow Model Minimum Pulse Width 'clock50'
 Slack : -1.631
@@ -67,36 +67,32 @@ Slack : -0.611
 TNS   : -1.222
 
 Type  : Fast Model Setup 'clock27[0]'
-Slack : -2.424
-TNS   : -139.305
-
-Type  : Fast Model Setup 'clock24[0]'
-Slack : -0.837
-TNS   : -0.837
+Slack : -3.308
+TNS   : -175.985
 
 Type  : Fast Model Setup 'clock50'
-Slack : -0.431
-TNS   : -2.263
+Slack : -0.424
+TNS   : -2.193
 
-Type  : Fast Model Setup 'keyboardClock'
-Slack : 0.635
-TNS   : 0.000
+Type  : Fast Model Setup 'clock24[0]'
+Slack : -0.250
+TNS   : -0.250
 
 Type  : Fast Model Setup 'KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]'
-Slack : 0.858
+Slack : 0.194
+TNS   : 0.000
+
+Type  : Fast Model Setup 'keyboardClock'
+Slack : 0.553
 TNS   : 0.000
 
 Type  : Fast Model Hold 'clock50'
-Slack : -1.670
-TNS   : -1.670
+Slack : -1.693
+TNS   : -1.693
 
 Type  : Fast Model Hold 'clock27[0]'
-Slack : -1.669
-TNS   : -5.452
-
-Type  : Fast Model Hold 'KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]'
-Slack : -0.103
-TNS   : -0.303
+Slack : -1.666
+TNS   : -4.985
 
 Type  : Fast Model Hold 'clock24[0]'
 Slack : 0.215
@@ -106,9 +102,13 @@ Type  : Fast Model Hold 'keyboardClock'
 Slack : 0.240
 TNS   : 0.000
 
+Type  : Fast Model Hold 'KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[10]'
+Slack : 0.573
+TNS   : 0.000
+
 Type  : Fast Model Minimum Pulse Width 'clock27[0]'
 Slack : -1.380
-TNS   : -108.380
+TNS   : -114.380
 
 Type  : Fast Model Minimum Pulse Width 'clock50'
 Slack : -1.380

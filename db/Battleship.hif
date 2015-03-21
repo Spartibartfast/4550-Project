@@ -652,7 +652,7 @@ ON
 # case_sensitive
 # source_file
 battleship.v
-f7ec743a66e4a1ace3d61619e408673
+02ea0bd196ee3dc25e67a5de525f8ab
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -702,7 +702,7 @@ ON
 # case_sensitive
 # source_file
 vga_controller.v
-19753bd832e9d9259aef6456116caf8
+bcb1e4750b68daf23944c9e6bf14
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -778,7 +778,7 @@ INDEX_START
 PARAMETER_SIGNED_DEC
 DEF
 K_VAL
-15
+14
 PARAMETER_SIGNED_DEC
 DEF
 }
