@@ -172,6 +172,7 @@ always @ ( posedge clock27 )
 		// Then pixel_x can just go across each letter and deal with it from 20 to 500 or something.
 		
 		// Choose a letter to draw
+		// The Banner
 		if ( pixel_y > 0 && pixel_y < 90 )
 		 begin
 			// Banner
@@ -186,6 +187,7 @@ always @ ( posedge clock27 )
 			colour    <= 9'b000000000;
 			boardLevel = 99;
 		 end
+		// The Board:
 		else if ( pixel_y > 96 && pixel_y <= 144 )
 		 begin
 			// A
