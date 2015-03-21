@@ -1,6 +1,5 @@
 Battleship Project
-By: Christopher Funk
-#7620162
+By: 
 
 So I got the LED's, and the HEX display working pretty well. I can read in keyboard data and display it to the LED's.
 The Keyboard is a bit jumpy at the moment, I have to stabilize that somehow ( probably going to use hysteresis or something on it ). I am also not doing any error checking right now (parity bit) so I might try to implement that in the future to see if that makes it more responsive.
