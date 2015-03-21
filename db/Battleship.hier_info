@@ -679,6 +679,14 @@ J[16] => Selector3.IN22
 J[17] => Selector2.IN22
 J[18] => Selector1.IN22
 J[19] => Selector0.IN22
-playerTurn => ~NO_FANOUT~
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
+playerTurn => colour.DATAB
 
 

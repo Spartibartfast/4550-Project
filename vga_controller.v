@@ -53,6 +53,10 @@ parameter V_SYNC_PULSE 		  = 4;
 parameter H_BACK_PORCH 		  = 88;
 parameter V_BACK_PORCH 		  = 23;
 
+parameter BLOCK_SIZE  		  = 32;
+parameter INDEX_START 		  = 3; // This has to be BLOCK_SIZE * X = 96!!!!!!!!!!!!! STOP FORGETTING THIS!
+											 // This is done for a good reason Chris...
+
 // Board stuff
 // the 10x10 battleship board! 48x48 pixel boxes
 // Blue  - Water
@@ -168,71 +172,78 @@ always @ ( posedge clock27 )
 		// Then pixel_x can just go across each letter and deal with it from 20 to 500 or something.
 		
 		// Choose a letter to draw
-		if ( pixel_y > 0 && pixel_y < 96 )
+		if ( pixel_y > 0 && pixel_y < 90 )
 		 begin
 			// Banner
-			can_draw = 0;
-			colour <= playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000;
+			can_draw   = 0;
+			colour    <= playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000;
+			boardLevel = 99;
+		 end
+		else if ( pixel_y > 90 && pixel_y < 96 )
+		 begin
+			// Line...
+			can_draw   = 0;
+			colour    <= 9'b000000000;
 			boardLevel = 99;
 		 end
 		else if ( pixel_y > 96 && pixel_y <= 144 )
 		 begin
 			// A
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 1;
 		 end
 		else if ( pixel_y > 144 && pixel_y <= 192 )
 		 begin
 			// B
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 2;
 		 end
 		else if ( pixel_y > 192 && pixel_y <= 240 )
 		 begin
 			// C
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 3;
 		 end
 		else if ( pixel_y > 240 && pixel_y <= 288 )
 		 begin
 			// D
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 4;
 		 end
 		else if ( pixel_y > 288 && pixel_y <= 336 )
 		 begin
 			// E
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 5;
 		 end
 		else if ( pixel_y > 336 && pixel_y <= 384 )
 		 begin
 			// F
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 6;
 		 end
 		else if ( pixel_y > 384 && pixel_y <= 432 )
 		 begin
 			// G
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 7;
 		 end
 		else if ( pixel_y > 432 && pixel_y <= 528 )
 		 begin
 			// H
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 8;
 		 end
 		else if ( pixel_y > 528 && pixel_y <= 576 )
 		 begin
 			// I
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 9;
 		 end
 		else if ( pixel_y > 576 && pixel_y <= 624 )
 		 begin
 			// J
-			can_draw = 1;
+			can_draw   = 1;
 			boardLevel = 10;
 		 end
 			
@@ -263,12 +274,17 @@ always @ ( posedge clock27 )
 			1:  tempVal <= tempLetter[1:0];
 		endcase
 		
-		case ( tempVal )
-			2'b00: colour <= 9'b000000111; // water
-			2'b01: colour <= 9'b000000000; // ship
-			2'b10: colour <= 9'b111111111; // miss
-			2'b11: colour <= 9'b111000000; // hit
-		endcase
+		// Actually make sure we can draw the board, otherwise, we are drawing the
+		// banner based on player turn. Colour is gotten from that place then
+		if ( can_draw == 1 )
+		 begin
+			case ( tempVal )
+				2'b00: colour <= 9'b000000111; // water
+				2'b01: colour <= 9'b000000000; // ship
+				2'b10: colour <= 9'b111111111; // miss
+				2'b11: colour <= 9'b111000000; // hit
+			endcase
+		 end
 		
 		if ( ( pixel_x % 48 == 0 ) && ( can_draw == 1 ) )
 		 begin
@@ -280,9 +296,9 @@ always @ ( posedge clock27 )
 			 end
 		 end
 					 
-		t_red   <= canDisplay ? colour[8:6] /*| board*/ : 0;
-		t_green <= canDisplay ? colour[5:3] /*| board*/ : 0;
-		t_blue  <= canDisplay ? colour[2:0] /*| board*/ : 0;
+		t_red   <= canDisplay ? colour[8:6] : 0;
+		t_green <= canDisplay ? colour[5:3] : 0;
+		t_blue  <= canDisplay ? colour[2:0] : 0;
 	end // end board logic
 	
 assign vga_hor_sync = ~t_hor;
