@@ -1,1 +1,16 @@
-Readme.txt
+*.asm.rpt
+*.done
+*.summary
+*.rpt
+*.smsg
+*.map*
+*.cnf
+*.sta.summary
+*.sta.rpt
+#.amm.cdb
+*.cdb
+*.hbd
+*.cdb
+*.bpm
+*.cdb
+*.bpm

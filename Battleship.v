@@ -85,6 +85,18 @@ reg    [19:0] H;
 reg    [19:0] I; 
 reg    [19:0] J;
 
+// Board for the oppisite player's board, so you can see what you did
+reg    [19:0] OA;
+reg    [19:0] OB; 
+reg    [19:0] OC; 
+reg    [19:0] OD; 
+reg    [19:0] OE; 
+reg    [19:0] OF; 
+reg    [19:0] OG; 
+reg    [19:0] OH; 
+reg    [19:0] OI; 
+reg    [19:0] OJ;
+
 // Player 1 start board
 reg    [19:0] t_A1 = 20'b00010000000000000000;
 reg    [19:0] t_B1 = 20'b00010000000001010000; 
@@ -108,6 +120,31 @@ reg    [19:0] t_G2 = 20'b00000000000000000000;
 reg    [19:0] t_H2 = 20'b01000000000000000000; 
 reg    [19:0] t_I2 = 20'b01000001010101010000; 
 reg    [19:0] t_J2 = 20'b01000000000000000000;  
+
+// View for opposite players board
+// Player 1 start board
+reg    [19:0] t_OA1 = 20'b00000000000000000000;
+reg    [19:0] t_OB1 = 20'b00000000000000000000; 
+reg    [19:0] t_OC1 = 20'b00000000000000000000; 
+reg    [19:0] t_OD1 = 20'b00000000000000000000; 
+reg    [19:0] t_OE1 = 20'b00000000000000000000; 
+reg    [19:0] t_OF1 = 20'b00000000000000000000; 
+reg    [19:0] t_OG1 = 20'b00000000000000000000; 
+reg    [19:0] t_OH1 = 20'b00000000000000000000; 
+reg    [19:0] t_OI1 = 20'b00000000000000000000; 
+reg    [19:0] t_OJ1 = 20'b00000000000000000000;
+
+// Player 2 start board
+reg    [19:0] t_OA2 = 20'b00000000000000000000;
+reg    [19:0] t_OB2 = 20'b00000000000000000000; 
+reg    [19:0] t_OC2 = 20'b00000000000000000000; 
+reg    [19:0] t_OD2 = 20'b00000000000000000000; 
+reg    [19:0] t_OE2 = 20'b00000000000000000000; 
+reg    [19:0] t_OF2 = 20'b00000000000000000000; 
+reg    [19:0] t_OG2 = 20'b00000000000000000000; 
+reg    [19:0] t_OH2 = 20'b00000000000000000000; 
+reg    [19:0] t_OI2 = 20'b00000000000000000000; 
+reg    [19:0] t_OJ2 = 20'b00000000000000000000;
  
 
 // our heartbeat timer
@@ -181,7 +218,8 @@ always @ ( posedge clock24 )
 	VGA_CONTROLLER VGA_CONTROLLER1( 
 											clock27,
 											clock50, 
-											A, B, C, D, E, F, G, H, I, J, 
+											A, B, C, D, E, F, G, H, I, J,
+										   OA, OB, OC, OD, OE, OF, OG, OH, OI, OJ,	
 											playerTurn,
 											vga_red, 
 											vga_green, 

@@ -20,6 +20,7 @@ module VGA_CONTROLLER (
 		clock50, // 640x480 @ 25.175MHz Pixel Clock
 					// 800x600 @ 40.0MHz pixel clock <--- ????????????
 		A, B, C, D, E, F, G, H, I, J, 
+		OA, OB, OC, OD, OE, OF, OG, OH, OI, OJ,
 		playerTurn,
 		vga_red, 
 		vga_green, 
@@ -56,6 +57,7 @@ parameter V_BACK_PORCH 		  = 23;
 parameter BLOCK_SIZE  		  = 32;
 parameter INDEX_START 		  = 3; // This has to be BLOCK_SIZE * X = 96!!!!!!!!!!!!! STOP FORGETTING THIS!
 											 // This is done for a good reason Chris...
+parameter K_VAL 				  = 15;
 
 // Board stuff
 // the 10x10 battleship board! 48x48 pixel boxes
@@ -76,15 +78,27 @@ input [19:0] F;
 input [19:0] G; 
 input [19:0] H; 
 input [19:0] I; 
-input [19:0] J;  
+input [19:0] J;
+input [19:0] OA;
+input [19:0] OB; 
+input [19:0] OC; 
+input [19:0] OD; 
+input [19:0] OE; 
+input [19:0] OF; 
+input [19:0] OG; 
+input [19:0] OH; 
+input [19:0] OI; 
+input [19:0] OJ;   
 reg   [19:0] empty_pattern = 20'b00000000000000000000;
 reg 	[19:0] tempLetter;
 reg    		 can_draw = 0;
+reg 			 stupidCaseCheck = 0;
+reg 			 whichBoard = 0; // o - Your board, 1 - ENEMY BOARD!!!
 
 // VGA stuff
 integer 		 boardLevel;	
 integer 		 i;
-integer 		 k = 10;
+integer 		 k = K_VAL;
 output [2:0] vga_red; 
 output [2:0] vga_green;
 output [2:0] vga_blue;
@@ -177,89 +191,101 @@ always @ ( posedge clock27 )
 		 begin
 			// Banner
 			can_draw   = 0;
-			colour    <= playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000;
+			//colour    <= playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000; // boring black and white
+			colour    <= playerTurn == 1'b0 ? 9'b101010101 : 9'b010101010; // random funky colours
 			boardLevel = 99;
 		 end
 		else if ( pixel_y > 90 && pixel_y < 96 )
 		 begin
 			// Line...
 			can_draw   = 0;
-			colour    <= 9'b000000000;
+			colour    <= 9'b000000000; // A nice border :)
 			boardLevel = 99;
 		 end
 		// The Board:
-		else if ( pixel_y > 96 && pixel_y <= 128 )
+		else if ( pixel_y > ( BLOCK_SIZE * INDEX_START ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 1 ) ) )
 		 begin
 			// A
 			can_draw   = 1;
 			boardLevel = 1;
 		 end
-		else if ( pixel_y > 128 && pixel_y <= 160 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 1 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 2 ) ) )
 		 begin
 			// B
 			can_draw   = 1;
 			boardLevel = 2;
 		 end
-		else if ( pixel_y > 160 && pixel_y <= 192 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 2 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 3 ) ) )
 		 begin
 			// C
 			can_draw   = 1;
 			boardLevel = 3;
 		 end
-		else if ( pixel_y > 192 && pixel_y <= 224 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 3 ) ) && 
+				    pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 4 ) ) )
 		 begin
 			// D
 			can_draw   = 1;
 			boardLevel = 4;
 		 end
-		else if ( pixel_y > 224 && pixel_y <= 256 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 4 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 5 ) ) )
 		 begin
 			// E
 			can_draw   = 1;
 			boardLevel = 5;
 		 end
-		else if ( pixel_y > 256 && pixel_y <= 288 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 5 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 6 ) ) )
 		 begin
 			// F
 			can_draw   = 1;
 			boardLevel = 6;
 		 end
-		else if ( pixel_y > 228 && pixel_y <= 320 )
+		else if ( pixel_y >( BLOCK_SIZE * ( INDEX_START + 6 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 7 ) ) )
 		 begin
 			// G
 			can_draw   = 1;
 			boardLevel = 7;
 		 end
-		else if ( pixel_y > 320 && pixel_y <= 352 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 7 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 8 ) ) )
 		 begin
 			// H
 			can_draw   = 1;
 			boardLevel = 8;
 		 end
-		else if ( pixel_y > 352 && pixel_y <= 384 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 8 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 9 ) ) )
 		 begin
 			// I
 			can_draw   = 1;
 			boardLevel = 9;
 		 end
-		else if ( pixel_y > 384 && pixel_y <= 416 )
+		else if ( pixel_y > ( BLOCK_SIZE * ( INDEX_START + 9 ) ) && 
+					 pixel_y <= ( BLOCK_SIZE * ( INDEX_START + 10 ) ) )
 		 begin
 			// J
 			can_draw   = 1;
 			boardLevel = 10;
 		 end
 			
+
 		case ( boardLevel )
-			1:  tempLetter <= A;
-			2:  tempLetter <= B;
-			3:  tempLetter <= C;
-			4:  tempLetter <= D;
-			5:  tempLetter <= E;
-			6:  tempLetter <= F;
-			7:  tempLetter <= G;
-			8:  tempLetter <= H;
-			9:  tempLetter <= I;
-			10: tempLetter <= J;
+			1:  tempLetter <= whichBoard == 0 ? A : OA;
+			2:  tempLetter <= whichBoard == 0 ? B : OB;
+			3:  tempLetter <= whichBoard == 0 ? C : OC;
+			4:  tempLetter <= whichBoard == 0 ? D : OD;
+			5:  tempLetter <= whichBoard == 0 ? E : OE;
+			6:  tempLetter <= whichBoard == 0 ? F : OF;
+			7:  tempLetter <= whichBoard == 0 ? G : OG;
+			8:  tempLetter <= whichBoard == 0 ? H : OH;
+			9:  tempLetter <= whichBoard == 0 ? I : OI;
+			10: tempLetter <= whichBoard == 0 ? J : OJ;
 			99: tempLetter <= empty_pattern;
 		endcase
 			
@@ -275,27 +301,44 @@ always @ ( posedge clock27 )
 			3:  tempVal <= tempLetter[5:4];
 			2:  tempVal <= tempLetter[3:2];
 			1:  tempVal <= tempLetter[1:0];
+			default: stupidCaseCheck = 1;
+			//default: colour <= can_draw == 1 ? 9'b000000000;
 		endcase
 		
+		// I feel this is self explanitory 
+		if ( stupidCaseCheck == 1 )
+		 begin
+			stupidCaseCheck = 0;
+			// i.e. if we are below the banner
+			if ( can_draw == 1 )
+			 begin
+				colour <= 9'b000000000;
+			 end
+		 end
+	
 		// Actually make sure we can draw the board, otherwise, we are drawing the
 		// banner based on player turn. Colour is gotten from that place then
-		if ( can_draw == 1 )
+		if ( can_draw == 1 && k <= 10 )
 		 begin
 			case ( tempVal )
 				2'b00: colour <= 9'b000000111; // water
-				2'b01: colour <= 9'b000000000; // ship
+				//2'b01: colour <= 9'b000000000; // ship
+				2'b01: colour <= 9'b001001001; // ship
 				2'b10: colour <= 9'b111111111; // miss
 				2'b11: colour <= 9'b111000000; // hit
 			endcase
 		 end
 		
-		if ( ( pixel_x % 48 == 0 ) && ( can_draw == 1 ) )
+		if ( ( pixel_x > BLOCK_SIZE * 2 ) &&
+			  ( pixel_x % BLOCK_SIZE == 0 ) && 
+			  ( can_draw == 1 ) )
 		 begin
 			k = k - 1;
 		
-			if ( k < 1 )
+			// Don't duplicate the board
+			if ( ( k < 1 ) && ( pixel_x < BLOCK_SIZE * 10 ) )
 			 begin
-				k = 10;
+				k = K_VAL;
 			 end
 		 end
 					 

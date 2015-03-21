@@ -652,7 +652,7 @@ ON
 # case_sensitive
 # source_file
 battleship.v
-e17c52750e559bec64f6bf3946ca5b8
+f7ec743a66e4a1ace3d61619e408673
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -702,7 +702,7 @@ ON
 # case_sensitive
 # source_file
 vga_controller.v
-f65aca84f21ac1ed855a12c4a2de5d2
+19753bd832e9d9259aef6456116caf8
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -767,6 +767,18 @@ PARAMETER_SIGNED_DEC
 DEF
 V_BACK_PORCH
 23
+PARAMETER_SIGNED_DEC
+DEF
+BLOCK_SIZE
+32
+PARAMETER_SIGNED_DEC
+DEF
+INDEX_START
+3
+PARAMETER_SIGNED_DEC
+DEF
+K_VAL
+15
 PARAMETER_SIGNED_DEC
 DEF
 }
