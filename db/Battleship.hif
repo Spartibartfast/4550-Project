@@ -533,42 +533,6 @@ cout
 
 # end
 # entity
-HEX_CONTROLLER
-# storage
-db|Battleship.(3).cnf
-db|Battleship.(3).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-hex_controller.v
-e7b2cf92ba2e65722d73c67ebb0e26f
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-HEX_CONTROLLER:HEX_CONTROLLER1
-}
-# macro_sequence
-
-# end
-# entity
 LED_CONTROLLER
 # storage
 db|Battleship.(2).cnf
@@ -600,42 +564,6 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 }
 # hierarchies {
 LED_CONTROLLER:LED_CONTROLLER1
-}
-# macro_sequence
-
-# end
-# entity
-KEY_CONTROLLER
-# storage
-db|Battleship.(1).cnf
-db|Battleship.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-key_controller.v
-18149b538f4e27e519dd435b35a1142
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-KEY_CONTROLLER:KEY_CONTROLLER1
 }
 # macro_sequence
 
@@ -691,6 +619,42 @@ DEF
 
 # end
 # entity
+KEY_CONTROLLER
+# storage
+db|Battleship.(1).cnf
+db|Battleship.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+key_controller.v
+2b89d6641db9a26fb552f906afc7b3
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+KEY_CONTROLLER:KEY_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# entity
 VGA_CONTROLLER
 # storage
 db|Battleship.(4).cnf
@@ -702,7 +666,7 @@ ON
 # case_sensitive
 # source_file
 vga_controller.v
-bcb1e4750b68daf23944c9e6bf14
+1f12bbfc35df37f16c590f095d36a4e
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -784,6 +748,42 @@ DEF
 }
 # hierarchies {
 VGA_CONTROLLER:VGA_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# entity
+HEX_CONTROLLER
+# storage
+db|Battleship.(3).cnf
+db|Battleship.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+hex_controller.v
+e7b2cf92ba2e65722d73c67ebb0e26f
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+HEX_CONTROLLER:HEX_CONTROLLER1
 }
 # macro_sequence
 

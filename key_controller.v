@@ -5,8 +5,8 @@ module KEY_CONTROLLER(
 		keyPressed, 
 		keyDataOut, 
 		keyboardData,
-		//letter,
-		//number
+		letter,
+		number
 );
 // For PS/2 keyboard
 // PS2_DAT - keyboardData
@@ -39,15 +39,29 @@ module KEY_CONTROLLER(
 // J:   3B         F0,3B       0:      45	         F0,45 
 // 								Enter: 		5A  			F0,5A
 
+// Translated to:
+// A -> 0 			0 (10) -> 0
+// B -> 1 			1 -> 1
+// C -> 2 			... 
+// D -> 3
+// E -> 4
+// F -> 5
+// G -> 6
+// H -> 7
+// I -> 8
+// J -> 9
+// Unknown -> 99  Unknown -> 88
+// Enter -> 55
+
 input  		  keyboardClock;
 input  [1:0]  clock27;
 input  [10:0] keyboardData;
 output [1:0]  keyPressed; // If a key (any key) has been pressed. Like an intr
 output [8:0]  keyDataOut; 		// The specific key in particular // 8 data bits
-//output [7:0]  letter;
-//output [7:0]  number;
-//reg 	 [7:0]  t_letter;
-//reg 	 [7:0]  t_number;
+output [8:0]  letter;
+output [8:0]  number;
+reg 	 [8:0]  t_letter;
+reg 	 [8:0]  t_number;
 reg 	 [1:0]  t_key_press = 1'b0;
 reg 	 [8:0]  t_keyDataOut;
 reg 	 [10:0] dataReceieved; // [11:0]???
@@ -80,14 +94,12 @@ always @ ( negedge keyboardClock )
 
 always @ ( posedge count_clock[10] )
 	begin
-		//t_letter =
-		//t_number = 
 		t_keyDataOut <= dataReceieved[8:1];
 	end
 
 // Continous non-blocking assignment...
-//assign letter = t_letter;
-//assign number = t_number;
+assign letter = t_letter;
+assign number = t_number;
 assign keyPressed = t_key_press;
 assign keyDataOut = t_keyDataOut;
 

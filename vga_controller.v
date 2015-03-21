@@ -421,11 +421,12 @@ always @ ( posedge clock27 )
 			 end
 			else
 			 begin
-				// So this makes vertical lines apparently...
+				// So this makes vertical lines apparently... COOL
 				colour <= 9'b000000000;
 			 end
 		 end // end big if
 		 
+		// Cut off the boards, otherwise they just extend the last cell
 		if ( pixel_x > BLOCK_SIZE * 28 && can_draw == 1 )
 		 begin
 			colour <= 9'b000000000;

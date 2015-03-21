@@ -33,8 +33,8 @@ input  			clock50;
 input  			keyboardClock;
 input  			keyboardData;
 output [8:0] 	keyDataOut;
-//reg    [7:0]   letter; // later...
-//reg    [7:0]   number;
+reg    [8:0]   letter; // later...
+reg    [8:0]   number;
 wire   			keyPressed;
 
 input  [9:0] 	switch; // 9 switches...
@@ -203,9 +203,7 @@ always @ ( posedge clock24 )
 											keyboardClock, 
 											keyPressed, 
 											keyDataOut, 
-											keyboardData,
-											//letter,
-											//number
+											keyboardData
 											);
 											
 	LED_CONTROLLER LED_CONTROLLER1( 
@@ -223,7 +221,9 @@ always @ ( posedge clock24 )
 											numDisplay2, 
 											numDisplay3, 
 											playerTurn, 
-											keyboardData 
+											keyboardData,
+											letter,
+											number	
 											);
 	
 	VGA_CONTROLLER VGA_CONTROLLER1( 
@@ -237,6 +237,14 @@ always @ ( posedge clock24 )
 											vga_blue, 
 											vga_hor_sync, 
 											vga_ver_sync 
+											);
+	THE_GREAT_DECIDER THE_GREAT_DECIDER1 (
+											clock27,
+											A, B, C, D, E, F, G, H, I, J,
+										   OA, OB, OC, OD, OE, OF, OG, OH, OI, OJ,
+											keyDataOut,
+											letter,
+											number
 											);
 	
 	// Determine which players turn it is, for debug purposes mostly
