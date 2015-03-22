@@ -17,7 +17,9 @@ module Battleship(
 		vga_green,
 		vga_blue,
 		vga_hor_sync,
-		vga_ver_sync
+		vga_ver_sync,
+		letter,
+		number
 );
 // [7:0] - 8 bits
 // wire =/= output.... ??????
@@ -33,8 +35,8 @@ input  			clock50;
 input  			keyboardClock;
 input  			keyboardData;
 output [8:0] 	keyDataOut;
-reg    [8:0]   letter; // later...
-reg    [8:0]   number;
+output    		   letter; // later...
+output    			number;
 wire   			keyPressed;
 
 input  [9:0] 	switch; // 9 switches...
@@ -98,54 +100,76 @@ reg    [19:0] OI;
 reg    [19:0] OJ;
 
 // Player 1 start board
-reg    [19:0] t_A1 = 20'b00010000000000000000;
-reg    [19:0] t_B1 = 20'b00010000000001010000; 
-reg    [19:0] t_C1 = 20'b00010000000000000000; 
-reg    [19:0] t_D1 = 20'b00010000000000000000; 
-reg    [19:0] t_E1 = 20'b00010000010101010000; 
-reg    [19:0] t_F1 = 20'b00000000000000000000; 
-reg    [19:0] t_G1 = 20'b00010000000000000000; 
-reg    [19:0] t_H1 = 20'b00010000000000000000; 
-reg    [19:0] t_I1 = 20'b00010000010101000000; 
-reg    [19:0] t_J1 = 20'b00000000000000000000;
+wire    [19:0] t_A1 = 20'b00010000000000000000;
+wire    [19:0] t_B1 = 20'b00010000000001010000; 
+wire    [19:0] t_C1 = 20'b00010000000000000000; 
+wire    [19:0] t_D1 = 20'b00010000000000000000; 
+wire    [19:0] t_E1 = 20'b00010000010101010000; 
+wire    [19:0] t_F1 = 20'b00000000000000000000; 
+wire    [19:0] t_G1 = 20'b00010000000000000000; 
+wire    [19:0] t_H1 = 20'b00010000000000000000; 
+wire    [19:0] t_I1 = 20'b00010000010101000000; 
+wire    [19:0] t_J1 = 20'b00000000000000000000;
 
 // Player 2 start board
-reg    [19:0] t_A2 = 20'b00000000000000000001;
-reg    [19:0] t_B2 = 20'b00010000000000000001; 
-reg    [19:0] t_C2 = 20'b00010000000101010000; 
-reg    [19:0] t_D2 = 20'b00010000000000000000; 
-reg    [19:0] t_E2 = 20'b00010000000000000000; 
-reg    [19:0] t_F2 = 20'b00000000000000000000; 
-reg    [19:0] t_G2 = 20'b00000000000000000000; 
-reg    [19:0] t_H2 = 20'b01000000000000000000; 
-reg    [19:0] t_I2 = 20'b01000001010101010000; 
-reg    [19:0] t_J2 = 20'b01000000000000000000;  
+wire    [19:0] t_A2 = 20'b00000000000000000001;
+wire    [19:0] t_B2 = 20'b00010000000000000001; 
+wire    [19:0] t_C2 = 20'b00010000000101010000; 
+wire    [19:0] t_D2 = 20'b00010000000000000000; 
+wire    [19:0] t_E2 = 20'b00010000000000000000; 
+wire    [19:0] t_F2 = 20'b00000000000000000000; 
+wire    [19:0] t_G2 = 20'b00000000000000000000; 
+wire    [19:0] t_H2 = 20'b01000000000000000000; 
+wire    [19:0] t_I2 = 20'b01000001010101010000; 
+wire    [19:0] t_J2 = 20'b01000000000000000000;  
 
 // View for opposite players board
 // Player 1 start board
-reg    [19:0] t_OA1 = 20'b11001100110011001100;
-reg    [19:0] t_OB1 = 20'b11111111111111111100; 
-reg    [19:0] t_OC1 = 20'b11111111111111111100; 
-reg    [19:0] t_OD1 = 20'b11111111111111111100; 
-reg    [19:0] t_OE1 = 20'b11111111111111111100; 
-reg    [19:0] t_OF1 = 20'b11111111111111111100; 
-reg    [19:0] t_OG1 = 20'b11111111111111111100; 
-reg    [19:0] t_OH1 = 20'b11111111111111111100; 
-reg    [19:0] t_OI1 = 20'b11111111111111111100; 
-reg    [19:0] t_OJ1 = 20'b11111111111111111100;
+wire    [19:0] t_OA1 = 20'b00000000000000000000;
+wire    [19:0] t_OB1 = 20'b00000000000000000000; 
+wire    [19:0] t_OC1 = 20'b00000000000000000000;
+wire    [19:0] t_OD1 = 20'b00000000000000000000;
+wire    [19:0] t_OE1 = 20'b00000000000000000000;
+wire    [19:0] t_OF1 = 20'b00000000000000000000; 
+wire    [19:0] t_OG1 = 20'b00000000000000000000; 
+wire    [19:0] t_OH1 = 20'b00000000000000000000; 
+wire    [19:0] t_OI1 = 20'b00000000000000000000; 
+wire    [19:0] t_OJ1 = 20'b00000000000000000000;
 
 // Player 2 start board
-reg    [19:0] t_OA2 = 20'b11111111111111111100;
-reg    [19:0] t_OB2 = 20'b11111111111111111100; 
-reg    [19:0] t_OC2 = 20'b11111111111111111100; 
-reg    [19:0] t_OD2 = 20'b11111111111111111100; 
-reg    [19:0] t_OE2 = 20'b11111111111111111100; 
-reg    [19:0] t_OF2 = 20'b11111111111111111100; 
-reg    [19:0] t_OG2 = 20'b11111111111111111100; 
-reg    [19:0] t_OH2 = 20'b11111111111111111100; 
-reg    [19:0] t_OI2 = 20'b11111111111111111100; 
-reg    [19:0] t_OJ2 = 20'b11111111111111111100;
+wire    [19:0] t_OA2 = 20'b00000000000000000000;
+wire    [19:0] t_OB2 = 20'b00000000000000000000; 
+wire    [19:0] t_OC2 = 20'b00000000000000000000; 
+wire    [19:0] t_OD2 = 20'b00000000000000000000; 
+wire    [19:0] t_OE2 = 20'b00000000000000000000; 
+wire    [19:0] t_OF2 = 20'b00000000000000000000; 
+wire    [19:0] t_OG2 = 20'b00000000000000000000; 
+wire    [19:0] t_OH2 = 20'b00000000000000000000; 
+wire    [19:0] t_OI2 = 20'b00000000000000000000; 
+wire    [19:0] t_OJ2 = 20'b00000000000000000000;
  
+ 
+// Temps for the board
+/*wire [19:0] t_A;
+wire [19:0] t_B; 
+wire [19:0] t_C; 
+wire [19:0] t_D; 
+wire [19:0] t_E; 
+wire [19:0] t_F; 
+wire [19:0] t_G; 
+wire [19:0] t_H; 
+wire [19:0] t_I; 
+wire [19:0] t_J;
+wire [19:0] t_OA;
+wire [19:0] t_OB; 
+wire [19:0] t_OC; 
+wire [19:0] t_OD; 
+wire [19:0] t_OE; 
+wire [19:0] t_OF; 
+wire [19:0] t_OG; 
+wire [19:0] t_OH; 
+wire [19:0] t_OI; 
+wire [19:0] t_OJ;  */
 
 // our heartbeat timer
 always @ ( posedge clock50 ) 
@@ -157,27 +181,26 @@ end
 // 20'b10000000000000000000 (possibly)
 always @ ( posedge heartbeat[20] )
 	begin
-		A = switch[0] ? t_A2 : t_A1;
-		B = switch[0] ? t_B2 : t_B1;
-		C = switch[0] ? t_C2 : t_C1;
-		D = switch[0] ? t_D2 : t_D1;
-		E = switch[0] ? t_E2 : t_E1;
-		F = switch[0] ? t_F2 : t_F1;
-		G = switch[0] ? t_G2 : t_G1;
-		H = switch[0] ? t_H2 : t_H1;
-		I = switch[0] ? t_I2 : t_I1;
-		J = switch[0] ? t_J2 : t_J1;
-		
-		OA = switch[0] ? t_OA1 : t_OA2;
-		OB = switch[0] ? t_OB1 : t_OB2;
-		OC = switch[0] ? t_OC1 : t_OC2;
-		OD = switch[0] ? t_OD1 : t_OD2;
-		OE = switch[0] ? t_OE1 : t_OE2;
-		OF = switch[0] ? t_OF1 : t_OF2;
-		OG = switch[0] ? t_OG1 : t_OG2;
-		OH = switch[0] ? t_OH1 : t_OH2;
-		OI = switch[0] ? t_OI1 : t_OI2;
-		OJ = switch[0] ? t_OJ1 : t_OJ2;
+		 A = switch[0] ? t_A2 : t_A1;
+		 B = switch[0] ? t_B2 : t_B1;
+		 C = switch[0] ? t_C2 : t_C1;
+		 D = switch[0] ? t_D2 : t_D1;
+		 E = switch[0] ? t_E2 : t_E1;
+		 F = switch[0] ? t_F2 : t_F1;
+		 G = switch[0] ? t_G2 : t_G1;
+		 H = switch[0] ? t_H2 : t_H1;
+		 I = switch[0] ? t_I2 : t_I1;
+		 J = switch[0] ? t_J2 : t_J1;
+		 OA = switch[0] ? t_OA1 : t_OA2;
+		 OB = switch[0] ? t_OB1 : t_OB2;
+		 OC = switch[0] ? t_OC1 : t_OC2;
+		 OD = switch[0] ? t_OD1 : t_OD2;
+		 OE = switch[0] ? t_OE1 : t_OE2;
+		 OF = switch[0] ? t_OF1 : t_OF2;
+		 OG = switch[0] ? t_OG1 : t_OG2;
+		 OH = switch[0] ? t_OH1 : t_OH2;
+		 OI = switch[0] ? t_OI1 : t_OI2;
+		 OJ = switch[0] ? t_OJ1 : t_OJ2;
 	end
 	
 always @ ( posedge clock24 ) 
@@ -240,8 +263,10 @@ always @ ( posedge clock24 )
 											);
 	THE_GREAT_DECIDER THE_GREAT_DECIDER1 (
 											clock27,
-											A, B, C, D, E, F, G, H, I, J,
-										   OA, OB, OC, OD, OE, OF, OG, OH, OI, OJ,
+											t_A1, t_B1, t_C1, t_D1, t_E1, t_F1, t_G1, t_H1, t_I1, t_J1, 
+											t_A2, t_B2, t_C2, t_D2, t_E2, t_F2, t_G2, t_H2, t_I2, t_J2, 
+											t_OA1, t_OB1, t_OC1, t_OD1, t_OE1, t_OF1, t_OG1, t_OH1, t_OI1, t_OJ1, 
+											t_OA2, t_OB2, t_OC2, t_OD2, t_OE2, t_OF2, t_OG2, t_OH2, t_OI2, t_OJ2,
 											keyDataOut,
 											letter,
 											number
@@ -250,6 +275,26 @@ always @ ( posedge clock24 )
 	// Determine which players turn it is, for debug purposes mostly
 	//assign playerTurn = switch[0] ? PLAYER_TWO : PLAYER_ONE;
 	assign playerTurn = t_player_turn;
+	/*assign A = switch[0] ? t_A2 : t_A1;
+	assign B = switch[0] ? t_B2 : t_B1;
+	assign C = switch[0] ? t_C2 : t_C1;
+	assign D = switch[0] ? t_D2 : t_D1;
+	assign E = switch[0] ? t_E2 : t_E1;
+	assign F = switch[0] ? t_F2 : t_F1;
+	assign G = switch[0] ? t_G2 : t_G1;
+	assign H = switch[0] ? t_H2 : t_H1;
+	assign I = switch[0] ? t_I2 : t_I1;
+	assign J = switch[0] ? t_J2 : t_J1;
+	assign OA = switch[0] ? t_OA1 : t_OA2;
+	assign OB = switch[0] ? t_OB1 : t_OB2;
+	assign OC = switch[0] ? t_OC1 : t_OC2;
+	assign OD = switch[0] ? t_OD1 : t_OD2;
+	assign OE = switch[0] ? t_OE1 : t_OE2;
+	assign OF = switch[0] ? t_OF1 : t_OF2;
+	assign OG = switch[0] ? t_OG1 : t_OG2;
+	assign OH = switch[0] ? t_OH1 : t_OH2;
+	assign OI = switch[0] ? t_OI1 : t_OI2;
+	assign OJ = switch[0] ? t_OJ1 : t_OJ2;*/
 //end
 endmodule
 

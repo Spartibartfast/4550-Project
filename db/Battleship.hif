@@ -569,92 +569,6 @@ LED_CONTROLLER:LED_CONTROLLER1
 
 # end
 # entity
-Battleship
-# storage
-db|Battleship.(0).cnf
-db|Battleship.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-battleship.v
-02ea0bd196ee3dc25e67a5de525f8ab
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-BOARD_SIZE
-10
-PARAMETER_SIGNED_DEC
-DEF
-PLAYER_ONE
-0
-PARAMETER_SIGNED_DEC
-DEF
-PLAYER_TWO
-1
-PARAMETER_SIGNED_DEC
-DEF
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
-KEY_CONTROLLER
-# storage
-db|Battleship.(1).cnf
-db|Battleship.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-key_controller.v
-2b89d6641db9a26fb552f906afc7b3
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-KEY_CONTROLLER:KEY_CONTROLLER1
-}
-# macro_sequence
-
-# end
-# entity
 VGA_CONTROLLER
 # storage
 db|Battleship.(4).cnf
@@ -753,6 +667,42 @@ VGA_CONTROLLER:VGA_CONTROLLER1
 
 # end
 # entity
+THE_GREAT_DECIDER
+# storage
+db|Battleship.(11).cnf
+db|Battleship.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+the_great_decider.v
+4c3444f7eee9e3c14d29bae3df6ce8d1
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+THE_GREAT_DECIDER:THE_GREAT_DECIDER1
+}
+# macro_sequence
+
+# end
+# entity
 HEX_CONTROLLER
 # storage
 db|Battleship.(3).cnf
@@ -764,7 +714,7 @@ ON
 # case_sensitive
 # source_file
 hex_controller.v
-e7b2cf92ba2e65722d73c67ebb0e26f
+acb995de645b14f94e45c93e4d9ca51
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -784,6 +734,92 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 }
 # hierarchies {
 HEX_CONTROLLER:HEX_CONTROLLER1
+}
+# macro_sequence
+
+# end
+# entity
+Battleship
+# storage
+db|Battleship.(0).cnf
+db|Battleship.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+battleship.v
+b0385c81376c32b27ea244c7353ebfce
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+BOARD_SIZE
+10
+PARAMETER_SIGNED_DEC
+DEF
+PLAYER_ONE
+0
+PARAMETER_SIGNED_DEC
+DEF
+PLAYER_TWO
+1
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+KEY_CONTROLLER
+# storage
+db|Battleship.(1).cnf
+db|Battleship.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+key_controller.v
+f832ce32ed15138560dd4c746ae94a
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+KEY_CONTROLLER:KEY_CONTROLLER1
 }
 # macro_sequence
 

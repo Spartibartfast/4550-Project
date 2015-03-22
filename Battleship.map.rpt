@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Battleship
-Sat Mar 21 18:33:05 2015
+Sat Mar 21 21:06:35 2015
 Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
@@ -10,8 +10,23 @@ Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
-  6. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |Battleship
+ 14. Parameter Settings for User Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1
+ 15. Port Connectivity Checks: "THE_GREAT_DECIDER:THE_GREAT_DECIDER1"
+ 16. Port Connectivity Checks: "VGA_CONTROLLER:VGA_CONTROLLER1"
+ 17. Port Connectivity Checks: "LED_CONTROLLER:LED_CONTROLLER1"
+ 18. Port Connectivity Checks: "KEY_CONTROLLER:KEY_CONTROLLER1"
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -37,20 +52,20 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sat Mar 21 18:33:05 2015             ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 21 21:06:35 2015         ;
 ; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Battleship                                    ;
 ; Top-level Entity Name              ; Battleship                                    ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; N/A until Partition Merge                     ;
-;     Total combinational functions  ; N/A until Partition Merge                     ;
-;     Dedicated logic registers      ; N/A until Partition Merge                     ;
-; Total registers                    ; N/A until Partition Merge                     ;
-; Total pins                         ; N/A until Partition Merge                     ;
-; Total virtual pins                 ; N/A until Partition Merge                     ;
-; Total memory bits                  ; N/A until Partition Merge                     ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                     ;
-; Total PLLs                         ; N/A until Partition Merge                     ;
+; Total logic elements               ; 368                                           ;
+;     Total combinational functions  ; 325                                           ;
+;     Dedicated logic registers      ; 159                                           ;
+; Total registers                    ; 159                                           ;
+; Total pins                         ; 106                                           ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 0                                             ;
+; Embedded Multiplier 9-bit elements ; 0                                             ;
+; Total PLLs                         ; 0                                             ;
 +------------------------------------+-----------------------------------------------+
 
 
@@ -149,13 +164,417 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+
+; Battleship.v                     ; yes             ; User Verilog HDL File  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/Battleship.v        ;
+; led_controller.v                 ; yes             ; User Verilog HDL File  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/led_controller.v    ;
+; vga_controller.v                 ; yes             ; User Verilog HDL File  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/vga_controller.v    ;
+; key_controller.v                 ; yes             ; User Verilog HDL File  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/key_controller.v    ;
+; hex_controller.v                 ; yes             ; User Verilog HDL File  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/hex_controller.v    ;
+; the_great_decider.v              ; yes             ; User Verilog HDL File  ; D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/the_great_decider.v ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 368        ;
+;                                             ;            ;
+; Total combinational functions               ; 325        ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 181        ;
+;     -- 3 input functions                    ; 36         ;
+;     -- <=2 input functions                  ; 108        ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 251        ;
+;     -- arithmetic mode                      ; 74         ;
+;                                             ;            ;
+; Total registers                             ; 159        ;
+;     -- Dedicated logic registers            ; 159        ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 106        ;
+; Maximum fan-out node                        ; clock27[0] ;
+; Maximum fan-out                             ; 120        ;
+; Total fan-out                               ; 1454       ;
+; Average fan-out                             ; 2.46       ;
++---------------------------------------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; |Battleship                         ; 325 (24)          ; 159 (23)     ; 0           ; 0            ; 0       ; 0         ; 106  ; 0            ; |Battleship                                ;              ;
+;    |HEX_CONTROLLER:HEX_CONTROLLER1| ; 1 (1)             ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|HEX_CONTROLLER:HEX_CONTROLLER1 ;              ;
+;    |KEY_CONTROLLER:KEY_CONTROLLER1| ; 10 (10)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|KEY_CONTROLLER:KEY_CONTROLLER1 ;              ;
+;    |LED_CONTROLLER:LED_CONTROLLER1| ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|LED_CONTROLLER:LED_CONTROLLER1 ;              ;
+;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 274 (274)         ; 86 (86)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                             ;
++--------------------------------------------------------------------+-----------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                        ;
++--------------------------------------------------------------------+-----------------------------------------------------------+
+; OJ[0..4,7..19]                                                     ; Stuck at GND due to stuck port data_in                    ;
+; OI[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OH[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OG[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OF[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OE[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OD[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OC[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OB[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; OA[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; J[0..17,19]                                                        ; Stuck at GND due to stuck port data_in                    ;
+; I[0..3,5]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; I[6]                                                               ; Stuck at VCC due to stuck port data_in                    ;
+; I[7]                                                               ; Stuck at GND due to stuck port data_in                    ;
+; I[8]                                                               ; Stuck at VCC due to stuck port data_in                    ;
+; I[9]                                                               ; Stuck at GND due to stuck port data_in                    ;
+; I[10]                                                              ; Stuck at VCC due to stuck port data_in                    ;
+; I[11,13..15,17,19]                                                 ; Stuck at GND due to stuck port data_in                    ;
+; H[0..15,17,19]                                                     ; Stuck at GND due to stuck port data_in                    ;
+; G[0..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                    ;
+; F[0..19]                                                           ; Stuck at GND due to stuck port data_in                    ;
+; E[0..3,5,7,9,11..15]                                               ; Stuck at GND due to stuck port data_in                    ;
+; E[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
+; E[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; D[0..15]                                                           ; Stuck at GND due to stuck port data_in                    ;
+; D[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
+; D[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; C[0..3,5,7,9..15]                                                  ; Stuck at GND due to stuck port data_in                    ;
+; C[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
+; C[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; B[1..3,5,7..15]                                                    ; Stuck at GND due to stuck port data_in                    ;
+; B[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
+; B[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
+; A[1..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                    ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|stupidCaseCheck                     ; Stuck at GND due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display0[0..6]                    ; Stuck at VCC due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[0]                       ; Stuck at VCC due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[0,6]                     ; Stuck at VCC due to stuck port data_in                    ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[5]                       ; Stuck at VCC due to stuck port data_in                    ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[9]                      ; Stuck at GND due to stuck port data_in                    ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8]                     ; Stuck at GND due to stuck port data_in                    ;
+; OJ[5,6]                                                            ; Stuck at GND due to stuck port data_in                    ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]                      ; Stuck at GND due to stuck port data_in                    ;
+; A[0,16]                                                            ; Merged with J[18]                                         ;
+; B[0,4,6]                                                           ; Merged with J[18]                                         ;
+; C[4,6,8]                                                           ; Merged with J[18]                                         ;
+; E[4,6,8,10]                                                        ; Merged with J[18]                                         ;
+; G[16]                                                              ; Merged with J[18]                                         ;
+; H[16,18]                                                           ; Merged with J[18]                                         ;
+; I[4,12,16,18]                                                      ; Merged with J[18]                                         ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[7..31]                   ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]  ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[6]                       ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1..3,5,7,9,13..15,17,19] ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]                      ; Stuck at GND due to stuck port data_in                    ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]                       ; Stuck at GND due to stuck port data_in                    ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[0]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[1]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[2]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[3]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[4]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[5]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[6]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[7]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[8]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[9]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]                          ; Stuck at GND due to stuck port data_in                    ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[8]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[4]      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[7]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]      ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[11]                     ; Lost fanout                                               ;
+; Total Number of Removed Registers = 467                            ;                                                           ;
++--------------------------------------------------------------------+-----------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                 ;
++------------------------------------------------+---------------------------+------------------------------------------------+
+; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register         ;
++------------------------------------------------+---------------------------+------------------------------------------------+
+; OJ[11]                                         ; Stuck at GND              ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11], ;
+;                                                ; due to stuck port data_in ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]      ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8] ; Stuck at GND              ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]  ;
+;                                                ; due to stuck port data_in ;                                                ;
++------------------------------------------------+---------------------------+------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 159   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 65    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------+
+; Inverted Register Statistics                            ;
++-----------------------------------------------+---------+
+; Inverted Register                             ; Fan out ;
++-----------------------------------------------+---------+
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[0] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[1] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[2] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[3] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[4] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[5] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[6] ; 1       ;
+; LED_CONTROLLER:LED_CONTROLLER1|g_led_value[7] ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[1]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[2]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[3]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[4]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[5]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[6]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[1]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[2]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[3]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[4]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[5]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[0]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[1]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[2]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[3]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[4]  ; 1       ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[6]  ; 1       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]           ; 10      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]           ; 10      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]           ; 10      ;
+; Total number of inverted registers = 28       ;         ;
++-----------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                               ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------------------+----------------------------+
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[6] ;                            ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]     ;                            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]     ;                            ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel    ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------------------+----------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Battleship ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; BOARD_SIZE     ; 10    ; Signed Integer                                    ;
+; PLAYER_ONE     ; 0     ; Signed Integer                                    ;
+; PLAYER_TWO     ; 1     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1 ;
++--------------------+-------+------------------------------------------------+
+; Parameter Name     ; Value ; Type                                           ;
++--------------------+-------+------------------------------------------------+
+; HORIZONTAL_DISPLAY ; 800   ; Signed Integer                                 ;
+; VERTICAL_DISPLAY   ; 600   ; Signed Integer                                 ;
+; HORIZONTAL_TIMING  ; 1056  ; Signed Integer                                 ;
+; VERTICAL_TIMING    ; 628   ; Signed Integer                                 ;
+; HORIZONTAL_RETRACE ; 120   ; Signed Integer                                 ;
+; VERTICAL_RETRACE   ; 6     ; Signed Integer                                 ;
+; H_FRONT_PORCH      ; 40    ; Signed Integer                                 ;
+; V_FRONT_PORCH      ; 1     ; Signed Integer                                 ;
+; H_SYNC_PULSE       ; 128   ; Signed Integer                                 ;
+; V_SYNC_PULSE       ; 4     ; Signed Integer                                 ;
+; H_BACK_PORCH       ; 88    ; Signed Integer                                 ;
+; V_BACK_PORCH       ; 23    ; Signed Integer                                 ;
+; BLOCK_SIZE         ; 32    ; Signed Integer                                 ;
+; INDEX_START        ; 3     ; Signed Integer                                 ;
+; K_VAL              ; 14    ; Signed Integer                                 ;
++--------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "THE_GREAT_DECIDER:THE_GREAT_DECIDER1" ;
++--------------+-------+----------+--------------------------------+
+; Port         ; Type  ; Severity ; Details                        ;
++--------------+-------+----------+--------------------------------+
+; t_A1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_A1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_A1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_B1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_B1[15..7]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_B1[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_B1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_B1[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_B1[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_B1[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_C1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_D1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_D1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_D1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_E1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E1[15..11] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E1[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_E1[10]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_E1[9]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E1[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_E1[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E1[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_E1[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E1[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_F1         ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_G1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_G1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_G1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_H1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_H1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_H1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I1[15..11] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I1[5..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I1[10]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I1[9]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I1[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I1[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I1[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_J1         ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_A2[19..1]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_A2[0]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_B2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_B2[15..1]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_B2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_B2[0]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_C2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C2[15..9]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C2[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_C2[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_C2[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C2[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_C2[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_C2[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_D2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_D2[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_D2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_E2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E2[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_E2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_F2         ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_G2         ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_H2[17..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_H2[19]     ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_H2[18]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I2[17..13] ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[19]     ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[18]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I2[12]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I2[11]     ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[10]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I2[9]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I2[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_I2[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_I2[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_J2[17..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_J2[19]     ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_J2[18]     ; Bidir ; Warning  ; Stuck at VCC                   ;
+; t_OA1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OB1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OC1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OD1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OE1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OF1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OG1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OH1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OI1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OJ1        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OA2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OB2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OC2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OD2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OE2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OF2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OG2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OH2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OI2        ; Bidir ; Warning  ; Stuck at GND                   ;
+; t_OJ2        ; Bidir ; Warning  ; Stuck at GND                   ;
++--------------+-------+----------+--------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA_CONTROLLER:VGA_CONTROLLER1"                                                                                                                                             ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; vga_red   ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (10 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
+; vga_green ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (10 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
+; vga_blue  ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (10 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LED_CONTROLLER:LED_CONTROLLER1"                                                                                                                         ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                            ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; keyPressed ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "keyPressed[1..1]" will be connected to GND. ;
+; letter     ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.       ;
+; number     ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.       ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "KEY_CONTROLLER:KEY_CONTROLLER1"                                                                                                                                ;
++--------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                                                ;
++--------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; keyPressed   ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "keyPressed[1..1]" have no fanouts                          ;
+; keyboardData ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (11 bits) it drives.  Extra input bit(s) "keyboardData[10..1]" will be connected to GND. ;
+; letter       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                               ;
+; number       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                               ;
++--------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Mar 21 18:33:04 2015
+    Info: Processing started: Sat Mar 21 21:06:31 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Battleship -c Battleship
 Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
 Warning: Parallel compilation is not licensed and has been disabled
@@ -165,21 +584,173 @@ Info: Found 1 design units, including 1 entities, in source file led_controller.
     Info: Found entity 1: LED_CONTROLLER
 Info: Found 1 design units, including 1 entities, in source file vga_controller.v
     Info: Found entity 1: VGA_CONTROLLER
-Warning (10238): Verilog Module Declaration warning at key_controller.v(10): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "KEY_CONTROLLER"
 Info: Found 1 design units, including 1 entities, in source file key_controller.v
     Info: Found entity 1: KEY_CONTROLLER
 Info: Found 1 design units, including 1 entities, in source file hex_controller.v
     Info: Found entity 1: HEX_CONTROLLER
 Info: Found 1 design units, including 1 entities, in source file the_great_decider.v
     Info: Found entity 1: THE_GREAT_DECIDER
-Error (10161): Verilog HDL error at hex_controller.v(9): object "letter" is not declared File: D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/hex_controller.v Line: 9
-Error (10161): Verilog HDL error at hex_controller.v(11): object "number" is not declared File: D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/hex_controller.v Line: 11
+Info: Elaborating entity "Battleship" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at Battleship.v(67): truncated value with size 32 to match size of target (1)
+Warning (10646): Verilog HDL Event Control warning at Battleship.v(206): posedge or negedge of vector "clock24" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at Battleship.v(212): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Battleship.v(217): truncated value with size 32 to match size of target (1)
+Info: Elaborating entity "KEY_CONTROLLER" for hierarchy "KEY_CONTROLLER:KEY_CONTROLLER1"
+Warning (10646): Verilog HDL Event Control warning at key_controller.v(71): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at key_controller.v(73): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(80): truncated value with size 19 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(97): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(98): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(99): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(100): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(101): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(102): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(103): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(104): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(105): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(115): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(116): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(117): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(118): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(119): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(120): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(121): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(122): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(124): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at key_controller.v(127): truncated value with size 32 to match size of target (1)
+Info: Elaborating entity "LED_CONTROLLER" for hierarchy "LED_CONTROLLER:LED_CONTROLLER1"
+Warning (10646): Verilog HDL Event Control warning at led_controller.v(22): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at led_controller.v(57): truncated value with size 9 to match size of target (8)
+Info: Elaborating entity "HEX_CONTROLLER" for hierarchy "HEX_CONTROLLER:HEX_CONTROLLER1"
+Warning (10646): Verilog HDL Event Control warning at hex_controller.v(27): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(41): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(42): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(43): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(44): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(45): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(46): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(47): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(48): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(55): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(56): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(57): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(58): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(59): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(60): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(61): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at hex_controller.v(62): case item expression never matches the case expression
+Info: Elaborating entity "VGA_CONTROLLER" for hierarchy "VGA_CONTROLLER:VGA_CONTROLLER1"
+Warning (10036): Verilog HDL or VHDL warning at vga_controller.v(115): object "board" assigned a value but never read
+Warning (10646): Verilog HDL Event Control warning at vga_controller.v(127): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(132): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(155): truncated value with size 32 to match size of target (9)
+Warning (10646): Verilog HDL Event Control warning at vga_controller.v(181): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(337): can't check case statement for completeness because the case expression has too many possible states
+Warning (10762): Verilog HDL Case Statement warning at vga_controller.v(352): can't check case statement for completeness because the case expression has too many possible states
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(440): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(441): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(442): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(448): truncated value with size 4 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(449): truncated value with size 4 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(450): truncated value with size 4 to match size of target (3)
+Info: Elaborating entity "THE_GREAT_DECIDER" for hierarchy "THE_GREAT_DECIDER:THE_GREAT_DECIDER1"
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(68): object "x" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(70): object "col" assigned a value but never read
+Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(87): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(94): truncated value with size 32 to match size of target (1)
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(95): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(96): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(97): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(98): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(99): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(100): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(101): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(102): case item expression never matches the case expression
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(110): truncated value with size 20 to match size of target (1)
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(111): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(112): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(113): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(114): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(115): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(116): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(117): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(118): case item expression never matches the case expression
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(119): truncated value with size 20 to match size of target (1)
+Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(135): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "letter" is missing source, defaulting to GND
+    Warning (12110): Net "number" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "letter" is missing source, defaulting to GND
+    Warning (12110): Net "number" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "letter" is missing source, defaulting to GND
+    Warning (12110): Net "number" is missing source, defaulting to GND
+Warning: 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "led_r[8]" is stuck at GND
+    Warning (13410): Pin "led_r[9]" is stuck at GND
+    Warning (13410): Pin "keyDataOut[8]" is stuck at GND
+    Warning (13410): Pin "numDisplay0[0]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[1]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[2]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[3]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[4]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[5]" is stuck at VCC
+    Warning (13410): Pin "numDisplay0[6]" is stuck at VCC
+    Warning (13410): Pin "numDisplay1[0]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[0]" is stuck at VCC
+    Warning (13410): Pin "numDisplay2[6]" is stuck at VCC
+    Warning (13410): Pin "numDisplay3[5]" is stuck at VCC
+    Warning (13410): Pin "vga_red[3]" is stuck at GND
+    Warning (13410): Pin "vga_red[4]" is stuck at GND
+    Warning (13410): Pin "vga_red[5]" is stuck at GND
+    Warning (13410): Pin "vga_red[6]" is stuck at GND
+    Warning (13410): Pin "vga_red[7]" is stuck at GND
+    Warning (13410): Pin "vga_red[8]" is stuck at GND
+    Warning (13410): Pin "vga_red[9]" is stuck at GND
+    Warning (13410): Pin "vga_green[3]" is stuck at GND
+    Warning (13410): Pin "vga_green[4]" is stuck at GND
+    Warning (13410): Pin "vga_green[5]" is stuck at GND
+    Warning (13410): Pin "vga_green[6]" is stuck at GND
+    Warning (13410): Pin "vga_green[7]" is stuck at GND
+    Warning (13410): Pin "vga_green[8]" is stuck at GND
+    Warning (13410): Pin "vga_green[9]" is stuck at GND
+    Warning (13410): Pin "vga_blue[3]" is stuck at GND
+    Warning (13410): Pin "vga_blue[4]" is stuck at GND
+    Warning (13410): Pin "vga_blue[5]" is stuck at GND
+    Warning (13410): Pin "vga_blue[6]" is stuck at GND
+    Warning (13410): Pin "vga_blue[7]" is stuck at GND
+    Warning (13410): Pin "vga_blue[8]" is stuck at GND
+    Warning (13410): Pin "vga_blue[9]" is stuck at GND
+    Warning (13410): Pin "letter" is stuck at GND
+    Warning (13410): Pin "number" is stuck at GND
+Info: 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
+    Info: Register "KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[11]" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/Battleship.map.smsg
-Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 3 warnings
-    Error: Peak virtual memory: 264 megabytes
-    Error: Processing ended: Sat Mar 21 18:33:05 2015
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Warning: Design contains 11 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock24[1]"
+    Warning (15610): No output dependent on input pin "clock27[1]"
+    Warning (15610): No output dependent on input pin "switch[1]"
+    Warning (15610): No output dependent on input pin "switch[2]"
+    Warning (15610): No output dependent on input pin "switch[3]"
+    Warning (15610): No output dependent on input pin "switch[4]"
+    Warning (15610): No output dependent on input pin "switch[5]"
+    Warning (15610): No output dependent on input pin "switch[6]"
+    Warning (15610): No output dependent on input pin "switch[7]"
+    Warning (15610): No output dependent on input pin "switch[8]"
+    Warning (15610): No output dependent on input pin "switch[9]"
+Info: Implemented 483 device resources after synthesis - the final resource count might be different
+    Info: Implemented 17 input pins
+    Info: Implemented 89 output pins
+    Info: Implemented 377 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 144 warnings
+    Info: Peak virtual memory: 272 megabytes
+    Info: Processing ended: Sat Mar 21 21:06:35 2015
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+
