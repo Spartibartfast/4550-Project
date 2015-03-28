@@ -134,12 +134,14 @@ always @ ( negedge keyboardClock )
 				numLetterSelect = 0;
 			 end
 		  end
-	end
+		  
+		  t_keyDataOut <= dataReceieved[8:1];
+	end // end always @...
 	
 
 always @ ( posedge count_clock[10] )
 	begin
-		t_keyDataOut <= dataReceieved[8:1];
+		//t_keyDataOut <= dataReceieved[8:1];
 	end
 
 // Continous non-blocking assignment...

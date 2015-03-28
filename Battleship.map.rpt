@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Battleship
-Sat Mar 21 21:06:35 2015
+Sat Mar 28 15:19:35 2015
 Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
@@ -20,13 +20,12 @@ Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: Top-level Entity: |Battleship
  14. Parameter Settings for User Entity Instance: VGA_CONTROLLER:VGA_CONTROLLER1
- 15. Port Connectivity Checks: "THE_GREAT_DECIDER:THE_GREAT_DECIDER1"
- 16. Port Connectivity Checks: "VGA_CONTROLLER:VGA_CONTROLLER1"
- 17. Port Connectivity Checks: "LED_CONTROLLER:LED_CONTROLLER1"
- 18. Port Connectivity Checks: "KEY_CONTROLLER:KEY_CONTROLLER1"
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+ 15. Port Connectivity Checks: "VGA_CONTROLLER:VGA_CONTROLLER1"
+ 16. Port Connectivity Checks: "LED_CONTROLLER:LED_CONTROLLER1"
+ 17. Port Connectivity Checks: "KEY_CONTROLLER:KEY_CONTROLLER1"
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -52,15 +51,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 21 21:06:35 2015         ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 28 15:19:35 2015         ;
 ; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Battleship                                    ;
 ; Top-level Entity Name              ; Battleship                                    ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 368                                           ;
-;     Total combinational functions  ; 325                                           ;
-;     Dedicated logic registers      ; 159                                           ;
-; Total registers                    ; 159                                           ;
+; Total logic elements               ; 369                                           ;
+;     Total combinational functions  ; 333                                           ;
+;     Dedicated logic registers      ; 151                                           ;
+; Total registers                    ; 151                                           ;
 ; Total pins                         ; 106                                           ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
@@ -183,27 +182,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 368        ;
+; Estimated Total logic elements              ; 369        ;
 ;                                             ;            ;
-; Total combinational functions               ; 325        ;
+; Total combinational functions               ; 333        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 181        ;
-;     -- 3 input functions                    ; 36         ;
-;     -- <=2 input functions                  ; 108        ;
+;     -- 4 input functions                    ; 190        ;
+;     -- 3 input functions                    ; 41         ;
+;     -- <=2 input functions                  ; 102        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 251        ;
-;     -- arithmetic mode                      ; 74         ;
+;     -- normal mode                          ; 268        ;
+;     -- arithmetic mode                      ; 65         ;
 ;                                             ;            ;
-; Total registers                             ; 159        ;
-;     -- Dedicated logic registers            ; 159        ;
+; Total registers                             ; 151        ;
+;     -- Dedicated logic registers            ; 151        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 106        ;
 ; Maximum fan-out node                        ; clock27[0] ;
-; Maximum fan-out                             ; 120        ;
-; Total fan-out                               ; 1454       ;
-; Average fan-out                             ; 2.46       ;
+; Maximum fan-out                             ; 119        ;
+; Total fan-out                               ; 1478       ;
+; Average fan-out                             ; 2.51       ;
 +---------------------------------------------+------------+
 
 
@@ -212,103 +211,532 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |Battleship                         ; 325 (24)          ; 159 (23)     ; 0           ; 0            ; 0       ; 0         ; 106  ; 0            ; |Battleship                                ;              ;
+; |Battleship                         ; 333 (24)          ; 151 (23)     ; 0           ; 0            ; 0       ; 0         ; 106  ; 0            ; |Battleship                                ;              ;
 ;    |HEX_CONTROLLER:HEX_CONTROLLER1| ; 1 (1)             ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|HEX_CONTROLLER:HEX_CONTROLLER1 ;              ;
-;    |KEY_CONTROLLER:KEY_CONTROLLER1| ; 10 (10)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|KEY_CONTROLLER:KEY_CONTROLLER1 ;              ;
+;    |KEY_CONTROLLER:KEY_CONTROLLER1| ; 0 (0)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|KEY_CONTROLLER:KEY_CONTROLLER1 ;              ;
 ;    |LED_CONTROLLER:LED_CONTROLLER1| ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|LED_CONTROLLER:LED_CONTROLLER1 ;              ;
-;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 274 (274)         ; 86 (86)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
+;    |VGA_CONTROLLER:VGA_CONTROLLER1| ; 292 (292)         ; 86 (86)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1 ;              ;
 +-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                             ;
-+--------------------------------------------------------------------+-----------------------------------------------------------+
-; Register name                                                      ; Reason for Removal                                        ;
-+--------------------------------------------------------------------+-----------------------------------------------------------+
-; OJ[0..4,7..19]                                                     ; Stuck at GND due to stuck port data_in                    ;
-; OI[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OH[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OG[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OF[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OE[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OD[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OC[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OB[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; OA[0..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; J[0..17,19]                                                        ; Stuck at GND due to stuck port data_in                    ;
-; I[0..3,5]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; I[6]                                                               ; Stuck at VCC due to stuck port data_in                    ;
-; I[7]                                                               ; Stuck at GND due to stuck port data_in                    ;
-; I[8]                                                               ; Stuck at VCC due to stuck port data_in                    ;
-; I[9]                                                               ; Stuck at GND due to stuck port data_in                    ;
-; I[10]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; I[11,13..15,17,19]                                                 ; Stuck at GND due to stuck port data_in                    ;
-; H[0..15,17,19]                                                     ; Stuck at GND due to stuck port data_in                    ;
-; G[0..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                    ;
-; F[0..19]                                                           ; Stuck at GND due to stuck port data_in                    ;
-; E[0..3,5,7,9,11..15]                                               ; Stuck at GND due to stuck port data_in                    ;
-; E[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; E[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; D[0..15]                                                           ; Stuck at GND due to stuck port data_in                    ;
-; D[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; D[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; C[0..3,5,7,9..15]                                                  ; Stuck at GND due to stuck port data_in                    ;
-; C[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; C[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; B[1..3,5,7..15]                                                    ; Stuck at GND due to stuck port data_in                    ;
-; B[16]                                                              ; Stuck at VCC due to stuck port data_in                    ;
-; B[17..19]                                                          ; Stuck at GND due to stuck port data_in                    ;
-; A[1..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                    ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|stupidCaseCheck                     ; Stuck at GND due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display0[0..6]                    ; Stuck at VCC due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[0]                       ; Stuck at VCC due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[0,6]                     ; Stuck at VCC due to stuck port data_in                    ;
-; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[5]                       ; Stuck at VCC due to stuck port data_in                    ;
-; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[9]                      ; Stuck at GND due to stuck port data_in                    ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8]                     ; Stuck at GND due to stuck port data_in                    ;
-; OJ[5,6]                                                            ; Stuck at GND due to stuck port data_in                    ;
-; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]                      ; Stuck at GND due to stuck port data_in                    ;
-; A[0,16]                                                            ; Merged with J[18]                                         ;
-; B[0,4,6]                                                           ; Merged with J[18]                                         ;
-; C[4,6,8]                                                           ; Merged with J[18]                                         ;
-; E[4,6,8,10]                                                        ; Merged with J[18]                                         ;
-; G[16]                                                              ; Merged with J[18]                                         ;
-; H[16,18]                                                           ; Merged with J[18]                                         ;
-; I[4,12,16,18]                                                      ; Merged with J[18]                                         ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[7..31]                   ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]  ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[6]                       ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]  ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1..3,5,7,9,13..15,17,19] ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11] ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]                      ; Stuck at GND due to stuck port data_in                    ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]                       ; Stuck at GND due to stuck port data_in                    ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[0]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[0]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[1]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[1]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[2]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[2]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[3]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[3]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[4]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[4]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[5]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[5]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[6]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[6]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[7]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[7]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[8]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[8]     ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[9]                      ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|pixel_x[9]     ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]                          ; Stuck at GND due to stuck port data_in                    ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[8]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[4]      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|colour[7]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]      ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[11]                     ; Lost fanout                                               ;
-; Total Number of Removed Registers = 467                            ;                                                           ;
-+--------------------------------------------------------------------+-----------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                               ;
++--------------------------------------------------------------------+-------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                          ;
++--------------------------------------------------------------------+-------------------------------------------------------------+
+; OJ[0..4,7..19]                                                     ; Stuck at GND due to stuck port data_in                      ;
+; OI[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OH[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OG[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OF[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OE[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OD[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OC[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OB[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; OA[0..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[19]                    ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[18]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[13..17]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[12]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[11]                    ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[10]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[9]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[8]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[7]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[6]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[5]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[4]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[0..3]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[19]                    ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[18]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[0..17]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[19]                    ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[18]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[0..17]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|start[8..31]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[7..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[6]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[5]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[4]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[0..3]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[11..15]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[10]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[9]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[8]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[7]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[6]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[5]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[4]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[0..3]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[9..19]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|start[1..7]                   ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[0..8]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G1[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H1[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[11..15]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[10]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[9]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[8]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[7]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[6]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I1[0..5]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J1[0..19]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A2[1..19]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A2[0]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B2[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B2[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B2[1..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B2[0]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[9..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[8]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[7]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[6]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[5]                     ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[4]                     ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C2[0..3]                  ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D2[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D2[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D2[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E2[17..19]                ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E2[16]                    ; Stuck at VCC due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E2[0..15]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F2[0..19]                 ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[16..19]                ; Stuck at GND due to stuck port data_in                      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|stupidCaseCheck                     ; Stuck at GND due to stuck port data_in                      ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display0[0..6]                    ; Stuck at VCC due to stuck port data_in                      ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display1[0]                       ; Stuck at VCC due to stuck port data_in                      ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display2[0,6]                     ; Stuck at VCC due to stuck port data_in                      ;
+; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[5]                       ; Stuck at VCC due to stuck port data_in                      ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[9]                      ; Stuck at GND due to stuck port data_in                      ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8]                     ; Stuck at GND due to stuck port data_in                      ;
+; OJ[5,6]                                                            ; Stuck at GND due to stuck port data_in                      ;
+; J[0..17,19]                                                        ; Stuck at GND due to stuck port data_in                      ;
+; I[0..5,7,9,11..15,17,19]                                           ; Stuck at GND due to stuck port data_in                      ;
+; H[0..3,5,7,9,11,13..15,17,19]                                      ; Stuck at GND due to stuck port data_in                      ;
+; G[0..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                      ;
+; F[0..19]                                                           ; Stuck at GND due to stuck port data_in                      ;
+; E[0..3,5,7,9,11..15]                                               ; Stuck at GND due to stuck port data_in                      ;
+; E[16]                                                              ; Stuck at VCC due to stuck port data_in                      ;
+; E[17..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; D[0..15]                                                           ; Stuck at GND due to stuck port data_in                      ;
+; D[16]                                                              ; Stuck at VCC due to stuck port data_in                      ;
+; D[17..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; C[0..3,5,7,9..15]                                                  ; Stuck at GND due to stuck port data_in                      ;
+; C[16]                                                              ; Stuck at VCC due to stuck port data_in                      ;
+; C[17..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; B[1..3,5,7..15]                                                    ; Stuck at GND due to stuck port data_in                      ;
+; B[16]                                                              ; Stuck at VCC due to stuck port data_in                      ;
+; B[17..19]                                                          ; Stuck at GND due to stuck port data_in                      ;
+; A[1..15,17..19]                                                    ; Stuck at GND due to stuck port data_in                      ;
+; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]                      ; Stuck at GND due to stuck port data_in                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|start[0]                      ; Lost fanout                                                 ;
+; A[0,16]                                                            ; Merged with J[18]                                           ;
+; B[0,4,6]                                                           ; Merged with J[18]                                           ;
+; C[4,6,8]                                                           ; Merged with J[18]                                           ;
+; E[4,6,8,10]                                                        ; Merged with J[18]                                           ;
+; G[16]                                                              ; Merged with J[18]                                           ;
+; H[4,6,8,10,12,16,18]                                               ; Merged with J[18]                                           ;
+; I[6,8,10,16,18]                                                    ; Merged with J[18]                                           ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[7..31]                   ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]    ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[6]                       ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[5]    ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[6]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[6] ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[5]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[5] ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[4]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[4] ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[3]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[3] ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[2]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[2] ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[1]                     ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[1] ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|dataReceieved[7]                    ; Merged with KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[7]  ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[1..3,5,7,9,13..15,17,19] ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]   ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11]                      ; Stuck at GND due to stuck port data_in                      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel[4]                       ; Stuck at GND due to stuck port data_in                      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]                          ; Stuck at GND due to stuck port data_in                      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[8]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[4]        ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|colour[7]                           ; Merged with VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]        ;
+; Total Number of Removed Registers = 895                            ;                                                             ;
++--------------------------------------------------------------------+-------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                 ;
-+------------------------------------------------+---------------------------+------------------------------------------------+
-; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register         ;
-+------------------------------------------------+---------------------------+------------------------------------------------+
-; OJ[11]                                         ; Stuck at GND              ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11], ;
-;                                                ; due to stuck port data_in ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]      ;
-; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8] ; Stuck at GND              ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]  ;
-;                                                ; due to stuck port data_in ;                                                ;
-+------------------------------------------------+---------------------------+------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                        ;
++-------------------------------------------------+---------------------------+------------------------------------------------------+
+; Register name                                   ; Reason for Removal        ; Registers Removed due to This Register               ;
++-------------------------------------------------+---------------------------+------------------------------------------------------+
+; OJ[11]                                          ; Stuck at GND              ; VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[11],       ;
+;                                                 ; due to stuck port data_in ; VGA_CONTROLLER:VGA_CONTROLLER1|tempVal[1]            ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[15] ; Stuck at GND              ; G[15], THE_GREAT_DECIDER:THE_GREAT_DECIDER1|start[0] ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[14] ; Stuck at GND              ; G[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[13] ; Stuck at GND              ; G[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[12] ; Stuck at GND              ; G[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[11] ; Stuck at GND              ; G[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[10] ; Stuck at GND              ; G[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[9]  ; Stuck at GND              ; G[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[8]  ; Stuck at GND              ; G[8]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[7]  ; Stuck at GND              ; G[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[6]  ; Stuck at GND              ; G[6]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[5]  ; Stuck at GND              ; G[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[4]  ; Stuck at GND              ; G[4]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[3]  ; Stuck at GND              ; G[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[2]  ; Stuck at GND              ; G[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[1]  ; Stuck at GND              ; G[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G2[0]  ; Stuck at GND              ; G[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[19] ; Stuck at GND              ; H[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[17] ; Stuck at GND              ; H[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[15] ; Stuck at GND              ; H[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[14] ; Stuck at GND              ; H[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[13] ; Stuck at GND              ; H[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[11] ; Stuck at GND              ; H[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[9]  ; Stuck at GND              ; H[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[7]  ; Stuck at GND              ; H[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[5]  ; Stuck at GND              ; H[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[3]  ; Stuck at GND              ; H[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[2]  ; Stuck at GND              ; H[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[1]  ; Stuck at GND              ; H[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_H2[0]  ; Stuck at GND              ; H[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[19] ; Stuck at GND              ; I[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[17] ; Stuck at GND              ; I[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[15] ; Stuck at GND              ; I[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[14] ; Stuck at GND              ; I[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[13] ; Stuck at GND              ; I[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[12] ; Stuck at GND              ; I[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[11] ; Stuck at GND              ; I[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[9]  ; Stuck at GND              ; I[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[7]  ; Stuck at GND              ; I[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[5]  ; Stuck at GND              ; I[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[4]  ; Stuck at GND              ; I[4]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[3]  ; Stuck at GND              ; I[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[2]  ; Stuck at GND              ; I[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[1]  ; Stuck at GND              ; I[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_I2[0]  ; Stuck at GND              ; I[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[19] ; Stuck at GND              ; J[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[17] ; Stuck at GND              ; J[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[16] ; Stuck at GND              ; J[16]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[15] ; Stuck at GND              ; J[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[14] ; Stuck at GND              ; J[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[13] ; Stuck at GND              ; J[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[12] ; Stuck at GND              ; J[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[11] ; Stuck at GND              ; J[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[10] ; Stuck at GND              ; J[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[9]  ; Stuck at GND              ; J[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[8]  ; Stuck at GND              ; J[8]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[7]  ; Stuck at GND              ; J[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[6]  ; Stuck at GND              ; J[6]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[5]  ; Stuck at GND              ; J[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[4]  ; Stuck at GND              ; J[4]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[3]  ; Stuck at GND              ; J[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[2]  ; Stuck at GND              ; J[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[1]  ; Stuck at GND              ; J[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_J2[0]  ; Stuck at GND              ; J[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[19] ; Stuck at GND              ; A[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[18] ; Stuck at GND              ; A[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[17] ; Stuck at GND              ; A[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[15] ; Stuck at GND              ; A[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[14] ; Stuck at GND              ; A[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[13] ; Stuck at GND              ; A[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[12] ; Stuck at GND              ; A[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[11] ; Stuck at GND              ; A[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[10] ; Stuck at GND              ; A[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[9]  ; Stuck at GND              ; A[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[8]  ; Stuck at GND              ; A[8]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[7]  ; Stuck at GND              ; A[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[6]  ; Stuck at GND              ; A[6]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[5]  ; Stuck at GND              ; A[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[4]  ; Stuck at GND              ; A[4]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[3]  ; Stuck at GND              ; A[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[2]  ; Stuck at GND              ; A[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_A1[1]  ; Stuck at GND              ; A[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[19] ; Stuck at GND              ; B[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[18] ; Stuck at GND              ; B[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[17] ; Stuck at GND              ; B[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[16] ; Stuck at VCC              ; B[16]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[15] ; Stuck at GND              ; B[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[14] ; Stuck at GND              ; B[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[13] ; Stuck at GND              ; B[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[12] ; Stuck at GND              ; B[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[11] ; Stuck at GND              ; B[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[10] ; Stuck at GND              ; B[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[9]  ; Stuck at GND              ; B[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[8]  ; Stuck at GND              ; B[8]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[7]  ; Stuck at GND              ; B[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[5]  ; Stuck at GND              ; B[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[3]  ; Stuck at GND              ; B[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[2]  ; Stuck at GND              ; B[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_B1[1]  ; Stuck at GND              ; B[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[19] ; Stuck at GND              ; C[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[18] ; Stuck at GND              ; C[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[17] ; Stuck at GND              ; C[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[16] ; Stuck at VCC              ; C[16]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[15] ; Stuck at GND              ; C[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[14] ; Stuck at GND              ; C[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[13] ; Stuck at GND              ; C[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[12] ; Stuck at GND              ; C[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[11] ; Stuck at GND              ; C[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[10] ; Stuck at GND              ; C[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[9]  ; Stuck at GND              ; C[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[7]  ; Stuck at GND              ; C[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[5]  ; Stuck at GND              ; C[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[3]  ; Stuck at GND              ; C[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[2]  ; Stuck at GND              ; C[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[1]  ; Stuck at GND              ; C[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_C1[0]  ; Stuck at GND              ; C[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[19] ; Stuck at GND              ; D[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[18] ; Stuck at GND              ; D[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[17] ; Stuck at GND              ; D[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[16] ; Stuck at VCC              ; D[16]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[15] ; Stuck at GND              ; D[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[14] ; Stuck at GND              ; D[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[13] ; Stuck at GND              ; D[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[12] ; Stuck at GND              ; D[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[11] ; Stuck at GND              ; D[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[10] ; Stuck at GND              ; D[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[9]  ; Stuck at GND              ; D[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[8]  ; Stuck at GND              ; D[8]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[7]  ; Stuck at GND              ; D[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[6]  ; Stuck at GND              ; D[6]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[5]  ; Stuck at GND              ; D[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[4]  ; Stuck at GND              ; D[4]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[3]  ; Stuck at GND              ; D[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[2]  ; Stuck at GND              ; D[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[1]  ; Stuck at GND              ; D[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_D1[0]  ; Stuck at GND              ; D[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[19] ; Stuck at GND              ; E[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[18] ; Stuck at GND              ; E[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[17] ; Stuck at GND              ; E[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[16] ; Stuck at VCC              ; E[16]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[15] ; Stuck at GND              ; E[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[14] ; Stuck at GND              ; E[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[13] ; Stuck at GND              ; E[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[12] ; Stuck at GND              ; E[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[11] ; Stuck at GND              ; E[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[9]  ; Stuck at GND              ; E[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[7]  ; Stuck at GND              ; E[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[5]  ; Stuck at GND              ; E[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[3]  ; Stuck at GND              ; E[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[2]  ; Stuck at GND              ; E[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[1]  ; Stuck at GND              ; E[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_E1[0]  ; Stuck at GND              ; E[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[19] ; Stuck at GND              ; F[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[18] ; Stuck at GND              ; F[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[17] ; Stuck at GND              ; F[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[16] ; Stuck at GND              ; F[16]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[15] ; Stuck at GND              ; F[15]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[14] ; Stuck at GND              ; F[14]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[13] ; Stuck at GND              ; F[13]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[12] ; Stuck at GND              ; F[12]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[11] ; Stuck at GND              ; F[11]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[10] ; Stuck at GND              ; F[10]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[9]  ; Stuck at GND              ; F[9]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[8]  ; Stuck at GND              ; F[8]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[7]  ; Stuck at GND              ; F[7]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[6]  ; Stuck at GND              ; F[6]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[5]  ; Stuck at GND              ; F[5]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[4]  ; Stuck at GND              ; F[4]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[3]  ; Stuck at GND              ; F[3]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[2]  ; Stuck at GND              ; F[2]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[1]  ; Stuck at GND              ; F[1]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_F1[0]  ; Stuck at GND              ; F[0]                                                 ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G1[19] ; Stuck at GND              ; G[19]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G1[18] ; Stuck at GND              ; G[18]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; THE_GREAT_DECIDER:THE_GREAT_DECIDER1|t_t_G1[17] ; Stuck at GND              ; G[17]                                                ;
+;                                                 ; due to stuck port data_in ;                                                      ;
+; KEY_CONTROLLER:KEY_CONTROLLER1|t_keyDataOut[8]  ; Stuck at GND              ; LED_CONTROLLER:LED_CONTROLLER1|r_led_value[8]        ;
+;                                                 ; due to stuck port data_in ;                                                      ;
++-------------------------------------------------+---------------------------+------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -316,7 +744,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 159   ;
+; Total registers                              ; 151   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -356,23 +784,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[3]  ; 1       ;
 ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[4]  ; 1       ;
 ; HEX_CONTROLLER:HEX_CONTROLLER1|t_display3[6]  ; 1       ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]           ; 10      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]           ; 10      ;
-; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]           ; 10      ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[1]           ; 9       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[2]           ; 9       ;
+; VGA_CONTROLLER:VGA_CONTROLLER1|k[3]           ; 8       ;
 ; Total number of inverted registers = 28       ;         ;
 +-----------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                               ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------------------+----------------------------+
-; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|tempLetter[6] ;                            ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]     ;                            ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]     ;                            ;
-; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel    ;                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                            ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------+----------------------------+
+; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[5]  ;                            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|colour[3]  ;                            ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |Battleship|VGA_CONTROLLER:VGA_CONTROLLER1|boardLevel ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------+----------------------------+
 
 
 +----------------------------------------------------------------------------+
@@ -409,120 +836,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; K_VAL              ; 14    ; Signed Integer                                 ;
 +--------------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Port Connectivity Checks: "THE_GREAT_DECIDER:THE_GREAT_DECIDER1" ;
-+--------------+-------+----------+--------------------------------+
-; Port         ; Type  ; Severity ; Details                        ;
-+--------------+-------+----------+--------------------------------+
-; t_A1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_A1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_A1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_B1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_B1[15..7]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_B1[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_B1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_B1[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_B1[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_B1[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_C1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_D1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_D1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_D1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_E1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E1[15..11] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E1[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_E1[10]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_E1[9]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E1[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_E1[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E1[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_E1[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E1[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_F1         ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_G1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_G1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_G1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_H1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_H1[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_H1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I1[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I1[15..11] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I1[5..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I1[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I1[10]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I1[9]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I1[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I1[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I1[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_J1         ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_A2[19..1]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_A2[0]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_B2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_B2[15..1]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_B2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_B2[0]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_C2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C2[15..9]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C2[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_C2[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_C2[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C2[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_C2[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_C2[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_D2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_D2[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_D2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_E2[19..17] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E2[15..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_E2[16]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_F2         ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_G2         ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_H2[17..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_H2[19]     ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_H2[18]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I2[17..13] ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[3..0]   ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[19]     ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[18]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I2[12]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I2[11]     ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[10]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I2[9]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[8]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I2[7]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[6]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_I2[5]      ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_I2[4]      ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_J2[17..0]  ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_J2[19]     ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_J2[18]     ; Bidir ; Warning  ; Stuck at VCC                   ;
-; t_OA1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OB1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OC1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OD1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OE1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OF1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OG1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OH1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OI1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OJ1        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OA2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OB2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OC2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OD2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OE2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OF2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OG2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OH2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OI2        ; Bidir ; Warning  ; Stuck at GND                   ;
-; t_OJ2        ; Bidir ; Warning  ; Stuck at GND                   ;
-+--------------+-------+----------+--------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -564,7 +877,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -574,7 +887,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Mar 21 21:06:31 2015
+    Info: Processing started: Sat Mar 28 15:19:30 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Battleship -c Battleship
 Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
 Warning: Parallel compilation is not licensed and has been disabled
@@ -590,11 +903,21 @@ Info: Found 1 design units, including 1 entities, in source file hex_controller.
     Info: Found entity 1: HEX_CONTROLLER
 Info: Found 1 design units, including 1 entities, in source file the_great_decider.v
     Info: Found entity 1: THE_GREAT_DECIDER
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(255): created implicit net for "t_OA"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(256): created implicit net for "t_OB"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(257): created implicit net for "t_OC"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(258): created implicit net for "t_OD"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(259): created implicit net for "t_OE"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(260): created implicit net for "t_OF"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(261): created implicit net for "t_OG"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(262): created implicit net for "t_OH"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(263): created implicit net for "t_OI"
+Warning (10236): Verilog HDL Implicit Net warning at the_great_decider.v(264): created implicit net for "t_OJ"
 Info: Elaborating entity "Battleship" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at Battleship.v(67): truncated value with size 32 to match size of target (1)
-Warning (10646): Verilog HDL Event Control warning at Battleship.v(206): posedge or negedge of vector "clock24" depends solely on its least-significant bit
-Warning (10230): Verilog HDL assignment warning at Battleship.v(212): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at Battleship.v(217): truncated value with size 32 to match size of target (1)
+Warning (10646): Verilog HDL Event Control warning at Battleship.v(183): posedge or negedge of vector "clock24" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at Battleship.v(189): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Battleship.v(194): truncated value with size 32 to match size of target (1)
 Info: Elaborating entity "KEY_CONTROLLER" for hierarchy "KEY_CONTROLLER:KEY_CONTROLLER1"
 Warning (10646): Verilog HDL Event Control warning at key_controller.v(71): posedge or negedge of vector "clock27" depends solely on its least-significant bit
 Warning (10230): Verilog HDL assignment warning at key_controller.v(73): truncated value with size 32 to match size of target (12)
@@ -654,29 +977,80 @@ Warning (10230): Verilog HDL assignment warning at vga_controller.v(448): trunca
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(449): truncated value with size 4 to match size of target (3)
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(450): truncated value with size 4 to match size of target (3)
 Info: Elaborating entity "THE_GREAT_DECIDER" for hierarchy "THE_GREAT_DECIDER:THE_GREAT_DECIDER1"
-Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(68): object "x" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(70): object "col" assigned a value but never read
-Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(87): posedge or negedge of vector "clock27" depends solely on its least-significant bit
-Warning (10230): Verilog HDL assignment warning at the_great_decider.v(94): truncated value with size 32 to match size of target (1)
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(95): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(96): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(97): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(98): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(99): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(100): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(101): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(102): case item expression never matches the case expression
-Warning (10230): Verilog HDL assignment warning at the_great_decider.v(110): truncated value with size 20 to match size of target (1)
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(111): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(112): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(113): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(114): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(115): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(116): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(117): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(118): case item expression never matches the case expression
-Warning (10230): Verilog HDL assignment warning at the_great_decider.v(119): truncated value with size 20 to match size of target (1)
-Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(135): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(255): object "t_OA" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(256): object "t_OB" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(257): object "t_OC" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(258): object "t_OD" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(259): object "t_OE" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(260): object "t_OF" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(261): object "t_OG" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(262): object "t_OH" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(263): object "t_OI" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(264): object "t_OJ" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(113): object "x" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at the_great_decider.v(115): object "col" assigned a value but never read
+Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(132): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(181): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(188): truncated value with size 32 to match size of target (1)
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(189): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(190): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(191): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(192): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(193): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(194): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(195): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(196): case item expression never matches the case expression
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(204): truncated value with size 20 to match size of target (1)
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(205): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(206): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(207): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(208): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(209): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(210): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(211): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at the_great_decider.v(212): case item expression never matches the case expression
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(213): truncated value with size 20 to match size of target (1)
+Warning (10646): Verilog HDL Event Control warning at the_great_decider.v(229): posedge or negedge of vector "clock27" depends solely on its least-significant bit
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(255): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(256): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(257): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(258): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(259): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(260): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(261): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(262): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(263): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(264): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(265): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(266): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(267): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(268): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(269): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(270): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(271): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(272): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(273): truncated value with size 20 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at the_great_decider.v(274): truncated value with size 20 to match size of target (1)
+Warning (10034): Output port "t_OA1" at the_great_decider.v(29) has no driver
+Warning (10034): Output port "t_OB1" at the_great_decider.v(30) has no driver
+Warning (10034): Output port "t_OC1" at the_great_decider.v(31) has no driver
+Warning (10034): Output port "t_OD1" at the_great_decider.v(32) has no driver
+Warning (10034): Output port "t_OE1" at the_great_decider.v(33) has no driver
+Warning (10034): Output port "t_OF1" at the_great_decider.v(34) has no driver
+Warning (10034): Output port "t_OG1" at the_great_decider.v(35) has no driver
+Warning (10034): Output port "t_OH1" at the_great_decider.v(36) has no driver
+Warning (10034): Output port "t_OI1" at the_great_decider.v(37) has no driver
+Warning (10034): Output port "t_OJ1" at the_great_decider.v(38) has no driver
+Warning (10034): Output port "t_OA2" at the_great_decider.v(51) has no driver
+Warning (10034): Output port "t_OB2" at the_great_decider.v(52) has no driver
+Warning (10034): Output port "t_OC2" at the_great_decider.v(53) has no driver
+Warning (10034): Output port "t_OD2" at the_great_decider.v(54) has no driver
+Warning (10034): Output port "t_OE2" at the_great_decider.v(55) has no driver
+Warning (10034): Output port "t_OF2" at the_great_decider.v(56) has no driver
+Warning (10034): Output port "t_OG2" at the_great_decider.v(57) has no driver
+Warning (10034): Output port "t_OH2" at the_great_decider.v(58) has no driver
+Warning (10034): Output port "t_OI2" at the_great_decider.v(59) has no driver
+Warning (10034): Output port "t_OJ2" at the_great_decider.v(60) has no driver
 Warning: Net is missing source, defaulting to GND
     Warning (12110): Net "letter" is missing source, defaulting to GND
     Warning (12110): Net "number" is missing source, defaulting to GND
@@ -686,7 +1060,7 @@ Warning: Net is missing source, defaulting to GND
 Warning: Net is missing source, defaulting to GND
     Warning (12110): Net "letter" is missing source, defaulting to GND
     Warning (12110): Net "number" is missing source, defaulting to GND
-Warning: 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "led_r[8]" is stuck at GND
     Warning (13410): Pin "led_r[9]" is stuck at GND
@@ -726,7 +1100,7 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "letter" is stuck at GND
     Warning (13410): Pin "number" is stuck at GND
 Info: 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
-    Info: Register "KEY_CONTROLLER:KEY_CONTROLLER1|count_clock[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "THE_GREAT_DECIDER:THE_GREAT_DECIDER1|start[0]" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file D:/Dropbox/Computer Science/4th Year/Comp 4550/Battleship/Battleship.map.smsg
 Critical Warning: Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
 Info: Generating hard_block partition "hard_block:auto_generated_inst"
@@ -742,15 +1116,15 @@ Warning: Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "switch[7]"
     Warning (15610): No output dependent on input pin "switch[8]"
     Warning (15610): No output dependent on input pin "switch[9]"
-Info: Implemented 483 device resources after synthesis - the final resource count might be different
+Info: Implemented 484 device resources after synthesis - the final resource count might be different
     Info: Implemented 17 input pins
     Info: Implemented 89 output pins
-    Info: Implemented 377 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 144 warnings
+    Info: Implemented 378 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 205 warnings
     Info: Peak virtual memory: 272 megabytes
-    Info: Processing ended: Sat Mar 21 21:06:35 2015
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Processing ended: Sat Mar 28 15:19:35 2015
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +------------------------------------------+
