@@ -35,8 +35,8 @@ input  			clock50;
 input  			keyboardClock;
 input  			keyboardData;
 output [8:0] 	keyDataOut;
-output    		   letter; // later...
-output    			number;
+output [3:0]   letter;
+output [3:0]   number;
 wire   			keyPressed;
 
 input  [9:0] 	switch; // 9 switches...
@@ -182,7 +182,7 @@ always @ ( posedge heartbeat[20] )
 	
 always @ ( posedge clock24 ) 
 	begin 
-		if ( keyDataOut == 8'h5A )
+		if ( number == 55 )//( keyDataOut == 8'h5A )
 		 begin
 			if ( playerTurn == PLAYER_ONE )
 			 begin
@@ -198,23 +198,25 @@ always @ ( posedge clock24 )
 
 // "main"
 	// Flash the LED's cause that is cool
-	KEY_CONTROLLER KEY_CONTROLLER1( 
+	KEY_CONTROLLER KEY_CONTROLLER_OJB( 
 											clock27, 
 											keyboardClock, 
 											keyPressed, 
 											keyDataOut, 
-											keyboardData
+											keyboardData,
+											number,
+											letter
 											);
 											
-	LED_CONTROLLER LED_CONTROLLER1( 
+	LED_CONTROLLER LED_CONTROLLER_OJB( 
 											clock27, 
 											led_r, 
 											led_g, 
 											keyPressed, 
-											keyDataOut 
+											keyDataOut,
 											);
 	
-	HEX_CONTROLLER HEX_CONTROLLER1( 
+	HEX_CONTROLLER HEX_CONTROLLER_OJB( 
 											clock27, 
 											numDisplay0, 
 											numDisplay1, 
@@ -226,7 +228,7 @@ always @ ( posedge clock24 )
 											number	
 											);
 	
-	VGA_CONTROLLER VGA_CONTROLLER1( 
+	VGA_CONTROLLER VGA_CONTROLLER_OJB( 
 											clock27,
 											clock50, 
 											A, B, C, D, E, F, G, H, I, J,
@@ -238,7 +240,7 @@ always @ ( posedge clock24 )
 											vga_hor_sync, 
 											vga_ver_sync 
 											);
-	THE_GREAT_DECIDER THE_GREAT_DECIDER1 (
+	THE_GREAT_DECIDER THE_GREAT_DECIDER_OJB (
 											clock27,
 											t_A1, t_B1, t_C1, t_D1, t_E1, t_F1, t_G1, t_H1, t_I1, t_J1, 
 											t_A2, t_B2, t_C2, t_D2, t_E2, t_F2, t_G2, t_H2, t_I2, t_J2, 
@@ -246,7 +248,8 @@ always @ ( posedge clock24 )
 											t_OA2, t_OB2, t_OC2, t_OD2, t_OE2, t_OF2, t_OG2, t_OH2, t_OI2, t_OJ2,
 											keyDataOut,
 											letter,
-											number
+											number,
+											playerTurn
 											);
 	
 	// Determine which players turn it is, for debug purposes mostly
@@ -255,30 +258,3 @@ always @ ( posedge clock24 )
 	
 //end
 endmodule
-
-
-/*
-Player 1 Start Board:
-00010000000000000000
-00010000000001010000
-00010000000000000000
-00010000000000000000
-00010000010101010000
-00000000000000000000
-00010000000000000000
-00010000000000000000
-00010000010101000000
-00000000000000000000
-
-Player 2 Start Board:
-00000000000000000001
-00010000000000000001
-00010000000101010000
-00010000000000000000
-00010000000000000000
-00000000000000000000
-00000000000000000000
-01000000000000000000
-01000001010101010000
-01000000000000000000
-*/

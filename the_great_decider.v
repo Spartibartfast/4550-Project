@@ -9,11 +9,16 @@ module THE_GREAT_DECIDER (
 	t_OA2, t_OB2, t_OC2, t_OD2, t_OE2, t_OF2, t_OG2, t_OH2, t_OI2, t_OJ2,
 	keyDataOut,
 	letter,
-	number
+	number,
+	playerTurn
 	);
+	
+parameter PLAYER_ONE = 0;
+parameter PLAYER_TWO = 1;	
 	
 input [1:0] clock27;
 input [8:0] keyDataOut;
+input  		playerTurn;
 
 output [19:0] t_A1;
 output [19:0] t_B1; 
@@ -104,15 +109,15 @@ reg [19:0] t_t_OH2;
 reg [19:0] t_t_OI2; 
 reg [19:0] t_t_OJ2;
 
-input 		letter;
-input 		number;  
+input[3:0] letter;
+input[3:0] number;  
 
 reg 			whichKeyAreWeGetting = 0; // 0 - Letter, 1 - Number
 reg 			fullCommand = 0;
 
-reg 		 x;
-reg [1:0] row;
-reg       col;
+integer	  x;
+reg [1:0]  row;
+reg [19:0] col;
 
 integer 	 start = 1;
 
@@ -173,7 +178,6 @@ always @ ( posedge clock27 )
 			t_t_OH2 = 20'b00000000000000000000; 
 			t_t_OI2 = 20'b00000000000000000000; 
 			t_t_OJ2 = 20'b00000000000000000000;
-			
 			start = 0;
 		 end
 	end
@@ -184,34 +188,52 @@ always @ ( posedge clock27 )
 		if ( whichKeyAreWeGetting == 0 && fullCommand == 0 )
 		 begin
 			case( letter )
-				0: x = 0;
-				1: x = 2;
-				2: x = 4;
-				3: x = 6;
-				4: x = 8;
-				5: x = 10;
-				6: x = 12;
-				7: x = 14;
-				8: x = 16;
-				9: x = 18;
+				4'b0000: x = 0;
+				4'b0001: x = 2;
+				4'b0010: x = 4;
+				4'b0011: x = 6;
+				4'b0100: x = 8;
+				4'b0101: x = 10;
+				4'b0110: x = 12;
+				4'b0111: x = 14;
+				4'b1000: x = 16;
+				4'b1001: x = 18;
 			endcase
 		 end
 		 
 		// Handle the number case
 		if ( whichKeyAreWeGetting == 1 && fullCommand == 0 )
 		 begin
-			case( number )
-				1: col = t_A1;
-				2: col = t_B1;
-				3: col = t_C1;
-				4: col = t_D1;
-				5: col = t_E1;
-				6: col = t_F1;
-				7: col = t_G1;
-				8: col = t_H1;
-				9: col = t_I1;
-				0: col = t_J1;
-			endcase
+			if ( playerTurn == PLAYER_ONE )
+			 begin
+				case( number )
+					4'b0001: col = t_t_A1;
+					4'b0010: col = t_t_B1;
+					4'b0011: col = t_t_C1;
+					4'b0100: col = t_t_D1;
+					4'b0101: col = t_t_E1;
+					4'b0110: col = t_t_F1;
+					4'b0111: col = t_t_G1;
+					4'b1000: col = t_t_H1;
+					4'b1001: col = t_t_I1;
+					4'b0000: col = t_t_J1;
+				endcase
+			 end
+			else if ( playerTurn == PLAYER_TWO )
+			 begin
+				case( number )
+					4'b0001: col = t_t_A2;
+					4'b0010: col = t_t_B2;
+					4'b0011: col = t_t_C2;
+					4'b0100: col = t_t_D2;
+					4'b0101: col = t_t_E2;
+					4'b0110: col = t_t_F2;
+					4'b0111: col = t_t_G2;
+					4'b1000: col = t_t_H2;
+					4'b1001: col = t_t_I2;
+					4'b0000: col = t_t_J2;
+				endcase
+			 end
 			
 			fullCommand = 1;
 		 end
@@ -219,6 +241,19 @@ always @ ( posedge clock27 )
 		// Execute the decision
 		if ( fullCommand == 1 )
 		 begin
+			/*if ( playerTurn == PLAYER_ONE )
+			 begin
+				case( x )
+					0: ( ( col[19:18] == 2'b01 ) ? col[19:18] = 2b'11 : col[19:18] = 2b'10 );
+				endcase
+			 end
+			else if ( playerTurn == PLAYER_TWO )
+			 begin
+				case( x )
+					0: ;
+				endcase
+			 end*/
+			
 			
 			fullCommand = 0;
 			whichKeyAreWeGetting = 0;
@@ -252,24 +287,24 @@ assign t_G2 = t_t_G2;
 assign t_H2 = t_t_H2;
 assign t_I2 = t_t_I2;
 assign t_J2 = t_t_J2;
-assign t_OA = t_t_OA1;
-assign t_OB = t_t_OB1;
-assign t_OC = t_t_OC1;
-assign t_OD = t_t_OD1;
-assign t_OE = t_t_OE1;
-assign t_OF = t_t_OF1;
-assign t_OG = t_t_OG1;
-assign t_OH = t_t_OH1;
-assign t_OI = t_t_OI1;
-assign t_OJ = t_t_OJ1;
-assign t_OA = t_t_OA2;
-assign t_OB = t_t_OB2;
-assign t_OC = t_t_OC2;
-assign t_OD = t_t_OD2;
-assign t_OE = t_t_OE2;
-assign t_OF = t_t_OF2;
-assign t_OG = t_t_OG2;
-assign t_OH = t_t_OH2;
-assign t_OI = t_t_OI2;
-assign t_OJ = t_t_OJ2;
+assign t_OA1 = t_t_OA1;
+assign t_OB1 = t_t_OB1;
+assign t_OC1 = t_t_OC1;
+assign t_OD1 = t_t_OD1;
+assign t_OE1 = t_t_OE1;
+assign t_OF1 = t_t_OF1;
+assign t_OG1 = t_t_OG1;
+assign t_OH1 = t_t_OH1;
+assign t_OI1 = t_t_OI1;
+assign t_OJ1 = t_t_OJ1;
+assign t_OA2 = t_t_OA2;
+assign t_OB2 = t_t_OB2;
+assign t_OC2 = t_t_OC2;
+assign t_OD2 = t_t_OD2;
+assign t_OE2 = t_t_OE2;
+assign t_OF2 = t_t_OF2;
+assign t_OG2 = t_t_OG2;
+assign t_OH2 = t_t_OH2;
+assign t_OI2 = t_t_OI2;
+assign t_OJ2 = t_t_OJ2;
 endmodule

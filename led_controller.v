@@ -20,9 +20,7 @@ output 	[7:0]  led_g; // the other 9 led's 			 (green)
 
 // The positive edge of clock 27 -> 27Hz clock...
 always @ ( posedge clock27 )
-	begin 
-		r_led_value[9:0] <= keyDataOut;
-		
+	begin 		
 		if (  keyDataOut == 8'h1C || // A
 				keyDataOut == 8'h32 || // B
 				keyDataOut == 8'h21 || // C
@@ -44,12 +42,8 @@ always @ ( posedge clock27 )
 				keyDataOut == 8'h46 || // 9
 				keyDataOut == 8'h45 )  // 0 -> 10
 		 begin
-			g_led_value = keyDataOut[7:0];
+			r_led_value = keyDataOut[7:0];
 		 end
-		/*else
-		 begin
-			g_led_value = 8'b00000000;
-		 end*/
 	end
 
 // Assign is a continous non-blocking operation...

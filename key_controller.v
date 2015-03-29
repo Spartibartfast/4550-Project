@@ -58,15 +58,16 @@ input  [1:0]  clock27;
 input  [10:0] keyboardData;
 output [1:0]  keyPressed; // If a key (any key) has been pressed. Like an intr
 output [8:0]  keyDataOut; // The specific key in particular // 8 data bits
-output 		  letter;
-output 		  number;
-reg 			  t_letter;
-reg 	 		  t_number;
+output [3:0]  letter;
+output [3:0]  number;
+reg 			  t_posOfInput;
+reg 	 [3:0]  t_letter;
+reg 	 [3:0]  t_number;
 reg 	 [1:0]  t_key_press     = 1'b0;
 reg 	 [8:0]  t_keyDataOut;
 reg 	 [10:0] dataReceieved;
 reg 	 [11:0] count_clock     = 12'b0;
-reg       	  numLetterSelect = 0; // 0 - letter 1 - number
+integer    	  numLetterSelect = 0; // 0 - letter 1 - number 2 - Enter
 
 always @ ( posedge clock27 )
 	begin
@@ -89,53 +90,53 @@ always @ ( negedge keyboardClock )
 			t_key_press = 1'b0;
 		 end
 		 
-		if ( numLetterSelect == 0 )
-		 begin
-			case ( dataReceieved[8:1] )
-				8'h1C: t_letter = 0;
-				8'h32: t_letter = 1; 
-				8'h21: t_letter = 2; 
-				8'h23: t_letter = 3; 
-				8'h24: t_letter = 4; 
-				8'h2B: t_letter = 5; 
-				8'h34: t_letter = 6; 
-				8'h33: t_letter = 7;
-				8'h43: t_letter = 8; 
-				8'h3B: t_letter = 9;
-				default: t_letter = 99;
-			endcase
+		 t_keyDataOut <= dataReceieved[8:1];
+		 
+		//if ( numLetterSelect == 0 )
+		 //begin
+		case ( t_keyDataOut )
+			8'h1C: t_letter = 4'b0000;
+			8'h32: t_letter = 4'b0001; 
+			8'h21: t_letter = 4'b0010;
+			8'h23: t_letter = 4'b0011; 
+			8'h24: t_letter = 4'b0100; 
+			8'h2B: t_letter = 4'b0101; 
+			8'h34: t_letter = 4'b0110; 
+			8'h33: t_letter = 4'b0111;
+			8'h43: t_letter = 4'b1000; 
+			8'h3B: t_letter = 4'b1001;
+			default: t_letter = 4'b1111;
+		endcase
 			
-				if ( t_letter != 99 )
-					numLetterSelect = 1;
-		 end
-		else if ( numLetterSelect == 1 )
+				//if ( t_letter != 99 )
+					//numLetterSelect = 1;
+		 //end
+		//else if ( numLetterSelect == 1 )
+		 //begin
+		case ( t_keyDataOut )
+			8'h16: t_number = 4'b0001;
+			8'h1E: t_number = 4'b0010;
+			8'h26: t_number = 4'b0011;
+			8'h25: t_number = 4'b0100; 
+			8'h2E: t_number = 4'b0101; 
+			8'h36: t_number = 4'b0110;
+			8'h3D: t_number = 4'b0111;
+			8'h3E: t_number = 4'b1000;
+			8'h46: t_number = 4'b1001;
+			8'h45: t_number = 4'b0000;
+			default: t_letter = 4'b1111;
+		endcase 
+				//if ( t_letter != 88 )
+				//	numLetterSelect = 2;
+		  //end
+		 //else if ( numLetterSelect == 2 )
+		  //begin
+		if ( keyDataOut == 8'h5A )
 		 begin
-			case ( dataReceieved[8:1] )
-				8'h16: t_number = 1;
-				8'h1E: t_number = 2;
-				8'h26: t_number = 3;
-				8'h25: t_number = 4;
-				8'h2E: t_number = 5;
-				8'h36: t_number = 6;
-				8'h3D: t_number = 7;
-				8'h3E: t_number = 8;
-				8'h46: t_number = 9;
-				8'h45: t_number = 0;
-				default: t_letter = 88;
-			endcase 
-				if ( t_letter != 88 )
-					numLetterSelect = 2;
-		  end
-		 else if ( numLetterSelect == 2 )
-		  begin
-			if ( dataReceieved[8:1] == 8'h5A )
-			 begin
-				//t_number = 55;
-				numLetterSelect = 0;
-			 end
-		  end
-		  
-		  t_keyDataOut <= dataReceieved[8:1];
+			t_number = 55;
+			numLetterSelect = 0;
+		 end
+		  //end
 	end // end always @...
 	
 
@@ -149,5 +150,6 @@ assign letter = t_letter;
 assign number = t_number;
 assign keyPressed = t_key_press;
 assign keyDataOut = t_keyDataOut;
+assign posOfInput = t_posOfInput;
 
 endmodule
