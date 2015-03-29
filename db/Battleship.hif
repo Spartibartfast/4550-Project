@@ -810,7 +810,7 @@ ON
 # case_sensitive
 # source_file
 key_controller.v
-cd510a3a7b0b7b5f55f1e5c1898e70
+1bcb421ff2743fbd2328f4328ddd6ce8
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

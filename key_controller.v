@@ -55,7 +55,7 @@ module KEY_CONTROLLER(
 
 input  		  keyboardClock;
 input  [1:0]  clock27;
-input  [10:0] keyboardData;
+input         keyboardData;
 output [1:0]  keyPressed; // If a key (any key) has been pressed. Like an intr
 output [8:0]  keyDataOut; // The specific key in particular // 8 data bits
 output [3:0]  letter;
@@ -65,17 +65,78 @@ reg 	 [3:0]  t_letter;
 reg 	 [3:0]  t_number;
 reg 	 [1:0]  t_key_press     = 1'b0;
 reg 	 [8:0]  t_keyDataOut;
-reg 	 [10:0] dataReceieved;
+reg 	 [7:0]  dataReceieved;
 reg 	 [11:0] count_clock     = 12'b0;
+reg 			  startBit;
+reg 	 [3:0]  numBitsRead;
 integer    	  numLetterSelect = 0; // 0 - letter 1 - number 2 - Enter
 
 always @ ( posedge clock27 )
 	begin
 		count_clock = count_clock + 1;
 	end
+	
+
+always @ ( negedge keyboardClock )
+	begin
+		if ( keyboardData == 0 && startBit == 0 )
+		 begin
+			startBit = 1;
+			dataReceieved = 0;
+		 end
+		else if ( startBit == 1 )
+		 begin
+			if ( numBitsRead < 8 )
+			 begin
+				numBitsRead = numBitsRead + 1;
+				dataReceieved = { keyboardData, dataReceieved[7:1] };
+			 end
+			else
+			 begin
+				startBit = 0;
+				numBitsRead = 0;
+			 end
+		 end
+		 
+		 //t_keyDataOut <= dataReceieved
+		 
+		 case ( dataReceieved )
+			8'h1C: t_letter = 4'b0000;
+			8'h32: t_letter = 4'b0001; 
+			8'h21: t_letter = 4'b0010;
+			8'h23: t_letter = 4'b0011; 
+			8'h24: t_letter = 4'b0100; 
+			8'h2B: t_letter = 4'b0101; 
+			8'h34: t_letter = 4'b0110; 
+			8'h33: t_letter = 4'b0111;
+			8'h43: t_letter = 4'b1000; 
+			8'h3B: t_letter = 4'b1001;
+			default: t_letter = 4'b1111;
+		endcase
+		
+		case ( dataReceieved )
+			8'h16: t_number = 4'b0001;
+			8'h1E: t_number = 4'b0010;
+			8'h26: t_number = 4'b0011;
+			8'h25: t_number = 4'b0100; 
+			8'h2E: t_number = 4'b0101; 
+			8'h36: t_number = 4'b0110;
+			8'h3D: t_number = 4'b0111;
+			8'h3E: t_number = 4'b1000;
+			8'h46: t_number = 4'b1001;
+			8'h45: t_number = 4'b0000;
+			default: t_letter = 4'b1111;
+		endcase 
+		
+		if ( keyDataOut == 8'h5A )
+		 begin
+			t_number = 55;
+		 end
+	end // end always
+
 
 // Negedge for key release
-always @ ( negedge keyboardClock )
+/*always @ ( negedge keyboardClock )
 	begin
 		dataReceieved <= 8'h00;
 		dataReceieved <= { keyboardData, dataReceieved[8:1] };
@@ -137,7 +198,7 @@ always @ ( negedge keyboardClock )
 			numLetterSelect = 0;
 		 end
 		  //end
-	end // end always @...
+	end // end always @...*/
 	
 
 always @ ( posedge count_clock[10] )
