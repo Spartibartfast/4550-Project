@@ -35,8 +35,8 @@ input  			clock50;
 input  			keyboardClock;
 input  			keyboardData;
 output [8:0] 	keyDataOut;
-output [3:0]   letter;
-output [3:0]   number;
+inout  [3:0]   letter;
+inout  [3:0]   number;
 wire   			keyPressed;
 
 input  [9:0] 	switch; // 9 switches...
@@ -182,7 +182,7 @@ always @ ( posedge heartbeat[20] )
 	
 always @ ( posedge clock24 ) 
 	begin 
-		if ( number == 55 )//( keyDataOut == 8'h5A )
+		if ( keyDataOut == 8'h5A )//( number == 55 )
 		 begin
 			if ( playerTurn == PLAYER_ONE )
 			 begin
@@ -199,7 +199,7 @@ always @ ( posedge clock24 )
 // "main"
 	// Flash the LED's cause that is cool
 	KEY_CONTROLLER KEY_CONTROLLER_OJB( 
-											clock27, 
+											clock50, 
 											keyboardClock, 
 											keyPressed, 
 											keyDataOut, 

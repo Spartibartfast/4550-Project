@@ -112,8 +112,8 @@ reg [19:0] t_t_OJ2;
 input[3:0] letter;
 input[3:0] number;  
 
-reg 			whichKeyAreWeGetting = 0; // 0 - Letter, 1 - Number
-reg 			fullCommand = 0;
+integer    whichKeyAreWeGetting = 0; // 0 - Letter, 1 - Number
+integer 	  fullCommand = 0;
 
 integer	  x;
 reg [1:0]  row;
@@ -134,6 +134,7 @@ integer 	 start = 1;
 // J -> 9
 // Unknown -> 99  Unknown -> 88
 // Enter -> 55
+
 always @ ( posedge clock27 )
 	begin
 		if ( start == 1 )
@@ -180,13 +181,10 @@ always @ ( posedge clock27 )
 			t_t_OJ2 = 20'b00000000000000000000;
 			start = 0;
 		 end
-	end
-
-always @ ( posedge clock27 )
-	begin
+		 
 		// Handle the letter case
-		if ( whichKeyAreWeGetting == 0 && fullCommand == 0 )
-		 begin
+		//if ( whichKeyAreWeGetting == 0 && fullCommand == 0 )
+		 //begin
 			case( letter )
 				4'b0000: x = 0;
 				4'b0001: x = 2;
@@ -198,13 +196,17 @@ always @ ( posedge clock27 )
 				4'b0111: x = 14;
 				4'b1000: x = 16;
 				4'b1001: x = 18;
+				default: x = 99;
 			endcase
-		 end
+		 //end
+		 
+		if ( x < 20 )
+			whichKeyAreWeGetting = 1;
 		 
 		// Handle the number case
-		if ( whichKeyAreWeGetting == 1 && fullCommand == 0 )
-		 begin
-			if ( playerTurn == PLAYER_ONE )
+		//if ( whichKeyAreWeGetting == 1 && fullCommand == 0 )
+		 //begin
+			if ( playerTurn == PLAYER_TWO )
 			 begin
 				case( number )
 					4'b0001: col = t_t_A1;
@@ -217,9 +219,10 @@ always @ ( posedge clock27 )
 					4'b1000: col = t_t_H1;
 					4'b1001: col = t_t_I1;
 					4'b0000: col = t_t_J1;
+					default: fullCommand = 2;
 				endcase
 			 end
-			else if ( playerTurn == PLAYER_TWO )
+			else if ( playerTurn == PLAYER_ONE )
 			 begin
 				case( number )
 					4'b0001: col = t_t_A2;
@@ -232,39 +235,126 @@ always @ ( posedge clock27 )
 					4'b1000: col = t_t_H2;
 					4'b1001: col = t_t_I2;
 					4'b0000: col = t_t_J2;
+					default: fullCommand = 2;
 				endcase
 			 end
 			
-			fullCommand = 1;
-		 end
+			if ( fullCommand != 2 )
+				fullCommand = 1;
+		 //end // end which key we are getting
 		 
 		// Execute the decision
-		if ( fullCommand == 1 )
-		 begin
-			/*if ( playerTurn == PLAYER_ONE )
+		//if ( fullCommand == 1 )
+		 //begin			 
+			if( x == 0 )
 			 begin
-				case( x )
-					0: ( ( col[19:18] == 2'b01 ) ? col[19:18] = 2b'11 : col[19:18] = 2b'10 );
-				endcase
+				if ( col[19:18] == 2'b01 )
+					col[19:18] = 2'b11; 
+				else
+					col[19:18] = 2'b10;
+			 end 
+			else if( x == 2 )
+			 begin
+				if ( col[17:16] == 2'b01 )
+					col[17:16] = 2'b11; 
+				else
+					col[17:16] = 2'b10;
 			 end
-			else if ( playerTurn == PLAYER_TWO )
+			else if( x == 4 )
 			 begin
-				case( x )
-					0: ;
-				endcase
-			 end*/
-			
+				if ( col[15:14] == 2'b01 )
+					col[15:14] = 2'b11; 
+				else
+					col[15:14] = 2'b10;
+			 end
+			else if( x == 6 )
+			 begin
+				if ( col[13:12] == 2'b01 )
+					col[13:12] = 2'b11; 
+				else
+					col[13:12] = 2'b10;
+			 end
+			else if( x == 8 )
+			 begin
+				if ( col[11:10] == 2'b01 )
+					col[11:10] = 2'b11; 
+				else
+					col[11:10] = 2'b10;
+			 end
+			else if( x == 10 )
+			 begin
+				if ( col[9:8] == 2'b01 )
+					col[9:8] = 2'b11; 
+				else
+					col[9:8] = 2'b10;
+			 end
+			else if( x == 12 )
+			 begin
+				if ( col[7:6] == 2'b01 )
+					col[7:6] = 2'b11; 
+				else
+					col[7:6] = 2'b10;
+			 end
+			else if( x == 14 )
+			 begin
+				if ( col[5:4] == 2'b01 )
+					col[5:4] = 2'b11; 
+				else
+					col[5:4] = 2'b10;
+			 end
+			else if( x == 16 )
+			 begin
+				if ( col[3:2] == 2'b01 )
+					col[3:2] = 2'b11; 
+				else
+					col[3:2] = 2'b10;
+			 end
+			else if( x == 18 )
+			 begin
+				if ( col[1:0] == 2'b01 )
+					col[1:0] = 2'b11; 
+				else
+					col[1:0] = 2'b10;
+			 end
 			
 			fullCommand = 0;
 			whichKeyAreWeGetting = 0;
-		 end
-	end
-
-
-always @ ( posedge clock27 )
-	begin
-		
-	end
+			
+			// put the info back into the regs
+			if ( playerTurn == PLAYER_TWO )
+			 begin
+				case( number )
+					4'b0001: t_t_OA1 = col;
+					4'b0010: t_t_OB1 = col;
+					4'b0011: t_t_OC1 = col;
+					4'b0100: t_t_OD1 = col;
+					4'b0101: t_t_OE1 = col;
+					4'b0110: t_t_OF1 = col;
+					4'b0111: t_t_OG1 = col;
+					4'b1000: t_t_OH1 = col;
+					4'b1001: t_t_OI1 = col;
+					4'b0000: t_t_OJ1 = col;
+					default: fullCommand = 2;
+				endcase
+			 end
+			else if ( playerTurn == PLAYER_ONE  )
+			 begin
+				case( number )
+					4'b0001: t_t_OA2 = col;
+					4'b0010: t_t_OB2 = col;
+					4'b0011: t_t_OC2 = col;
+					4'b0100: t_t_OD2 = col;
+					4'b0101: t_t_OE2 = col;
+					4'b0110: t_t_OF2 = col;
+					4'b0111: t_t_OG2 = col;
+					4'b1000: t_t_OH2 = col;
+					4'b1001: t_t_OI2 = col;
+					4'b0000: t_t_OJ2 = col;
+					default: fullCommand = 2;
+				endcase
+			 end
+		 //end // end if fullCommand
+	end // end module
 	
 // This is clearly the best way to do this...
 assign t_A1 = t_t_A1;

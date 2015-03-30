@@ -1,6 +1,6 @@
 //Keyboard Controller
 module KEY_CONTROLLER( 
-		clock27, 
+		clock50, 
 		keyboardClock, 
 		keyPressed, 
 		keyDataOut, 
@@ -54,7 +54,7 @@ module KEY_CONTROLLER(
 // Enter -> 55
 
 input  		  keyboardClock;
-input  [1:0]  clock27;
+input    	  clock50;
 input         keyboardData;
 output [1:0]  keyPressed; // If a key (any key) has been pressed. Like an intr
 output [8:0]  keyDataOut; // The specific key in particular // 8 data bits
@@ -65,18 +65,18 @@ reg 	 [3:0]  t_letter;
 reg 	 [3:0]  t_number;
 reg 	 [1:0]  t_key_press     = 1'b0;
 reg 	 [8:0]  t_keyDataOut;
-reg 	 [7:0]  dataReceieved;
+reg 	 [10:0]  dataReceieved;
 reg 	 [11:0] count_clock     = 12'b0;
 reg 			  startBit;
 reg 	 [3:0]  numBitsRead;
 integer    	  numLetterSelect = 0; // 0 - letter 1 - number 2 - Enter
 
-always @ ( posedge clock27 )
+/*always @ ( posedge clock50 )
 	begin
 		count_clock = count_clock + 1;
-	end
+	end*/
 	
-
+/*
 always @ ( negedge keyboardClock )
 	begin
 		if ( keyboardData == 0 && startBit == 0 )
@@ -98,7 +98,7 @@ always @ ( negedge keyboardClock )
 			 end
 		 end
 		 
-		 //t_keyDataOut <= dataReceieved
+		 t_keyDataOut <= dataReceieved[8:1];
 		 
 		 case ( dataReceieved )
 			8'h1C: t_letter = 4'b0000;
@@ -133,12 +133,12 @@ always @ ( negedge keyboardClock )
 			t_number = 55;
 		 end
 	end // end always
-
+*/
 
 // Negedge for key release
-/*always @ ( negedge keyboardClock )
+always @ ( negedge keyboardClock )
 	begin
-		dataReceieved <= 8'h00;
+		dataReceieved  <= 8'h00;
 		dataReceieved <= { keyboardData, dataReceieved[8:1] };
 		
 		// 11 should be the start bit...
@@ -151,10 +151,10 @@ always @ ( negedge keyboardClock )
 			t_key_press = 1'b0;
 		 end
 		 
-		 t_keyDataOut <= dataReceieved[8:1];
+		 t_keyDataOut = dataReceieved[8:1];
+		//t_number = 4'b0101;
+		//t_letter = 4'b0101;
 		 
-		//if ( numLetterSelect == 0 )
-		 //begin
 		case ( t_keyDataOut )
 			8'h1C: t_letter = 4'b0000;
 			8'h32: t_letter = 4'b0001; 
@@ -166,15 +166,6 @@ always @ ( negedge keyboardClock )
 			8'h33: t_letter = 4'b0111;
 			8'h43: t_letter = 4'b1000; 
 			8'h3B: t_letter = 4'b1001;
-			default: t_letter = 4'b1111;
-		endcase
-			
-				//if ( t_letter != 99 )
-					//numLetterSelect = 1;
-		 //end
-		//else if ( numLetterSelect == 1 )
-		 //begin
-		case ( t_keyDataOut )
 			8'h16: t_number = 4'b0001;
 			8'h1E: t_number = 4'b0010;
 			8'h26: t_number = 4'b0011;
@@ -186,25 +177,13 @@ always @ ( negedge keyboardClock )
 			8'h46: t_number = 4'b1001;
 			8'h45: t_number = 4'b0000;
 			default: t_letter = 4'b1111;
-		endcase 
-				//if ( t_letter != 88 )
-				//	numLetterSelect = 2;
-		  //end
-		 //else if ( numLetterSelect == 2 )
-		  //begin
-		if ( keyDataOut == 8'h5A )
-		 begin
-			t_number = 55;
-			numLetterSelect = 0;
-		 end
-		  //end
-	end // end always @...*/
-	
+		endcase
+	end // end always @...
 
-always @ ( posedge count_clock[10] )
+/*always @ ( posedge count_clock[10] )
 	begin
 		//t_keyDataOut <= dataReceieved[8:1];
-	end
+	end*/
 
 // Continous non-blocking assignment...
 assign letter = t_letter;
