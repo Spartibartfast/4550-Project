@@ -897,8 +897,8 @@ altrom.inc
 # entity
 altsyncram_5301
 # storage
-db|Battleship.(13).cnf
-db|Battleship.(13).cnf
+db|Battleship.(14).cnf
+db|Battleship.(14).cnf
 # case_insensitive
 # source_file
 db|altsyncram_5301.tdf
@@ -959,93 +959,7 @@ address_a0
 }
 # memory_file {
 battleship.battleship0.rtl.mif
-995dc58c97aae92edaedf4ca4bb671f
-}
-# macro_sequence
-
-# end
-# entity
-Battleship
-# storage
-db|Battleship.(0).cnf
-db|Battleship.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-battleship.v
-42ccaabf5499c27f3b84bf0cc6a72a9
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-BOARD_SIZE
-10
-PARAMETER_SIGNED_DEC
-DEF
-PLAYER_ONE
-0
-PARAMETER_SIGNED_DEC
-DEF
-PLAYER_TWO
-1
-PARAMETER_SIGNED_DEC
-DEF
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
-KEY_CONTROLLER
-# storage
-db|Battleship.(1).cnf
-db|Battleship.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-key_controller.v
-55c0febaae9d73b4cf5c1ef344df763
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-KEY_CONTROLLER:KEY_CONTROLLER_OJB
+acdcbf66c659b49039e0aaae1b962c0
 }
 # macro_sequence
 
@@ -1062,7 +976,7 @@ ON
 # case_sensitive
 # source_file
 vga_controller.v
-e681e74b1b3374a5fecc202c888057
+2709226eaee2cc27b2b19fa272d2
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1160,7 +1074,7 @@ ON
 # case_sensitive
 # source_file
 the_great_decider.v
-489f72eec3c4c6bff31fd21e6d4d7f
+c6fb5f84b04a383097cab58953fff0cd
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1190,6 +1104,92 @@ DEF
 }
 # hierarchies {
 THE_GREAT_DECIDER:THE_GREAT_DECIDER_OJB
+}
+# macro_sequence
+
+# end
+# entity
+KEY_CONTROLLER
+# storage
+db|Battleship.(1).cnf
+db|Battleship.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+key_controller.v
+9885ad3b5cb78870fbbe772025476055
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+KEY_CONTROLLER:KEY_CONTROLLER_OJB
+}
+# macro_sequence
+
+# end
+# entity
+Battleship
+# storage
+db|Battleship.(0).cnf
+db|Battleship.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+battleship.v
+9b694e183ffff315df2cbe381fa6c0e2
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+BOARD_SIZE
+10
+PARAMETER_SIGNED_DEC
+DEF
+PLAYER_ONE
+0
+PARAMETER_SIGNED_DEC
+DEF
+PLAYER_TWO
+1
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
 }
 # macro_sequence
 

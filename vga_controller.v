@@ -104,9 +104,6 @@ output [2:0] vga_green;
 output [2:0] vga_blue;
 output       vga_hor_sync;
 output       vga_ver_sync;
-//reg          red;
-//reg          green;
-//reg          blue;
 reg 			 canDisplay;
 reg 	 [8:0] colour;
 wire 			 board = ( pixel_x[9:3] == 20 ) || 
@@ -191,7 +188,6 @@ always @ ( posedge clock27 )
 		 begin
 			// Banner
 			can_draw   = 0;
-			//colour    <= playerTurn == 1'b0 ? 9'b111111111 : 9'b000000000; // boring black and white
 			colour    <= playerTurn == 1'b0 ? 9'b101010101 : 9'b010101010; // random funky colours
 			boardLevel = 99;
 		 end
@@ -275,64 +271,11 @@ always @ ( posedge clock27 )
 		 end
 		 
 		// Supposed to be vertical lines
-		///////
-		/*if ( pixel_y > ( BLOCK_SIZE * INDEX_START ) )
+		if ( pixel_y % 32 == 0 && pixel_y > 96 )
 		 begin
 			can_draw = 0;
 			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 1 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 2 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 3 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 4 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 5 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 6 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 7 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 8 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else if ( pixel_y == ( BLOCK_SIZE * ( INDEX_START + 9 ) ) )
-		 begin
-			can_draw = 0;
-			colour <= 9'b000000000;
-		 end
-		else
-		 begin
-			can_draw = 1;
-		 end
-		*/
-		///////
-			
+		 end	
 
 		case ( boardLevel )
 			1:  tempLetter <= whichBoard == 0 ? A : OA;
@@ -361,7 +304,6 @@ always @ ( posedge clock27 )
 			2:  tempVal <= tempLetter[3:2];
 			1:  tempVal <= tempLetter[1:0];
 			default: stupidCaseCheck = 1;
-			//default: colour <= can_draw == 1 ? 9'b000000000;
 		endcase
 		
 		// I feel this is self explanitory 
@@ -381,7 +323,6 @@ always @ ( posedge clock27 )
 		 begin
 			case ( tempVal )
 				2'b00: colour <= 9'b000000111; // water
-				//2'b01: colour <= 9'b000000000; // ship
 				2'b01: colour <= 9'b001001001; // ship
 				2'b10: colour <= 9'b111111111; // miss
 				2'b11: colour <= 9'b111000000; // hit
@@ -391,7 +332,6 @@ always @ ( posedge clock27 )
 		if ( k == 75 )
 		 begin
 			colour <= 9'b000000000;
-			//k = 10;
 		 end
 		
 		if ( ( pixel_x > BLOCK_SIZE * 2 ) &&
@@ -445,8 +385,8 @@ always @ ( posedge clock27 )
 assign vga_hor_sync = ~t_hor;
 assign vga_ver_sync = ~t_ver;
 
-assign vga_red   = t_red;   //& canDisplay;
-assign vga_green = t_green; //& canDisplay;
-assign vga_blue  = t_blue;  //& canDisplay;
+assign vga_red   = t_red;
+assign vga_green = t_green;
+assign vga_blue  = t_blue;
 
 endmodule

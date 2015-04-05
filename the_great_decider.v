@@ -6,7 +6,7 @@ module THE_GREAT_DECIDER (
 	t_A1, t_B1, t_C1, t_D1, t_E1, t_F1, t_G1, t_H1, t_I1, t_J1, 
 	t_A2, t_B2, t_C2, t_D2, t_E2, t_F2, t_G2, t_H2, t_I2, t_J2, 
 	t_OA1, t_OB1, t_OC1, t_OD1, t_OE1, t_OF1, t_OG1, t_OH1, t_OI1, t_OJ1, 
-	t_OA2, t_OB2, t_OC2, t_OD2, t_OE2, t_OF2, t_OG2, t_OH2, t_OI2, t_OJ2,
+	t_OA2, t_OB2, t_OC2, t_OD2, t_OE2, t_OF2, t_OG2, t_OH2, t_OI2, t_OJ2, // Ugh...
 	keyDataOut,
 	letter,
 	number,
@@ -64,7 +64,7 @@ output [19:0] t_OH2;
 output [19:0] t_OI2; 
 output [19:0] t_OJ2;
 
-// Super Temporary Vars!
+// Super Temporary Vars! HURRAY :D
 reg [19:0] t_t_A1;
 reg [19:0] t_t_B1; 
 reg [19:0] t_t_C1; 
@@ -112,14 +112,14 @@ reg [19:0] t_t_OJ2;
 input[3:0] letter;
 input[3:0] number;  
 
-integer    whichKeyAreWeGetting = 0; // 0 - Letter, 1 - Number
 integer 	  fullCommand = 0;
-
 integer	  x;
+integer 	  start = 1;
 reg [1:0]  row;
 reg [19:0] col;
+reg [10:0] counter = 0;
 
-integer 	 start = 1;
+
 
 // Key Guide:
 // A -> 0 			0 (10) -> 0
@@ -134,8 +134,12 @@ integer 	 start = 1;
 // J -> 9
 // Unknown -> 99  Unknown -> 88
 // Enter -> 55
-
 always @ ( posedge clock27 )
+	begin
+		counter = counter + 1;
+	end
+
+always @ ( posedge counter[10] )
 	begin
 		if ( start == 1 )
 		 begin
@@ -183,8 +187,8 @@ always @ ( posedge clock27 )
 		 end
 		 
 		// Handle the letter case
-		//if ( whichKeyAreWeGetting == 0 && fullCommand == 0 )
-		 //begin
+		if ( fullCommand == 0 )
+		 begin
 			case( letter )
 				4'b0000: x = 0;
 				4'b0001: x = 2;
@@ -198,14 +202,7 @@ always @ ( posedge clock27 )
 				4'b1001: x = 18;
 				default: x = 99;
 			endcase
-		 //end
-		 
-		if ( x < 20 )
-			whichKeyAreWeGetting = 1;
-		 
-		// Handle the number case
-		//if ( whichKeyAreWeGetting == 1 && fullCommand == 0 )
-		 //begin
+
 			if ( playerTurn == PLAYER_TWO )
 			 begin
 				case( number )
@@ -219,7 +216,7 @@ always @ ( posedge clock27 )
 					4'b1000: col = t_t_H1;
 					4'b1001: col = t_t_I1;
 					4'b0000: col = t_t_J1;
-					default: fullCommand = 2;
+					default: x = 99;
 				endcase
 			 end
 			else if ( playerTurn == PLAYER_ONE )
@@ -235,17 +232,19 @@ always @ ( posedge clock27 )
 					4'b1000: col = t_t_H2;
 					4'b1001: col = t_t_I2;
 					4'b0000: col = t_t_J2;
-					default: fullCommand = 2;
+					default: x = 99;
 				endcase
 			 end
 			
-			if ( fullCommand != 2 )
+			if ( x != 99 )
+			 begin
 				fullCommand = 1;
-		 //end // end which key we are getting
+			 end
+		 end // end fullCommand
 		 
 		// Execute the decision
-		//if ( fullCommand == 1 )
-		 //begin			 
+		if ( fullCommand == 1 )
+		 begin			 
 			if( x == 0 )
 			 begin
 				if ( col[19:18] == 2'b01 )
@@ -318,7 +317,6 @@ always @ ( posedge clock27 )
 			 end
 			
 			fullCommand = 0;
-			whichKeyAreWeGetting = 0;
 			
 			// put the info back into the regs
 			if ( playerTurn == PLAYER_TWO )
@@ -334,7 +332,6 @@ always @ ( posedge clock27 )
 					4'b1000: t_t_OH1 = col;
 					4'b1001: t_t_OI1 = col;
 					4'b0000: t_t_OJ1 = col;
-					default: fullCommand = 2;
 				endcase
 			 end
 			else if ( playerTurn == PLAYER_ONE  )
@@ -350,10 +347,9 @@ always @ ( posedge clock27 )
 					4'b1000: t_t_OH2 = col;
 					4'b1001: t_t_OI2 = col;
 					4'b0000: t_t_OJ2 = col;
-					default: fullCommand = 2;
 				endcase
 			 end
-		 //end // end if fullCommand
+		 end // end if fullCommand
 	end // end module
 	
 // This is clearly the best way to do this...

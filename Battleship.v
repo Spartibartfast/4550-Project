@@ -19,7 +19,7 @@ module Battleship(
 		vga_hor_sync,
 		vga_ver_sync,
 		letter,
-		number
+		number,
 );
 // [7:0] - 8 bits
 // wire =/= output.... ??????
@@ -65,7 +65,10 @@ parameter 		PLAYER_TWO  = 1;
 wire    		 	playerTurn;
 reg    [20:0] 	heartbeat   = 21'b0;
 reg 				t_player_turn = PLAYER_ONE;
-//integer        canSwitchPlayer; // Determines if the enter button can be pressed...
+integer        canSwitchPlayer = 0; // Determines if the enter button can be pressed...
+
+reg  [3:0]   t_letter;
+reg  [3:0]   t_number;
 
 
 // the 10x10 battleship board!
@@ -158,31 +161,33 @@ end
 // 20'b10000000000000000000 (possibly)
 always @ ( posedge heartbeat[20] )
 	begin
-		 A = switch[0] ? t_A2 : t_A1;
-		 B = switch[0] ? t_B2 : t_B1;
-		 C = switch[0] ? t_C2 : t_C1;
-		 D = switch[0] ? t_D2 : t_D1;
-		 E = switch[0] ? t_E2 : t_E1;
-		 F = switch[0] ? t_F2 : t_F1;
-		 G = switch[0] ? t_G2 : t_G1;
-		 H = switch[0] ? t_H2 : t_H1;
-		 I = switch[0] ? t_I2 : t_I1;
-		 J = switch[0] ? t_J2 : t_J1;
-		 OA = switch[0] ? t_OA1 : t_OA2;
-		 OB = switch[0] ? t_OB1 : t_OB2;
-		 OC = switch[0] ? t_OC1 : t_OC2;
-		 OD = switch[0] ? t_OD1 : t_OD2;
-		 OE = switch[0] ? t_OE1 : t_OE2;
-		 OF = switch[0] ? t_OF1 : t_OF2;
-		 OG = switch[0] ? t_OG1 : t_OG2;
-		 OH = switch[0] ? t_OH1 : t_OH2;
-		 OI = switch[0] ? t_OI1 : t_OI2;
-		 OJ = switch[0] ? t_OJ1 : t_OJ2;
+		 canSwitchPlayer = !canSwitchPlayer;
+		 
+		 A = playerTurn ? t_A2 : t_A1;
+		 B = playerTurn ? t_B2 : t_B1;
+		 C = playerTurn ? t_C2 : t_C1;
+		 D = playerTurn ? t_D2 : t_D1;
+		 E = playerTurn ? t_E2 : t_E1;
+		 F = playerTurn ? t_F2 : t_F1;
+		 G = playerTurn ? t_G2 : t_G1;
+		 H = playerTurn ? t_H2 : t_H1;
+		 I = playerTurn ? t_I2 : t_I1;
+		 J = playerTurn ? t_J2 : t_J1;
+		 OA = playerTurn ? t_OA1 : t_OA2;
+		 OB = playerTurn ? t_OB1 : t_OB2;
+		 OC = playerTurn ? t_OC1 : t_OC2;
+		 OD = playerTurn ? t_OD1 : t_OD2;
+		 OE = playerTurn ? t_OE1 : t_OE2;
+		 OF = playerTurn ? t_OF1 : t_OF2;
+		 OG = playerTurn ? t_OG1 : t_OG2;
+		 OH = playerTurn ? t_OH1 : t_OH2;
+		 OI = playerTurn ? t_OI1 : t_OI2;
+		 OJ = playerTurn ? t_OJ1 : t_OJ2;
 	end
 	
 always @ ( posedge clock24 ) 
 	begin 
-		if ( keyDataOut == 8'h5A )//( number == 55 )
+		if ( keyDataOut == 8'h5A )
 		 begin
 			if ( playerTurn == PLAYER_ONE )
 			 begin
@@ -252,9 +257,6 @@ always @ ( posedge clock24 )
 											playerTurn
 											);
 	
-	// Determine which players turn it is, for debug purposes mostly
-	//assign playerTurn = switch[0] ? PLAYER_TWO : PLAYER_ONE;
-	assign playerTurn = t_player_turn;
-	
+	assign playerTurn = t_player_turn;	
 //end
 endmodule
